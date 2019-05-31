@@ -1,0 +1,3 @@
+# Adventure Helper
+
+Adventure Helper seeks to assist players of Tabletop Role Playing Games with some basic utilities. The planned utilities include a dice roller, character sheet, notebook, combat tracker, grid paper, and name generators. The user will be able to save the state of some of these sections to their browsers local storage, and perhaps eventually to the cloud for easy retreival using tokens on another device.
