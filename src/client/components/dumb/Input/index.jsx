@@ -12,16 +12,18 @@ const Input = ({ name, label, text, type, id, value, handleChange }) => (
       id={id}
       value={value}
       onChange={handleChange}
-      required
     />
   </div>
 
 );
 
 Input.propTypes = {
+  name: PropTypes.string,
   label: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
+  id: PropTypes.string,
+  value: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
 };
 

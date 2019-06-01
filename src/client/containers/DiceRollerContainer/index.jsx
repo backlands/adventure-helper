@@ -60,11 +60,9 @@ class DiceRollerContainer extends React.Component {
     const singleDiceButtons = this.state.dice.map((die, index) => (
       <Button
         key={index}
-        type='button'
-        name={`d${die}`}
         value={die}
         handleClick={this.handleClick}
-      />
+        >{`Roll a D${die}`}</Button>
     ));
 
     const multiDiceForm = this.state.dice.map((die, index) => (
@@ -88,16 +86,11 @@ class DiceRollerContainer extends React.Component {
         <h2>Dice Roller</h2>
         {singleDiceButtons}
 
-        <form id='custom-roll'>
+        <div id='custom-roll'>
           {multiDiceForm}
 
-          <Button
-            type='button'
-            name='custom-roll-submit'
-            value='Roll them Dice'
-            handleClick={this.handleCustomRoll}
-          />
-        </form>
+          <Button handleClick={this.handleCustomRoll}>Roll them Dice</Button>
+        </div>
 
         {results}
       </div>
