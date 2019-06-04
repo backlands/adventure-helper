@@ -13,6 +13,9 @@ const Navbar = () => (
     <li>
       <NavLink to="/note-sheet/">Note Sheet</NavLink>
     </li>
+    <li>
+      <NavLink to="/character-sheet/">Character Sheet</NavLink>
+    </li>
   </ul>
 </nav>
 );
