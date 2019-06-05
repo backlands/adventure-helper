@@ -1,50 +1,47 @@
 import React from 'react';
 import Input from '../../dumb/Input';
+import Checkbox from '../../dumb/Checkbox';
 
-class Skill extends React.Component {
+class Skill extends React.PureComponent {
   render() {
-    const trained = (this.props.classSkill && this.props.ranks) ? 2 : 0;
+    const trainedBonus = (this.props.classSkill && this.props.ranks) ? 2 : 0;
+
     const total = Number(this.props.ranks)
       + Number(this.props.abilityBonus)
-      + Number(trained)
+      + Number(trainedBonus)
       + Number(this.props.misc);
 
     return (
       <div>
         <div className='left'>
-          <Input
+          <Checkbox
             type='checkbox'
             name='classSkill'
             id={this.props.id}
-            value={trained}
+            checked={this.props.classSkill}
             handleChange={this.props.handleChange} />
           <span>{this.props.title}</span>
           <span>{this.props.attribute}</span>
         </div>
         <div className='right'>
           <Input
-            type='text'
-            disabled
-            value={total}
-            name='total' />
+            name='total'
+            readOnly
+            value={total} />
           <Input
-            type='text'
             name='ranks'
             id={this.props.id}
             value={this.props.ranks}
             handleChange={this.props.handleChange} />
           <Input
-            type='text'
-            disabled
-            value={this.props.abilityBonus}
-            name='bonus' />
+            name='bonus'
+            readOnly
+            value={this.props.abilityBonus} />
           <Input
-            type='text'
-            disabled
-            value={trained}
-            name='trained' />
+            name='trained'
+            readOnly
+            value={trainedBonus} />
           <Input
-            type='text'
             name='misc'
             id={this.props.id}
             value={this.props.misc}

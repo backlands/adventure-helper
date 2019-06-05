@@ -72,7 +72,7 @@ class DiceRollerContainer extends React.Component {
         label={`rollingD${die}`}
         type='text'
         name={die}
-        defaultValue={this.state.custom[die] ? this.state.custom[die] : ''}
+        value={this.state.custom[die] ? this.state.custom[die] : ''}
         handleChange={this.handleChange}
       />
     ));

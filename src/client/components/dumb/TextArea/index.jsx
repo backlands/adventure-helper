@@ -1,12 +1,11 @@
 import React from 'react';
 
 // eslint-disable-next-line object-curly-newline
-const Input = ({ name, text, type = 'text', id = null, value = '', handleChange = null }) => (
+const Input = ({ name, text, id, value, handleChange }) => (
 
-  <div className='form-text'>
+  <div className='form-textarea'>
     <label htmlFor={name}>{text}</label>
-    <input
-      type={type}
+    <textarea
       name={name}
       id={id}
       value={value}
