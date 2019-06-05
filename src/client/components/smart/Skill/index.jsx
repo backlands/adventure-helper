@@ -21,7 +21,7 @@ class Skill extends React.PureComponent {
             checked={this.props.classSkill}
             handleChange={this.props.handleChange} />
           <span>{this.props.title}</span>
-          <span>{this.props.attribute}</span>
+          <span>{this.props.ability}</span>
         </div>
         <div className='right'>
           <Input

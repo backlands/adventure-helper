@@ -9,7 +9,7 @@ const Input = ({ name, text, type = 'text', id = null, value = '', handleChange 
       type={type}
       name={name}
       id={id}
-      value={value}
+      value={value === 0 ? '' : value}
       onChange={handleChange}
     />
   </div>
