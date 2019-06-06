@@ -2,88 +2,13 @@ import React from 'react';
 import Ability from '../../components/smart/Ability';
 import Skill from '../../components/smart/Skill';
 
+import characterData from './state.json';
+
 class CharacterSheetContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      abilities: [
-        {
-          title: 'STR',
-          score: 17,
-          item: 1,
-          baseModifier: 4,
-          temp: '',
-          tempModifier: '',
-        },
-        {
-          title: 'DEX',
-          score: 14,
-          item: '',
-          baseModifier: 2,
-          temp: '',
-          tempModifier: '',
-        },
-        {
-          title: 'CON',
-          score: 16,
-          item: 1,
-          baseModifier: 3,
-          temp: '',
-          tempModifier: '',
-        },
-        {
-          title: 'INT',
-          score: 8,
-          item: '',
-          baseModifier: -1,
-          temp: -1,
-          tempModifier: -2,
-        },
-        {
-          title: 'CHA',
-          score: 11,
-          item: '',
-          baseModifier: 0,
-          temp: '',
-          tempModifier: '',
-        },
-      ],
-      skills: [
-        {
-          title: 'Acrobatics',
-          ability: 'DEX',
-          ranks: 4,
-          abilityBonus: 3,
-          classSkill: true,
-          misc: -3,
-        },
-        {
-          title: 'Appraise',
-          ability: 'INT',
-          ranks: 0,
-          abilityBonus: 0,
-          classSkill: false,
-          misc: 0,
-        },
-        {
-          title: 'Bluff',
-          ability: 'CHA',
-          ranks: 4,
-          abilityBonus: 1,
-          classSkill: false,
-          misc: 0,
-        },
-        {
-          title: 'Climb',
-          ability: 'STR',
-          ranks: 2,
-          abilityBonus: 2,
-          classSkill: true,
-          misc: 0,
-        },
-      ],
-    };
+    this.state = characterData;
 
     this.handleAbilityChange = this.handleAbilityChange.bind(this);
     this.handleSkillChange = this.handleSkillChange.bind(this);
