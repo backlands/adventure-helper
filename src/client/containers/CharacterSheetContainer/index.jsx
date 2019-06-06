@@ -23,7 +23,19 @@ class CharacterSheetContainer extends React.Component {
       name,
     } = event.target;
 
-    const theValue = type === 'checkbox' ? checked : value;
+    let theValue = '';
+
+    switch (type) {
+      case 'checkbox':
+        theValue = checked;
+        break;
+      case 'number':
+        theValue = Number(value);
+        break;
+      default:
+        theValue = value;
+        break;
+    }
 
     const stateNamespace = this.state[namespace];
 
