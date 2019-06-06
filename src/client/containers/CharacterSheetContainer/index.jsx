@@ -1,6 +1,7 @@
 import React from 'react';
 import Ability from '../../components/smart/Ability';
 import Skill from '../../components/smart/Skill';
+import CharacterDetails from '../../components/smart/CharacterDetails';
 
 import characterData from './state.json';
 
@@ -12,6 +13,25 @@ class CharacterSheetContainer extends React.Component {
 
     this.handleAbilityChange = this.handleAbilityChange.bind(this);
     this.handleSkillChange = this.handleSkillChange.bind(this);
+  }
+
+  handleInputChange(namespace, event) {
+    const {
+      type,
+      checked,
+      value,
+      name,
+    } = event.target;
+
+    const theValue = type === 'checkbox' ? checked : value;
+
+    const stateNamespace = this.state[namespace];
+
+    stateNamespace[name] = theValue;
+
+    this.setState({
+      [namespace]: stateNamespace,
+    });
   }
 
   handleAbilityChange(event) {
@@ -144,6 +164,10 @@ class CharacterSheetContainer extends React.Component {
   render() {
     return (
       <div>
+        <h2>Character Details</h2>
+        <CharacterDetails
+          details={this.state.details}
+          handleChange={this.handleInputChange.bind(this, 'details')} />
         <h2>Abilities</h2>
         {this.abilityElements()}
         <h2>Skills</h2>
