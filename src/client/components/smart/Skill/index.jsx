@@ -25,23 +25,28 @@ class Skill extends React.PureComponent {
         </div>
         <div className='right'>
           <Input
+            type='number'
             name='total'
             readOnly
             value={total} />
           <Input
+            type='number'
             name='ranks'
             id={this.props.id}
             value={this.props.ranks}
             handleChange={this.props.handleChange} />
           <Input
+            type='number'
             name='bonus'
             readOnly
             value={this.props.abilityBonus} />
           <Input
+            type='number'
             name='trained'
             readOnly
             value={trainedBonus} />
           <Input
+            type='number'
             name='misc'
             id={this.props.id}
             value={this.props.misc}
