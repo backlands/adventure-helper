@@ -2,6 +2,7 @@ import React from 'react';
 import Ability from '../../components/smart/Ability';
 import Skill from '../../components/smart/Skill';
 import CharacterDetails from '../../components/smart/CharacterDetails';
+import ClassStats from '../../components/smart/ClassStats';
 
 import characterData from './state.json';
 
@@ -21,6 +22,7 @@ class CharacterSheetContainer extends React.Component {
       checked,
       value,
       name,
+      id,
     } = event.target;
 
     let theValue = '';
@@ -39,7 +41,11 @@ class CharacterSheetContainer extends React.Component {
 
     const stateNamespace = this.state[namespace];
 
-    stateNamespace[name] = theValue;
+    if (id) {
+      stateNamespace[id][name] = theValue;
+    } else {
+      stateNamespace[name] = theValue;
+    }
 
     this.setState({
       [namespace]: stateNamespace,
@@ -112,6 +118,40 @@ class CharacterSheetContainer extends React.Component {
     });
   }
 
+  classElements() {
+    const classes = this.state.classes.map((aClass, index) => {
+      const {
+        hitdice,
+        className,
+        bab,
+        skillPoints,
+        favouredBonus,
+        fortitudeBonus,
+        reflexBonus,
+        willBonus,
+        levels,
+      } = aClass;
+
+      return (
+        <ClassStats
+          key={index}
+          id={index}
+          hitdice={hitdice}
+          className={className}
+          bab={bab}
+          skillPoints={skillPoints}
+          favouredBonus={favouredBonus}
+          fortitudeBonus={fortitudeBonus}
+          reflexBonus={reflexBonus}
+          willBonus={willBonus}
+          levels={levels}
+          handleChange={this.handleInputChange.bind(this, 'classes')}
+        />
+      );
+    });
+    return classes;
+  }
+
   abilityElements() {
     const abilities = this.state.abilities.map((ability, index) => {
       const {
@@ -180,6 +220,8 @@ class CharacterSheetContainer extends React.Component {
         <CharacterDetails
           details={this.state.details}
           handleChange={this.handleInputChange.bind(this, 'details')} />
+        <h2>Class Record</h2>
+        {this.classElements()}
         <h2>Abilities</h2>
         {this.abilityElements()}
         <h2>Skills</h2>
