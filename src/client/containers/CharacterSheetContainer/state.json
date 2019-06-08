@@ -138,35 +138,91 @@
   "skills": [
     {
       "title": "Acrobatics",
-      "ability": "DEX",
-      "ranks": 4,
-      "abilityBonus": 3,
-      "classSkill": true,
-      "misc": -3
+      "ability": "DEX"
     },
     {
       "title": "Appraise",
-      "ability": "INT",
-      "ranks": 0,
-      "abilityBonus": 0,
-      "classSkill": false,
-      "misc": 0
+      "ability": "INT"
     },
     {
       "title": "Bluff",
-      "ability": "CHA",
-      "ranks": 4,
-      "abilityBonus": 1,
-      "classSkill": false,
-      "misc": 0
+      "ability": "CHA"
     },
     {
       "title": "Climb",
-      "ability": "STR",
-      "ranks": 2,
-      "abilityBonus": 2,
-      "classSkill": true,
-      "misc": 0
+      "ability": "STR"
+    },
+    {
+      "title": "Diplomacy",
+      "ability": "CHA"
+    },
+    {
+      "title": "Disable Device",
+      "ability": "DEX"
+    },
+    {
+      "title": "Disguise",
+      "ability": "CHA"
+    },
+    {
+      "title": "Escape Artist",
+      "ability": "DEX"
+    },
+    {
+      "title": "Fly",
+      "ability": "DEX"
+    },
+    {
+      "title": "Handle Animal",
+      "ability": "CHA"
+    },
+    {
+      "title": "Heal",
+      "ability": "WIS"
+    },
+    {
+      "title": "Intimidate",
+      "ability": "CHA"
+    },
+    {
+      "title": "Linguistics",
+      "ability": "INT"
+    },
+    {
+      "title": "Perception",
+      "ability": "WIS"
+    },
+    {
+      "title": "Ride",
+      "ability": "DEX"
+    },
+    {
+      "title": "Sense Motive",
+      "ability": "WIS"
+    },
+    {
+      "title": "Sleight of Hand",
+      "ability": "DEX"
+    },
+    {
+      "title": "Spellcraft",
+      "ability": "INT"
+    },
+    {
+      "title": "Stealth",
+      "ability": "DEX"
+    },
+    {
+      "title": "Survival",
+      "ability": "WIS"
+    },
+    {
+      "title": "Swim",
+      "ability": "STR"
+    },
+    {
+      "title": "Use Magic Device",
+      "ability": "CHA"
     }
   ]
 }
