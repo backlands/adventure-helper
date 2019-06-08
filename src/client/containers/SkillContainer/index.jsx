@@ -1,5 +1,5 @@
 import React from 'react';
-import Skill from '../../components/smart/Skill';
+import Skill from '../../components/Skill';
 
 class SkillContainer extends React.Component {
   render() {

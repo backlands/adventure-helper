@@ -1,6 +1,6 @@
 import React from 'react';
-import Input from '../../components/dumb/Input';
-import Button from '../../components/dumb/Button';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 class DiceRollerContainer extends React.Component {
   constructor() {

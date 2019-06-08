@@ -1,12 +1,13 @@
 import React from 'react';
-import AbilityContainer from '../AbilityContainer';
-import CharacterDetails from '../../components/smart/CharacterDetails';
-import Initiative from '../../components/smart/Initiative';
+import CharacterDetails from '../../components/CharacterDetails';
+import Initiative from '../../components/Initiative';
 
-import characterData from './state.json';
+import AbilityContainer from '../AbilityContainer';
 import ArmorClassContainer from '../ArmorClassContainer';
 import ClassStatContainer from '../ClassStatContainer';
 import SkillContainer from '../SkillContainer';
+
+import characterData from './state.json';
 
 class CharacterSheetContainer extends React.Component {
   constructor(props) {
@@ -153,7 +154,7 @@ class CharacterSheetContainer extends React.Component {
       <Initiative
         ability={ability}
         bonus={this.state.initiativeBonus}
-        handleChange={this.handleInputChange.bind(this)} />
+        handleChange={this.handleInputChange.bind(this, undefined)} />
     );
   }
 

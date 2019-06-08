@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from '../../dumb/Input';
+import Input from '../Input';
 
 class Skill extends React.PureComponent {
   render() {
@@ -9,55 +9,55 @@ class Skill extends React.PureComponent {
           type='number'
           name='hitdice'
           id={this.props.id}
-          value={this.props.hitdice}
+          value={this.props.stats.hitdice}
           handleChange={this.props.handleChange} />
         <Input
           type='text'
           name='className'
           id={this.props.id}
-          value={this.props.className}
+          value={this.props.stats.className}
           handleChange={this.props.handleChange} />
         <Input
           type='text'
           name='bab'
           id={this.props.id}
-          value={this.props.bab}
+          value={this.props.stats.bab}
           handleChange={this.props.handleChange} />
         <Input
           type='number'
           name='skillPoints'
           id={this.props.id}
-          value={this.props.skillPoints}
+          value={this.props.stats.skillPoints}
           handleChange={this.props.handleChange} />
         <Input
           type='number'
           name='favouredBonus'
           id={this.props.id}
-          value={this.props.favouredBonus}
+          value={this.props.stats.favouredBonus}
           handleChange={this.props.handleChange} />
         <Input
           type='number'
           name='fortitudeBonus'
           id={this.props.id}
-          value={this.props.fortitudeBonus}
+          value={this.props.stats.fortitudeBonus}
           handleChange={this.props.handleChange} />
         <Input
           type='number'
           name='reflexBonus'
           id={this.props.id}
-          value={this.props.reflexBonus}
+          value={this.props.stats.reflexBonus}
           handleChange={this.props.handleChange} />
         <Input
           type='number'
           name='willBonus'
           id={this.props.id}
-          value={this.props.willBonus}
+          value={this.props.stats.willBonus}
           handleChange={this.props.handleChange} />
         <Input
           type='number'
           name='levels'
           id={this.props.id}
-          value={this.props.levels}
+          value={this.props.stats.levels}
           handleChange={this.props.handleChange} />
       </div>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
-import Input from '../../dumb/Input';
-import Checkbox from '../../dumb/Checkbox';
+import Input from '../Input';
+import Checkbox from '../Checkbox';
 
 class Skill extends React.PureComponent {
   render() {

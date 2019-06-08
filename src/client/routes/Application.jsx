@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Navbar from '../components/dumb/Navbar';
+import Navbar from '../components/Navbar';
 import DiceRollerContainer from '../containers/DiceRollerContainer';
-import NoteSheetContainer from '../containers/NoteSheetContainer';
+import NotesContainer from '../containers/NotesContainer';
 import CharacterSheetContainer from '../containers/CharacterSheetContainer';
 
 function Application() {
@@ -14,7 +14,7 @@ function Application() {
 
         <Route path="/" exact component={() => (<h2>Home</h2>)} />
         <Route path="/dice-roller/" component={DiceRollerContainer} />
-        <Route path="/note-sheet/" component={NoteSheetContainer} />
+        <Route path="/note-sheet/" component={NotesContainer} />
         <Route path="/character-sheet/" component={CharacterSheetContainer} />
       </div>
     </Router>
