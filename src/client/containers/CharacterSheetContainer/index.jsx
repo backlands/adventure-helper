@@ -69,17 +69,15 @@ class CharacterSheetContainer extends React.Component {
 
   handleAbilityChange(event) {
     const {
-      type,
-      checked,
       value,
       name,
       id,
     } = event.target;
 
-    if (name === 'temp') {
-      const { abilities } = this.state;
-      const { score, item } = abilities[Number(id)];
+    const { abilities } = this.state;
+    const { score, item, temp } = abilities[Number(id)];
 
+    if (name === 'temp') {
       const tempModifier = Math.floor((score + item - 10 + Number(value)) / 2);
 
       abilities[Number(id)].temp = Number(value);
@@ -89,23 +87,23 @@ class CharacterSheetContainer extends React.Component {
         abilities,
       });
     } else if (name === 'score') {
-      const { abilities } = this.state;
-      const { item } = abilities[Number(id)];
-
       const baseModifier = Math.floor((Number(value) + item - 10) / 2);
+      const tempModifier = Math.floor((Number(value) + item - 10 + temp) / 2);
 
       abilities[Number(id)].score = Number(value);
-      abilities[Number(id)].tempModifier = baseModifier;
+      abilities[Number(id)].baseModifier = baseModifier;
+      abilities[Number(id)].tempModifier = tempModifier;
 
       this.setState({
         abilities,
       });
-    } else {
-      const theValue = type === 'checkbox' ? checked : Number(value);
+    } else if (name === 'item') {
+      const baseModifier = Math.floor(score + (Number(value) - 10) / 2);
+      const tempModifier = Math.floor((score + Number(value) - 10 + temp) / 2);
 
-      const { abilities } = this.state;
-
-      abilities[Number(id)][name] = theValue;
+      abilities[Number(id)].item = Number(value);
+      abilities[Number(id)].baseModifier = baseModifier;
+      abilities[Number(id)].tempModifier = tempModifier;
 
       this.setState({
         abilities,
