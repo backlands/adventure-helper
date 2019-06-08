@@ -1,6 +1,8 @@
 import React from 'react';
 import CharacterDetails from '../../components/CharacterDetails';
 import Initiative from '../../components/Initiative';
+import TextArea from '../../components/TextArea';
+import HitPoints from '../../components/HitPoints';
 
 import AbilityContainer from '../AbilityContainer';
 import ArmorClassContainer from '../ArmorClassContainer';
@@ -27,7 +29,7 @@ class CharacterSheetContainer extends React.Component {
     this.abilities = this.abilitiesToObject();
   }
 
-  handleInputChange(namespace, event) {
+  handleInputChange(namespace = undefined, event) {
     const {
       type,
       checked,
@@ -177,6 +179,12 @@ class CharacterSheetContainer extends React.Component {
         <ClassStatContainer
           classes={this.state.classes}
           handleChange={this.handleInputChange.bind(this, 'classes')} />
+        <HitPoints
+          total={this.state.hitpoints.total}
+          damageReduction={this.state.hitpoints.damageReduction}
+          wounds={this.state.hitpoints.wounds}
+          nonlethal={this.state.hitpoints.nonlethal}
+          handleChange={this.handleInputChange.bind(this, 'hitpoints')} />
         <h2>Armor Classes</h2>
         <ArmorClassContainer
           dexterity={this.abilities.DEX}
@@ -196,6 +204,11 @@ class CharacterSheetContainer extends React.Component {
           cmd={this.state.cmd}
           handleChange={this.handleInputChange.bind(this, 'combat')}
           cmdHandleChange={this.handleInputChange.bind(this, 'cmd')} />
+        <TextArea
+          name='combatNotes'
+          value={this.state.combatNotes}
+          defaultValue=''
+          handleChange={this.handleInputChange} />
         <h2>Skills</h2>
         <SkillContainer
           abilities={this.abilities}
