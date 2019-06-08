@@ -5,6 +5,7 @@ import Initiative from '../../components/Initiative';
 import AbilityContainer from '../AbilityContainer';
 import ArmorClassContainer from '../ArmorClassContainer';
 import ClassStatContainer from '../ClassStatContainer';
+import SaveRollContainer from '../SaveRollContainer';
 import SkillContainer from '../SkillContainer';
 
 import characterData from './state.json';
@@ -180,6 +181,12 @@ class CharacterSheetContainer extends React.Component {
           dexterity={this.abilities.DEX}
           armor={this.state.armor}
           handleChange={this.handleInputChange.bind(this, 'armor')} />
+        <h2>Save Rolls</h2>
+        <SaveRollContainer
+          saves={this.state.saves}
+          abilities={this.abilities}
+          classes={this.state.classes}
+          handleChange={this.handleInputChange.bind(this, 'saves')} />
         <h2>Skills</h2>
         <SkillContainer
           abilities={this.abilities}

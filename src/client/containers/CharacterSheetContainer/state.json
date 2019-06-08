@@ -57,10 +57,10 @@
       "className": "Fighter",
       "bab": "10 / 5",
       "skillPoints": 4,
-      "favouredBonus": 4,
-      "fortitudeBonus": 3,
-      "reflexBonus": 5,
-      "willBonus": 3,
+      "favoured": 4,
+      "fortitude": 3,
+      "reflex": 5,
+      "will": 3,
       "levels": 4
     },
     {},
@@ -84,29 +84,29 @@
     "deflection": 0,
     "misc": 0
   },
-  "saves": {
-    "fortitude": {
-      "total": 6,
+  "saves": [
+    {
+      "type": "fortitude",
       "ability": "CON",
       "enhance": 0,
       "misc": 0,
       "temp": 0
     },
-    "reflex": {
-      "total": 7,
+    {
+      "type": "reflex",
       "ability": "DEX",
       "enhance": 0,
       "misc": 0,
       "temp": 0
     },
-    "will": {
-      "total": 2,
+    {
+      "type": "will",
       "ability": "WIS",
       "enhance": 0,
       "misc": 0,
       "temp": 0
     }
-  },
+  ],
   "combat": {
     "notes": "",
     "bab": [ 10, 5 ],

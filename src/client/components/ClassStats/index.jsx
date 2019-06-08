@@ -31,27 +31,27 @@ class Skill extends React.PureComponent {
           handleChange={this.props.handleChange} />
         <Input
           type='number'
-          name='favouredBonus'
+          name='favoured'
           id={this.props.id}
-          value={this.props.stats.favouredBonus}
+          value={this.props.stats.favoured}
           handleChange={this.props.handleChange} />
         <Input
           type='number'
-          name='fortitudeBonus'
+          name='fortitude'
           id={this.props.id}
-          value={this.props.stats.fortitudeBonus}
+          value={this.props.stats.fortitude}
           handleChange={this.props.handleChange} />
         <Input
           type='number'
-          name='reflexBonus'
+          name='reflex'
           id={this.props.id}
-          value={this.props.stats.reflexBonus}
+          value={this.props.stats.reflex}
           handleChange={this.props.handleChange} />
         <Input
           type='number'
-          name='willBonus'
+          name='will'
           id={this.props.id}
-          value={this.props.stats.willBonus}
+          value={this.props.stats.will}
           handleChange={this.props.handleChange} />
         <Input
           type='number'
