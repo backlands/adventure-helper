@@ -1,11 +1,20 @@
 import React from 'react';
 import CombatRoll from '../../components/CombatRoll';
+import CMD from '../../components/CMD';
 
 class CombatRollContainer extends React.Component {
   constructor(props) {
     super(props);
 
     this.babs = this.totalBAB();
+
+    const baseDEX = this.props.abilities.DEX.baseModifier;
+    const tempDEX = this.props.abilities.DEX.tempModifier;
+    this.dexBonus = tempDEX !== '' ? tempDEX : baseDEX;
+
+    const baseSTR = this.props.abilities.STR.baseModifier;
+    const tempSTR = this.props.abilities.STR.tempModifier;
+    this.strBonus = tempSTR !== '' ? tempSTR : baseSTR;
   }
 
   totalBAB() {
@@ -39,14 +48,12 @@ class CombatRollContainer extends React.Component {
 
       const outputTitle = type.charAt(0).toUpperCase() + type.slice(1);
 
-      const bab = this.totalBAB();
-
       return (
         <CombatRoll
           key={index}
           id={index}
           title={outputTitle}
-          bab={bab}
+          bab={this.babs}
           ability={bonus}
           size={size}
           misc={misc}
@@ -59,6 +66,12 @@ class CombatRollContainer extends React.Component {
     return (
       <React.Fragment>
         {checks}
+        <CMD
+          bab={this.babs[0]}
+          abilities={this.strBonus + this.dexBonus}
+          size={this.props.cmd.size}
+          temp={this.props.cmd.temp}
+          handleChange={this.props.cmdHandleChange} />
       </React.Fragment>
     );
   }

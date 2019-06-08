@@ -121,13 +121,15 @@
       "size": 0,
       "temp": 1,
       "misc": 1
+    },
+    {
+      "type": "CMB",
+      "ability": "STR",
+      "size": 0,
+      "temp": 1,
+      "misc": 1
     }
   ],
-  "cmb": {
-    "size": 0,
-    "temp": 1,
-    "misc": 1
-  },
   "cmd": {
     "size": 0,
     "temp": 1,

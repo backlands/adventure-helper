@@ -193,7 +193,9 @@ class CharacterSheetContainer extends React.Component {
           checks={this.state.combat}
           abilities={this.abilities}
           classes={this.state.classes}
-          handleChange={this.handleInputChange.bind(this, 'combat')} />
+          cmd={this.state.cmd}
+          handleChange={this.handleInputChange.bind(this, 'combat')}
+          cmdHandleChange={this.handleInputChange.bind(this, 'cmd')} />
         <h2>Skills</h2>
         <SkillContainer
           abilities={this.abilities}
