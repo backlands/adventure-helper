@@ -1,8 +1,9 @@
 import React from 'react';
 import Ability from '../../components/smart/Ability';
-import Skill from '../../components/smart/Skill';
+import ArmorClass from '../../components/smart/ArmorClass';
 import CharacterDetails from '../../components/smart/CharacterDetails';
 import ClassStats from '../../components/smart/ClassStats';
+import Skill from '../../components/smart/Skill';
 
 import characterData from './state.json';
 
@@ -118,6 +119,19 @@ class CharacterSheetContainer extends React.Component {
     });
   }
 
+  abilitiesToObject() {
+    const abilities = {};
+
+    this.state.abilities.forEach((ability) => {
+      abilities[ability.title] = {
+        baseModifier: ability.baseModifier,
+        tempModifier: ability.tempModifier,
+      };
+    });
+
+    return abilities;
+  }
+
   classElements() {
     const classes = this.state.classes.map((aClass, index) => {
       const {
@@ -182,14 +196,37 @@ class CharacterSheetContainer extends React.Component {
     return abilities;
   }
 
+  armorClasses() {
+    const abilities = this.abilitiesToObject();
+    const base = abilities.DEX.baseModifier;
+    const temp = abilities.DEX.tempModifier;
+    const bonus = temp !== '' ? temp : base;
+
+    return (
+      <React.Fragment>
+        <ArmorClass
+          title='Armor Class'
+          type='regular'
+          ability={bonus}
+          values={this.state.armor}
+          handleChange={this.handleInputChange.bind(this, 'armor')} />
+        <ArmorClass
+          title='Flat-Footed AC'
+          type='flat'
+          values={this.state.armor}
+          handleChange={this.handleInputChange.bind(this, 'armor')} />
+        <ArmorClass
+          title='Touch AC'
+          type='touch'
+          ability={bonus}
+          values={this.state.armor}
+          handleChange={this.handleInputChange.bind(this, 'armor')} />
+      </React.Fragment>
+    );
+  }
+
   skillElements() {
-    const abilities = {};
-    this.state.abilities.forEach((ability) => {
-      abilities[ability.title] = {
-        baseModifier: ability.baseModifier,
-        tempModifier: ability.tempModifier,
-      };
-    });
+    const abilities = this.abilitiesToObject();
 
     const skills = this.state.skills.map((skill, index) => {
       const base = abilities[skill.ability].baseModifier;
@@ -220,10 +257,12 @@ class CharacterSheetContainer extends React.Component {
         <CharacterDetails
           details={this.state.details}
           handleChange={this.handleInputChange.bind(this, 'details')} />
-        <h2>Class Record</h2>
-        {this.classElements()}
         <h2>Abilities</h2>
         {this.abilityElements()}
+        <h2>Class Record</h2>
+        {this.classElements()}
+        <h2>Armor Classes</h2>
+        {this.armorClasses()}
         <h2>Skills</h2>
         {this.skillElements()}
       </div>

@@ -76,39 +76,37 @@
     "nonlethal": ""
   },
   "armor": {
-    "regularAC": 19,
-    "flatAC": 17,
-    "touchAC": 12,
-    "modifiers": {
-      "armor": 5,
-      "shield": 2,
-      "dodge": 0,
-      "size": 0,
-      "natural": 0,
-      "deflection": 0,
-      "miscellaneous": 0
-    }
+    "regular": 19,
+    "flat": 17,
+    "touch": 12,
+    "armor": 5,
+    "shield": 2,
+    "dodge": 0,
+    "size": 0,
+    "natural": 0,
+    "deflection": 0,
+    "misc": 0
   },
   "saves": {
     "fortitude": {
       "total": 6,
       "ability": "CON",
       "enhance": 0,
-      "miscellaneous": 0,
+      "misc": 0,
       "temp": 0
     },
     "reflex": {
       "total": 7,
       "ability": "DEX",
       "enhance": 0,
-      "miscellaneous": 0,
+      "misc": 0,
       "temp": 0
     },
     "will": {
       "total": 2,
       "ability": "WIS",
       "enhance": 0,
-      "miscellaneous": 0,
+      "misc": 0,
       "temp": 0
     }
   },
@@ -120,7 +118,7 @@
         "temp": 0,
         "ability": "STR",
         "size": 0,
-        "miscellaneous": 1
+        "misc": 1
       }
     ],
     "meleeBAB": [ 15, 10 ],
@@ -129,7 +127,7 @@
         "temp": 1,
         "ability": "DEX",
         "size": 0,
-        "miscellaneous": 1
+        "misc": 1
       }
     ],
     "rangedBAB": [ 16, 11 ],
@@ -138,7 +136,7 @@
         "temp": 1,
         "ability": "DEX",
         "size": 0,
-        "miscellaneous": 1
+        "misc": 1
       }
     ],
     "cmbTotal": 16,
@@ -147,7 +145,7 @@
         "temp": 1,
         "ability": "DEX",
         "size": 0,
-        "miscellaneous": 1
+        "misc": 1
       }
     ],
     "cmdTotal": 16
