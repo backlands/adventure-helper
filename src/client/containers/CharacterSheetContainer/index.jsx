@@ -5,6 +5,7 @@ import Initiative from '../../components/Initiative';
 import AbilityContainer from '../AbilityContainer';
 import ArmorClassContainer from '../ArmorClassContainer';
 import ClassStatContainer from '../ClassStatContainer';
+import CombatRollContainer from '../CombatRollContainer';
 import SaveRollContainer from '../SaveRollContainer';
 import SkillContainer from '../SkillContainer';
 
@@ -187,6 +188,12 @@ class CharacterSheetContainer extends React.Component {
           abilities={this.abilities}
           classes={this.state.classes}
           handleChange={this.handleInputChange.bind(this, 'saves')} />
+        <h2>Combat Rolls</h2>
+        <CombatRollContainer
+          checks={this.state.combat}
+          abilities={this.abilities}
+          classes={this.state.classes}
+          handleChange={this.handleInputChange.bind(this, 'combat')} />
         <h2>Skills</h2>
         <SkillContainer
           abilities={this.abilities}

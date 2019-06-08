@@ -89,63 +89,49 @@
       "type": "fortitude",
       "ability": "CON",
       "enhance": 0,
-      "misc": 0,
-      "temp": 0
+      "temp": 0,
+      "misc": 0
     },
     {
       "type": "reflex",
       "ability": "DEX",
       "enhance": 0,
-      "misc": 0,
-      "temp": 0
+      "temp": 0,
+      "misc": 0
     },
     {
       "type": "will",
       "ability": "WIS",
       "enhance": 0,
-      "misc": 0,
-      "temp": 0
+      "temp": 0,
+      "misc": 0
     }
   ],
-  "combat": {
-    "notes": "",
-    "bab": [ 10, 5 ],
-    "melee": [
-      {
-        "temp": 0,
-        "ability": "STR",
-        "size": 0,
-        "misc": 1
-      }
-    ],
-    "meleeBAB": [ 15, 10 ],
-    "ranged": [
-      {
-        "temp": 1,
-        "ability": "DEX",
-        "size": 0,
-        "misc": 1
-      }
-    ],
-    "rangedBAB": [ 16, 11 ],
-    "cmb": [
-      {
-        "temp": 1,
-        "ability": "DEX",
-        "size": 0,
-        "misc": 1
-      }
-    ],
-    "cmbTotal": 16,
-    "cmd": [
-      {
-        "temp": 1,
-        "ability": "DEX",
-        "size": 0,
-        "misc": 1
-      }
-    ],
-    "cmdTotal": 16
+  "combat": [
+    {
+      "type": "melee",
+      "ability": "STR",
+      "size": 0,
+      "temp": 0,
+      "misc": 1
+    },
+    {
+      "type": "ranged",
+      "ability": "DEX",
+      "size": 0,
+      "temp": 1,
+      "misc": 1
+    }
+  ],
+  "cmb": {
+    "size": 0,
+    "temp": 1,
+    "misc": 1
+  },
+  "cmd": {
+    "size": 0,
+    "temp": 1,
+    "misc": 1
   },
   "skills": [
     {
