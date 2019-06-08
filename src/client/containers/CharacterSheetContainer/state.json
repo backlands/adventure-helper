@@ -50,10 +50,7 @@
       "tempModifier": ""
     }
   ],
-  "initiative": {
-    "total": 3,
-    "bonus": 1
-  },
+  "initiativeBonus": 1,
   "classes": [
     {
       "hitdice": 12,

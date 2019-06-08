@@ -3,6 +3,7 @@ import Ability from '../../components/smart/Ability';
 import ArmorClass from '../../components/smart/ArmorClass';
 import CharacterDetails from '../../components/smart/CharacterDetails';
 import ClassStats from '../../components/smart/ClassStats';
+import Initiative from '../../components/smart/Initiative';
 import Skill from '../../components/smart/Skill';
 
 import characterData from './state.json';
@@ -40,16 +41,23 @@ class CharacterSheetContainer extends React.Component {
         break;
     }
 
-    const stateNamespace = this.state[namespace];
+    let newState = '';
+    let state = namespace;
 
     if (id) {
-      stateNamespace[id][name] = theValue;
+      newState = this.state[namespace];
+      newState[id][name] = theValue;
+    } else if (namespace) {
+      newState = this.state[namespace];
+      newState[name] = theValue;
     } else {
-      stateNamespace[name] = theValue;
+      newState = this.state[name];
+      state = name;
+      newState = theValue;
     }
 
     this.setState({
-      [namespace]: stateNamespace,
+      [state]: newState,
     });
   }
 
@@ -225,6 +233,20 @@ class CharacterSheetContainer extends React.Component {
     );
   }
 
+  initiative() {
+    const abilities = this.abilitiesToObject();
+    const base = abilities.DEX.baseModifier;
+    const temp = abilities.DEX.tempModifier;
+    const ability = temp !== '' ? temp : base;
+
+    return (
+      <Initiative
+        ability={ability}
+        bonus={this.state.initiativeBonus}
+        handleChange={this.handleInputChange.bind(this, undefined)} />
+    );
+  }
+
   skillElements() {
     const abilities = this.abilitiesToObject();
 
@@ -259,6 +281,8 @@ class CharacterSheetContainer extends React.Component {
           handleChange={this.handleInputChange.bind(this, 'details')} />
         <h2>Abilities</h2>
         {this.abilityElements()}
+        <h2>Initiative</h2>
+        {this.initiative()}
         <h2>Class Record</h2>
         {this.classElements()}
         <h2>Armor Classes</h2>
