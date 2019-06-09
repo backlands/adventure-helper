@@ -1,4 +1,5 @@
 import React from 'react';
+import Row from '../Row';
 import Input from '../Input';
 
 const ArmorClass = ({
@@ -39,7 +40,7 @@ const ArmorClass = ({
   }
 
   return (
-    <div>
+    <Row>
       {title}
       <Input
         type='number'
@@ -113,7 +114,7 @@ const ArmorClass = ({
         id={id}
         value={values.misc}
         handleChange={handleChange} />
-    </div>
+    </Row>
   );
 };
 

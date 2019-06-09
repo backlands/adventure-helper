@@ -1,0 +1,54 @@
+// Set up the grid with 12 columns, allows even splitting of columns easily
+$grid-columns: 12;
+
+// Set the width of the gutter inside columns, remove with .no-gutter
+$gutter: 1rem;
+
+.Column {
+  box-sizing: border-box;
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 100%;
+  padding: $gutter;
+  background: white;
+
+  // Add space between columns where needed
+  &.give-space {
+    margin-right: $gutter;
+  }
+
+  // REMOVE BACKGROUND
+  &.no-bg {
+    background: none;
+  }
+
+  &.give-shadow {
+    box-shadow: 3px 3px 5px silver;
+  }
+
+  // COLUMN SIZE CLASS FUNCTION
+  // Setus up classes for specific desired column widths, use the syntax of
+  // is-# to specify how many columns this column should count as. For example
+  // if you have three columns (.is-3, .is-3, and .is-6) you would have two
+  // columns at 1/4 width and one at 1/2 width with a 12 column grid.
+  @for $i from 1 through $grid-columns {
+    &.is-#{$i} {
+      box-sizing: border-box;
+      flex-basis: 100% / $grid-columns * $i;
+      max-width: 100% / $grid-columns * $i;
+      padding: $gutter;
+    }
+  }
+
+  // POSITION MODIFIERS
+  &.align-start { align-self: flex-start; }
+  &.align-end { align-self: flex-end; }
+  &.align-center { align-self: center; }
+  &.align-baseline { align-self: baseline; }
+  &.align-stretch { align-self: stretch; }
+
+  // GUTTER MODIFIERS
+  &.no-left-gutter { padding-left: 0; }
+  &.no-right-gutter { padding-right: 0; }
+  &.no-gutter { padding: 0; }
+}

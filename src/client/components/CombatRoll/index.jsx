@@ -1,4 +1,5 @@
 import React from 'react';
+import Row from '../Row';
 import Input from '../Input';
 
 const CombatRoll = ({
@@ -17,7 +18,7 @@ const CombatRoll = ({
   });
 
   return (
-    <div>
+    <Row>
       {title}
       <Input
         type='text'
@@ -57,7 +58,7 @@ const CombatRoll = ({
         id={id}
         value={misc}
         handleChange={handleChange} />
-    </div>
+    </Row>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from '../Input';
+import Row from '../Row';
 
 const Skill = ({
   ability,
@@ -8,7 +9,7 @@ const Skill = ({
 }) => {
   const total = ability + bonus;
   return (
-    <div>
+    <Row>
       <Input
         type='number'
         name='total'
@@ -24,7 +25,7 @@ const Skill = ({
         name='initiativeBonus'
         value={bonus}
         handleChange={handleChange} />
-    </div>
+    </Row>
   );
 };
 

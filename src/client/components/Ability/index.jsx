@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from '../Input';
+import Row from '../Row';
 
 const Ability = ({
   title,
@@ -11,7 +12,7 @@ const Ability = ({
   tempModifier,
   handleChange,
 }) => (
-  <div>
+  <Row>
     <span>{title}</span>
     <Input
       type='number'
@@ -43,7 +44,7 @@ const Ability = ({
       id={id}
       readOnly
       value={tempModifier} />
-  </div>
+  </Row>
 );
 
 export default Ability;

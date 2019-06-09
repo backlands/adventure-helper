@@ -1,0 +1,32 @@
+.Row {
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  // BACKGROUND MODIFIERS
+  .background {
+    background: white;
+  }
+
+  &.give-shadows > .Column {
+    box-shadow: 3px 3px 5px silver;
+  }
+
+  // POSITION MODIFIERS
+  &.start { justify-content: flex-start; }
+  &.center { justify-content: center; }
+  &.end { justify-content: flex-end; }
+  &.top { align-items: flex-start; }
+  &.middle { align-items: center; }
+  &.bottom { align-items: flex-end; }
+
+  // SPACING MODIFIERS
+  &.around { justify-content: space-around; }
+  &.between { justify-content: space-between; }
+}

@@ -1,10 +1,11 @@
 import React from 'react';
+import Row from '../Row';
 import Input from '../Input';
 
 class Skill extends React.PureComponent {
   render() {
     return (
-      <div>
+      <Row>
         <Input
           type='number'
           name='hitdice'
@@ -59,7 +60,7 @@ class Skill extends React.PureComponent {
           id={this.props.id}
           value={this.props.stats.levels}
           handleChange={this.props.handleChange} />
-      </div>
+      </Row>
     );
   }
 }

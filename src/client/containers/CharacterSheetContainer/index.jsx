@@ -1,8 +1,10 @@
 import React from 'react';
 import CharacterDetails from '../../components/CharacterDetails';
-import Initiative from '../../components/Initiative';
-import TextArea from '../../components/TextArea';
+import Column from '../../components/Column';
 import HitPoints from '../../components/HitPoints';
+import Initiative from '../../components/Initiative';
+import Row from '../../components/Row';
+import TextArea from '../../components/TextArea';
 
 import AbilityContainer from '../AbilityContainer';
 import ArmorClassContainer from '../ArmorClassContainer';
@@ -164,57 +166,77 @@ class CharacterSheetContainer extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>Character Details</h2>
-        <CharacterDetails
-          details={this.state.details}
-          handleChange={this.handleInputChange.bind(this, 'details')} />
-        <h2>Abilities</h2>
-        <AbilityContainer
-          abilities={this.state.abilities}
-          handleChange={this.handleAbilityChange} />
-        <h2>Initiative</h2>
-        {this.initiative()}
-        <h2>Class Record</h2>
-        <ClassStatContainer
-          classes={this.state.classes}
-          handleChange={this.handleInputChange.bind(this, 'classes')} />
-        <HitPoints
-          total={this.state.hitpoints.total}
-          damageReduction={this.state.hitpoints.damageReduction}
-          wounds={this.state.hitpoints.wounds}
-          nonlethal={this.state.hitpoints.nonlethal}
-          handleChange={this.handleInputChange.bind(this, 'hitpoints')} />
-        <h2>Armor Classes</h2>
-        <ArmorClassContainer
-          dexterity={this.abilities.DEX}
-          armor={this.state.armor}
-          handleChange={this.handleInputChange.bind(this, 'armor')} />
-        <h2>Save Rolls</h2>
-        <SaveRollContainer
-          saves={this.state.saves}
-          abilities={this.abilities}
-          classes={this.state.classes}
-          handleChange={this.handleInputChange.bind(this, 'saves')} />
-        <h2>Combat Rolls</h2>
-        <CombatRollContainer
-          checks={this.state.combat}
-          abilities={this.abilities}
-          classes={this.state.classes}
-          cmd={this.state.cmd}
-          handleChange={this.handleInputChange.bind(this, 'combat')}
-          cmdHandleChange={this.handleInputChange.bind(this, 'cmd')} />
-        <TextArea
-          name='combatNotes'
-          value={this.state.combatNotes}
-          defaultValue=''
-          handleChange={this.handleInputChange} />
-        <h2>Skills</h2>
-        <SkillContainer
-          abilities={this.abilities}
-          skills={this.state.skills}
-          handleChange={this.handleSkillChange} />
-      </div>
+      <Row>
+        <Column classes='is-12'>
+          <h2>Character Details</h2>
+          <CharacterDetails
+            details={this.state.details}
+            handleChange={this.handleInputChange.bind(this, 'details')} />
+        </Column>
+        <Column classes='is-8'>
+          <Row>
+            <Column classes='is-4'>
+              <h2>Abilities</h2>
+              <AbilityContainer
+                abilities={this.state.abilities}
+                handleChange={this.handleAbilityChange} />
+              <h2>Initiative</h2>
+              {this.initiative()}
+            </Column>
+            <Column classes='is-8'>
+              <h2>Class Record</h2>
+              <ClassStatContainer
+                classes={this.state.classes}
+                handleChange={this.handleInputChange.bind(this, 'classes')} />
+              <HitPoints
+                total={this.state.hitpoints.total}
+                damageReduction={this.state.hitpoints.damageReduction}
+                wounds={this.state.hitpoints.wounds}
+                nonlethal={this.state.hitpoints.nonlethal}
+                handleChange={this.handleInputChange.bind(this, 'hitpoints')} />
+            </Column>
+          </Row>
+          <Row>
+            <h2>Armor Classes</h2>
+            <ArmorClassContainer
+              dexterity={this.abilities.DEX}
+              armor={this.state.armor}
+              handleChange={this.handleInputChange.bind(this, 'armor')} />
+          </Row>
+          <Row>
+            <Column classes='is-8'>
+              <h2>Save Rolls</h2>
+              <SaveRollContainer
+                saves={this.state.saves}
+                abilities={this.abilities}
+                classes={this.state.classes}
+                handleChange={this.handleInputChange.bind(this, 'saves')} />
+              <h2>Combat Rolls</h2>
+              <CombatRollContainer
+                checks={this.state.combat}
+                abilities={this.abilities}
+                classes={this.state.classes}
+                cmd={this.state.cmd}
+                handleChange={this.handleInputChange.bind(this, 'combat')}
+                cmdHandleChange={this.handleInputChange.bind(this, 'cmd')} />
+            </Column>
+            <Column classes='is-4'>
+              <TextArea
+                name='combatNotes'
+                value={this.state.combatNotes}
+                defaultValue=''
+                handleChange={this.handleInputChange} />
+            </Column>
+          </Row>
+        </Column>
+        <Column classes='is-4'>
+          <h2>Skills</h2>
+          <SkillContainer
+            abilities={this.abilities}
+            skills={this.state.skills}
+            handleChange={this.handleSkillChange} />
+        </Column>
+      </Row>
     );
   }
 }

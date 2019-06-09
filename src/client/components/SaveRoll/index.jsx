@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from '../Input';
+import Row from '../Row';
 
 const SaveRoll = ({
   title,
@@ -14,7 +15,7 @@ const SaveRoll = ({
   const total = base + ability + enhance + misc + temp;
 
   return (
-    <div>
+    <Row>
       {title}
       <Input
         type='number'
@@ -54,7 +55,7 @@ const SaveRoll = ({
         id={id}
         value={temp}
         handleChange={handleChange} />
-    </div>
+    </Row>
   );
 };
 

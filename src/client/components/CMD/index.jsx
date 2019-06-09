@@ -1,4 +1,5 @@
 import React from 'react';
+import Row from '../Row';
 import Input from '../Input';
 
 const CombatRoll = ({
@@ -14,7 +15,7 @@ const CombatRoll = ({
   const total = singleBAB + abilities + size + temp + staticBonus;
 
   return (
-    <div>
+    <Row>
       CMD
       <Input
         type='text'
@@ -49,7 +50,7 @@ const CombatRoll = ({
         handleChange={handleChange} />
       <span>+</span>
       <span>10</span>
-    </div>
+    </Row>
   );
 };
 
