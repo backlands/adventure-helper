@@ -1,0 +1,39 @@
+// APPEARANCE
+@mixin appearance($value: none) {
+  -webkit-appearance: $value;
+  -moz-appearance:    $value;
+  appearance:         $value;
+  &:focus {
+    outline-color: transparent;
+    outline-style: none;
+  }
+}
+
+// DROP SHADOWS
+@mixin box-shadow($shadow: 0 1px 4px 0 fadeout(black, 70%)) {
+  -webkit-box-shadow: $shadow;
+          box-shadow: $shadow;
+}
+
+// BOX SIZING
+@mixin box-sizing($boxmodel) {
+  -webkit-box-sizing: $boxmodel;
+     -moz-box-sizing: $boxmodel;
+          box-sizing: $boxmodel;
+}
+
+// BORDER RADIUS
+@mixin border-radius($radius: 4px) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+
+//TRANISTION
+@mixin transition($transition: all 0.2s ease-in-out) {
+  -webkit-transition: $transition;
+     -moz-transition: $transition;
+      -ms-transition: $transition;
+       -o-transition: $transition;
+          transition: $transition;
+}

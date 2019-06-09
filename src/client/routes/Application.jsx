@@ -6,6 +6,8 @@ import DiceRollerContainer from '../containers/DiceRollerContainer';
 import NotesContainer from '../containers/NotesContainer';
 import CharacterSheetContainer from '../containers/CharacterSheetContainer';
 
+import '../styles/base.scss';
+
 function Application() {
   return (
     <Router>

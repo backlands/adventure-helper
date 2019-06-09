@@ -1,0 +1,47 @@
+@import 'mixins';
+
+/*********************
+CLEARFIXIN'
+*********************/
+
+%clearfix {
+  zoom: 1;
+	&:before, &:after { content: ""; display: table; }
+	&:after { clear: both; }
+}
+
+%clear {
+  width:100%;
+  float:left;
+  clear:left;
+}
+
+// GENERAL
+
+%button {
+  display: inline-block;
+  margin: 16px 32px 16px 0;
+  margin-left: 0;
+  padding: 16px;
+  padding-right: 32px;
+  font-weight: 600;
+  font-family: sans-serif;
+  font-size: 1rem;
+  color: blue;
+  background: white;
+  border-left: 3px solid darkgoldenrod;
+  @include box-shadow();
+  @include transition();
+  &:hover, &:focus {
+    color: green;
+    border-left-color: lightgreen;
+  }
+  &.micro {
+    margin: 8px 16px 8px 0;
+    padding: 8px 16px 8px 8px;
+  }
+  &.inline-form {
+    margin: 0;
+    padding: 11px 16px 10px 8px;
+  }
+}

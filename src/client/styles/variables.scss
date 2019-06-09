@@ -1,0 +1,47 @@
+// DRACULA COLOURS
+$foreground:            #f8f8f2;
+$background:            #282a36;
+$current:               #44475a;
+$selection:             #5e627c;
+$comment:               #6272a4;
+$faded:                 #bcc2cd;
+$cyan:                  #8be9fd;
+$green:                 #50fa7b;
+$orange:                #ffb86c;
+$pink:                  #ff79c6;
+$purple:                #bd93f9;
+$red:                   #ff5555;
+$yellow:                #f1fa8c;
+
+$white:                 $foreground;
+$grey-base:             $background;
+$grey-dark:             $selection;
+$grey-light:            $comment;
+$grey-lighter:          $faded;
+
+$brand-primary:         $current;
+$brand-secondary:       $comment;
+
+$brand-success:         $green;
+$brand-info:            $cyan;
+$brand-warning:         $orange;
+$brand-danger:          $red;
+
+$link-color:            $brand-success;
+$link-hover:            $brand-warning;
+$border:                $green;
+
+$text-color:            $white;
+
+// FONT SETUP
+$body:                  "Proza Libre", Helvetica, Arial, sans-serif;
+$heading:               "Eczar", Helvetica, Arial, sans-serif;
+
+$font-size-base:        16px;
+$line-height-base:      1.5;
+$line-height-computed:  floor(($font-size-base * $line-height-base));
+
+// FONT WEIGHTS
+$light:                 300;
+$normal:                400;
+$semibold:              600;
