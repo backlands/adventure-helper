@@ -1,9 +1,6 @@
 @import 'mixins';
 
-/*********************
-CLEARFIXIN'
-*********************/
-
+//CLEARFIXES
 %clearfix {
   zoom: 1;
 	&:before, &:after { content: ""; display: table; }
@@ -17,7 +14,6 @@ CLEARFIXIN'
 }
 
 // GENERAL
-
 %button {
   display: inline-block;
   margin: 16px 32px 16px 0;

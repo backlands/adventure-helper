@@ -1,6 +1,17 @@
+@import './variables';
 @import './extends';
 @import './mixins';
 
 html, body {
   font-family: sans-serif;
+  background: $background;
+  color: $white;
+}
+
+a {
+  color: $green;
+  @include transition;
+  &:focus, &:hover {
+    color: $cyan;
+  }
 }

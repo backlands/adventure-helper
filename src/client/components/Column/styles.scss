@@ -10,21 +10,6 @@ $gutter: 1rem;
   flex-basis: 0;
   max-width: 100%;
   padding: $gutter;
-  background: white;
-
-  // Add space between columns where needed
-  &.give-space {
-    margin-right: $gutter;
-  }
-
-  // REMOVE BACKGROUND
-  &.no-bg {
-    background: none;
-  }
-
-  &.give-shadow {
-    box-shadow: 3px 3px 5px silver;
-  }
 
   // COLUMN SIZE CLASS FUNCTION
   // Setus up classes for specific desired column widths, use the syntax of

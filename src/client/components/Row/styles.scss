@@ -7,15 +7,11 @@
   display: flex;
   flex: 0 1 auto;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  margin-bottom: 20px;
 
-  // BACKGROUND MODIFIERS
-  .background {
-    background: white;
-  }
-
-  &.give-shadows > .Column {
-    box-shadow: 3px 3px 5px silver;
+  > * {
+    flex-grow: 1;
   }
 
   // POSITION MODIFIERS
@@ -27,6 +23,7 @@
   &.bottom { align-items: flex-end; }
 
   // SPACING MODIFIERS
+  &.wrap { flex-wrap: wrap; }
   &.around { justify-content: space-around; }
   &.between { justify-content: space-between; }
 }

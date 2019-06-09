@@ -6,6 +6,7 @@ import DiceRollerContainer from '../containers/DiceRollerContainer';
 import NotesContainer from '../containers/NotesContainer';
 import CharacterSheetContainer from '../containers/CharacterSheetContainer';
 
+import 'normalize.css';
 import '../styles/base.scss';
 
 function Application() {

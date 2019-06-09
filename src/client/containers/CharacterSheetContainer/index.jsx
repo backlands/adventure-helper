@@ -166,7 +166,7 @@ class CharacterSheetContainer extends React.Component {
 
   render() {
     return (
-      <Row>
+      <Row classes='wrap'>
         <Column classes='is-12'>
           <h2>Character Details</h2>
           <CharacterDetails
@@ -196,7 +196,7 @@ class CharacterSheetContainer extends React.Component {
                 handleChange={this.handleInputChange.bind(this, 'hitpoints')} />
             </Column>
           </Row>
-          <Row>
+          <Row classes='wrap'>
             <h2>Armor Classes</h2>
             <ArmorClassContainer
               dexterity={this.abilities.DEX}
