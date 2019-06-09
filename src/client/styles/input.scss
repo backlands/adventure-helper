@@ -1,0 +1,200 @@
+@import '../styles/variables';
+@import '../styles/extends';
+@import '../styles/mixins';
+
+// FORMS
+button {
+  font-family: sans-serif;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  @include appearance(none);
+  margin: 0;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+input[type="decimal"],
+input[type="url"],
+textarea {
+  @include appearance(textfield);
+  @include border-radius(0);
+  background: $brand-primary;
+  color: $white;
+  border: 0;
+  border-bottom: 2px solid $pink;
+  padding: 8px;
+  font-size: 16px;
+  line-height: 1;
+  width: 100%;
+  font-family: sans-serif;
+  font-weight: $normal;
+  @include transition;
+  &:focus {
+    outline: none;
+    border-color: $green;
+    @include box-shadow(none);
+    @include transition;
+  }
+}
+
+input[type=submit] {
+  @include appearance;
+  outline: none;
+  border: 0;
+  @extend %button;
+}
+
+textarea {
+  line-height: 1.5;
+}
+
+select {
+  @include appearance;
+  font-family: sans-serif;
+  font-weight: $normal;
+  padding: 9px 56px 9px 24px;
+  // background: url(../images/select-bg.png), white;
+  background-size: 8px;
+  background-position: calc(100% - 16px) 50%;
+  background-repeat: no-repeat;
+  @include border-radius(0);
+  border: 1px solid $cyan;
+  &::-ms-expand {display:none;}
+  &:focus {
+    outline: none;
+    border-color: $green;
+  }
+}
+
+label {
+  display: block;
+  color: $white;
+  font-size: 12px;
+  line-height: 1;
+  text-align: center;
+}
+.overlay-label {
+  position: relative;
+  label {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    pointer-events: none;
+    @include transition;
+  }
+  &.is-focused {
+    label {
+      bottom: calc(100% + 2px);
+    }
+  }
+}
+.form-input {
+  width: 100%;
+  margin: 0;
+  > label {
+    margin-top: 32px;
+  }
+}
+.form-input-radios, .form-input-time {
+  position: relative;
+  @extend %clearfix;
+  .form-item {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  input[type=radio] {
+    height: 0;
+    width: 0;
+    @include appearance;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+  }
+  label {
+    position: relative;
+    width: 100%;
+    padding-left: 24px;
+    margin-bottom: 0;
+    color: $brand-primary;
+    &:after{
+      position: absolute;
+      left: 0;
+      top: 0;
+      padding-left: 1px;
+      line-height: 22px !important;
+      display: inline-block;
+      content: "\f111";
+      letter-spacing: 10px;
+      color: $cyan;
+    }
+  }
+  input[type=radio]:focus ~ label.option {
+    color: $pink;
+    text-decoration: underline;
+    &:after {color: $pink;}
+  }
+  input[type=radio]:checked ~ label.option {
+    &:after{
+      display: inline-block;
+      content: "\f058";
+      letter-spacing: 5px;
+      color: $cyan;
+    }
+  }
+}
+.form-input-checkbox {
+  position: relative;
+  @extend %clearfix;
+  input[type=checkbox] {
+    height: 0;
+    width: 0;
+    @include appearance;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+  }
+  label.option {
+    position: relative;
+    float: left;
+    width: 100%;
+    padding-left: 24px;
+    margin-bottom: 0;
+    color: $brand-primary;
+  }
+  label.option:after{
+    position: absolute;
+    left: 0;
+    top: 6px;
+    padding-left: 1px;
+    line-height: 22px !important;
+    display: inline-block;
+    content: "\f0c8";
+    letter-spacing: 10px;
+    color: $cyan;
+  }
+  input[type=checkbox]:focus ~ label.option {
+    color: $pink;
+    text-decoration: underline;
+    &:after {color: $pink;}
+  }
+  input[type=checkbox]:checked ~ label.option {
+    &:after{
+      display: inline-block;
+      content: "\f14a";
+      letter-spacing: 5px;
+      color: $cyan;
+    }
+  }
+}
+
+input[type="submit"] {
+  margin-top: 0px !important;
+  @extend %button;
+  padding-right: 32px;
+}

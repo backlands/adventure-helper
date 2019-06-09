@@ -1,19 +1,41 @@
 import React from 'react';
+import classNames from 'classnames';
+import '../../styles/input.scss';
 
-// eslint-disable-next-line object-curly-newline
-const Input = ({ name, text, type = 'text', id = null, value = '', handleChange = null }) => (
+class Input extends React.PureComponent {
+  constructor(props) {
+    super(props);
 
-  <div className='form-text'>
-    <label htmlFor={name}>{text}</label>
-    <input
-      type={type}
-      name={name}
-      id={id}
-      value={value === 0 ? '' : value}
-      onChange={handleChange}
-    />
-  </div>
+    this.state = {};
+  }
 
-);
+  render() {
+    const inputType = `form-input-${this.props.type || 'text'}`;
+
+    const inputState = classNames(
+      this.props.className,
+      inputType, {
+        'is-focused': this.state.isFocused,
+      },
+    );
+
+    return (
+      <div className={inputState}>
+        <label htmlFor={this.props.name}>{this.props.text}</label>
+        <input
+          type={this.props.type || 'text'}
+          name={this.props.name}
+          className={this.props.inputClass}
+          id={this.props.id}
+          size='unset'
+          value={this.props.value === 0 ? '' : this.props.value}
+          onChange={this.props.handleChange}
+          onFocus={() => { this.setState({ isFocused: true }); }}
+          onBlur={() => { this.setState({ isFocused: false }); }}
+        />
+      </div>
+    );
+  }
+}
 
 export default Input;
