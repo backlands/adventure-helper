@@ -1,8 +1,8 @@
 const path = require('path');
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: ["./src/client"],
+  entry: ['./src/client'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
@@ -12,21 +12,27 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use:  "babel-loader"
+        use:  "babel-loader",
       },
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use:  ["babel-loader", "eslint-loader"]
+        use: [{
+          loader: 'eslint-loader',
+          options: {
+            emitWarning: true,
+          },
+        }
+        ],
       },
       {
         test: /\.scss$/,
         exclude: /node_modules/,
         use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader"
-        ]
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.css$/i,
@@ -36,23 +42,23 @@ module.exports = {
         test: /\.html$/,
         use: [
           {
-            loader: "html-loader"
-          }
-        ]
-      }
-    ]
+            loader: 'html-loader',
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "./src/client/index.html",
-      filename: "./index.html"
-    })
+      template: './src/client/index.html',
+      filename: './index.html',
+    }),
   ],
   resolve: {
     extensions: ['.js', '.jsx'],
   },
   stats: {
-    colors: true
+    colors: true,
   },
   devServer: {
     compress: true,
@@ -60,5 +66,5 @@ module.exports = {
     hot: true,
     historyApiFallback: true,
   },
-  devtool: 'source-map'
+  devtool: 'source-map',
 };
