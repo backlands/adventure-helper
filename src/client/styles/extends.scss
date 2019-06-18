@@ -1,3 +1,4 @@
+@import 'variables';
 @import 'mixins';
 
 //CLEARFIXES
@@ -15,22 +16,26 @@
 
 // GENERAL
 %button {
+  @include appearance;
   display: inline-block;
-  margin: 16px 32px 16px 0;
+  margin: 16px 32px;
   margin-left: 0;
-  padding: 16px;
-  padding-right: 32px;
+  padding: 16px 32px;
   font-weight: 600;
   font-family: sans-serif;
   font-size: 1rem;
-  color: blue;
-  background: white;
-  border-left: 3px solid darkgoldenrod;
-  @include box-shadow();
+  color: $background;
+  background: $green;
+  border: 0;
+  @include box-shadow(none);
   @include transition();
-  &:hover, &:focus {
-    color: green;
-    border-left-color: lightgreen;
+  &:hover {
+    background: $current;
+    color: $white;
+  }
+  &:focus {
+    background: $selection;
+    color: $white;
   }
   &.micro {
     margin: 8px 16px 8px 0;
