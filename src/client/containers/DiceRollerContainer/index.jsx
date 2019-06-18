@@ -1,7 +1,10 @@
 import React from 'react';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import Row from '../../components/Row';
+import Column from '../../components/Column';
 
+import './styles.scss';
 class DiceRollerContainer extends React.Component {
   constructor() {
     super();
@@ -66,34 +69,48 @@ class DiceRollerContainer extends React.Component {
     ));
 
     const multiDiceForm = this.state.dice.map((die, index) => (
-      <Input
-        key={index}
-        text={`Roll a D${die}`}
-        label={`rollingD${die}`}
-        type='text'
-        name={die}
-        value={this.state.custom[die] ? this.state.custom[die] : ''}
-        handleChange={this.handleChange}
-      />
+      <Row>
+        <Input
+          key={index}
+          text={`Roll a D${die}`}
+          className='overlay-label'
+          label={`rollingD${die}`}
+          type='text'
+          name={die}
+          value={this.state.custom[die] ? this.state.custom[die] : ''}
+          handleChange={this.handleChange}
+        />
+      </Row>
     ));
 
     const results = this.state.rolls.map((roll, index) => (
-      <p key={index}>{roll}</p>
+      <span className='aResult' key={index}>{roll}</span>
     ));
 
     return (
-      <div id='dice-rollers'>
-        <h2>Dice Roller</h2>
-        {singleDiceButtons}
+      <Row classes='DiceRollerContainer'>
+        <Column classes='is-8'>
+          <Row classes='sides'>
+            <Column classes='is-3'>
+              <h4>Quick Roll</h4>
+              {singleDiceButtons}
+            </Column>
 
-        <div id='custom-roll'>
-          {multiDiceForm}
+            <Column classes='is-3'>
+              <h4>Quick Roll</h4>
+              {multiDiceForm}
+              <Button handleClick={this.handleCustomRoll}>
+                  Roll them Dice</Button>
+            </Column>
+          </Row>
 
-          <Button handleClick={this.handleCustomRoll}>Roll them Dice</Button>
-        </div>
+        </Column>
 
-        {results}
-      </div>
+        <Column>
+          <h2>Roll Results</h2>
+          {results}
+        </Column>
+      </Row>
     );
   }
 }
