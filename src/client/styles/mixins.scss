@@ -29,11 +29,21 @@
           border-radius: $radius;
 }
 
-//TRANISTION
+// TRANISTION
 @mixin transition($transition: all 0.2s ease-in-out) {
   -webkit-transition: $transition;
      -moz-transition: $transition;
       -ms-transition: $transition;
        -o-transition: $transition;
           transition: $transition;
+}
+
+// FLEXBOX
+@mixin flex {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }

@@ -1,0 +1,67 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.Navbar {
+  position: relative;
+  background: $current;
+  height: 100%;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  a, .minimizeToggle {
+    display: block;
+    padding: 10px 20px;
+    background: none;
+    text-decoration: none;
+    @include transition;
+    color: $foreground;
+    &:hover, &:focus {
+      color: $green;
+      background: $background;
+    }
+    span {
+      display: none;
+    }
+  }
+
+  &.expanded {
+    width: 200px;
+    span { display: block; }
+    svg {
+      margin-left: 20px;
+    }
+    .minimizeToggle {
+      span {
+        display: block;
+      }
+      svg {
+        transform: rotate(0);
+        @include transition(transform 0.2s ease-in-out);
+      }
+    }
+  }
+
+  .minimizeToggle {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+    text-align: center;
+    svg {
+      transform: rotate(180deg);
+      @include transition(transform 0.2s ease-in-out);
+    }
+    span {
+      display: none;
+    }
+  }
+}
