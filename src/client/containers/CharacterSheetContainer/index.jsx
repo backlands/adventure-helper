@@ -166,7 +166,7 @@ class CharacterSheetContainer extends React.Component {
 
   render() {
     return (
-      <Row classes='wrap'>
+      <Row classes='wrap inset'>
         <Column classes='is-12'>
           <h2>Character Details</h2>
           <CharacterDetails
@@ -176,18 +176,22 @@ class CharacterSheetContainer extends React.Component {
         <Column classes='is-8'>
           <Row>
             <Column classes='is-4'>
-              <h2>Abilities</h2>
-              <AbilityContainer
-                abilities={this.state.abilities}
-                handleChange={this.handleAbilityChange} />
+              <div className='first-row-labels'>
+                <h2>Abilities</h2>
+                <AbilityContainer
+                  abilities={this.state.abilities}
+                  handleChange={this.handleAbilityChange} />
+              </div>
               <h2>Initiative</h2>
               {this.initiative()}
             </Column>
             <Column classes='is-8'>
-              <h2>Class Record</h2>
-              <ClassStatContainer
-                classes={this.state.classes}
-                handleChange={this.handleInputChange.bind(this, 'classes')} />
+              <div className='first-row-labels'>
+                <h2>Class Record</h2>
+                <ClassStatContainer
+                  classes={this.state.classes}
+                  handleChange={this.handleInputChange.bind(this, 'classes')} />
+              </div>
               <HitPoints
                 total={this.state.hitpoints.total}
                 damageReduction={this.state.hitpoints.damageReduction}
@@ -197,32 +201,40 @@ class CharacterSheetContainer extends React.Component {
             </Column>
           </Row>
           <Row classes='wrap'>
-            <h2>Armor Classes</h2>
-            <ArmorClassContainer
-              dexterity={this.abilities.DEX}
-              armor={this.state.armor}
-              handleChange={this.handleInputChange.bind(this, 'armor')} />
+            <div className='first-row-labels'>
+              <h2>Armor Classes</h2>
+              <ArmorClassContainer
+                dexterity={this.abilities.DEX}
+                armor={this.state.armor}
+                handleChange={this.handleInputChange.bind(this, 'armor')} />
+            </div>
           </Row>
           <Row>
             <Column classes='is-8'>
-              <h2>Save Rolls</h2>
-              <SaveRollContainer
-                saves={this.state.saves}
-                abilities={this.abilities}
-                classes={this.state.classes}
-                handleChange={this.handleInputChange.bind(this, 'saves')} />
-              <h2>Combat Rolls</h2>
-              <CombatRollContainer
-                checks={this.state.combat}
-                abilities={this.abilities}
-                classes={this.state.classes}
-                cmd={this.state.cmd}
-                handleChange={this.handleInputChange.bind(this, 'combat')}
-                cmdHandleChange={this.handleInputChange.bind(this, 'cmd')} />
+              <div className='first-row-labels'>
+                <h2>Save Rolls</h2>
+                <SaveRollContainer
+                  saves={this.state.saves}
+                  abilities={this.abilities}
+                  classes={this.state.classes}
+                  handleChange={this.handleInputChange.bind(this, 'saves')} />
+              </div>
+              <div className='first-row-labels'>
+                <h2>Combat Rolls</h2>
+                <CombatRollContainer
+                  checks={this.state.combat}
+                  abilities={this.abilities}
+                  classes={this.state.classes}
+                  cmd={this.state.cmd}
+                  handleChange={this.handleInputChange.bind(this, 'combat')}
+                  cmdHandleChange={this.handleInputChange.bind(this, 'cmd')} />
+              </div>
             </Column>
             <Column classes='is-4'>
               <TextArea
                 name='combatNotes'
+                text='Notes'
+                className='full-height'
                 value={this.state.combatNotes}
                 defaultValue=''
                 handleChange={this.handleInputChange} />
@@ -230,11 +242,13 @@ class CharacterSheetContainer extends React.Component {
           </Row>
         </Column>
         <Column classes='is-4'>
-          <h2>Skills</h2>
-          <SkillContainer
-            abilities={this.abilities}
-            skills={this.state.skills}
-            handleChange={this.handleSkillChange} />
+          <div className='first-row-labels'>
+            <h2>Skills</h2>
+            <SkillContainer
+              abilities={this.abilities}
+              skills={this.state.skills}
+              handleChange={this.handleSkillChange} />
+          </div>
         </Column>
       </Row>
     );

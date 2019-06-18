@@ -16,6 +16,7 @@ class Input extends React.PureComponent {
       this.props.className,
       inputType, {
         'is-focused': this.state.isFocused,
+        'not-empty': this.props.value,
       },
     );
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import Input from '../Input';
 import Row from '../Row';
+import Column from '../Column';
 
 const SaveRoll = ({
   title,
@@ -16,45 +17,63 @@ const SaveRoll = ({
 
   return (
     <Row>
-      {title}
-      <Input
-        type='number'
-        name='total'
-        readOnly
-        value={total} />
-      <span>=</span>
+      <Column classes='is-3'><span>{title}</span></Column>
+      <Column>
+        <Input
+          type='number'
+          name='total'
+          text='Total'
+          readOnly
+          value={total} />
+      </Column>
+      <Column classes='shrink'><span>=</span></Column>
+      <Column>
         <Input
         type='number'
         name='base'
+        text='Base'
         readOnly
         value={base} />
-      <span>+</span>
+      </Column>
+      <Column classes='shrink'><span>+</span></Column>
+      <Column>
         <Input
         type='number'
         name='ability'
+        text='Ability'
         readOnly
         value={ability} />
-      <span>+</span>
+      </Column>
+      <Column classes='shrink'><span>+</span></Column>
+      <Column>
         <Input
         type='number'
         name='enhance'
+        text='Enhance'
         id={id}
         value={enhance}
         handleChange={handleChange} />
-      <span>+</span>
+      </Column>
+      <Column classes='shrink'><span>+</span></Column>
+      <Column>
         <Input
         type='number'
         name='misc'
+        text='Misc'
         id={id}
         value={misc}
         handleChange={handleChange} />
-      <span>+</span>
-      <Input
-        type='number'
-        name='temp'
-        id={id}
-        value={temp}
-        handleChange={handleChange} />
+      </Column>
+      <Column classes='shrink'><span>+</span></Column>
+      <Column>
+        <Input
+          type='number'
+          name='temp'
+          text='Temp'
+          id={id}
+          value={temp}
+          handleChange={handleChange} />
+      </Column>
     </Row>
   );
 };

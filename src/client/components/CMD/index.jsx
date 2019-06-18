@@ -1,6 +1,7 @@
 import React from 'react';
 import Row from '../Row';
 import Input from '../Input';
+import Column from '../Column';
 
 const CombatRoll = ({
   bab,
@@ -16,40 +17,50 @@ const CombatRoll = ({
 
   return (
     <Row>
-      CMD
-      <Input
-        type='text'
-        name='total'
-        readOnly
-        value={total} />
-      <span>=</span>
+      <Column classes='is-2'><span>CMD</span></Column>
+      <Column>
         <Input
-        type='text'
-        name='bab'
-        readOnly
-        value={singleBAB} />
-      <span>+</span>
+          type='text'
+          name='total'
+          readOnly
+          value={total} />
+      </Column>
+      <Column classes='shrink'><span>=</span></Column>
+        <Column>
         <Input
-        type='number'
-        name='abilities'
-        readOnly
-        value={abilities} />
-      <span>+</span>
-      <Input
-        type='number'
-        name='size'
-        id={id}
-        value={size}
-        handleChange={handleChange} />
-      <span>+</span>
-      <Input
-        type='number'
-        name='temp'
-        id={id}
-        value={temp}
-        handleChange={handleChange} />
-      <span>+</span>
-      <span>10</span>
+          type='text'
+          name='bab'
+          readOnly
+          value={singleBAB} />
+        </Column>
+      <Column classes='shrink'><span>+</span></Column>
+        <Column>
+          <Input
+            type='number'
+            name='abilities'
+            readOnly
+            value={abilities} />
+        </Column>
+      <Column classes='shrink'><span>+</span></Column>
+      <Column>
+        <Input
+          type='number'
+          name='size'
+          id={id}
+          value={size}
+          handleChange={handleChange} />
+      </Column>
+      <Column classes='shrink'><span>+</span></Column>
+      <Column>
+        <Input
+          type='number'
+          name='temp'
+          id={id}
+          value={temp}
+          handleChange={handleChange} />
+      </Column>
+      <Column classes='shrink'><span>+</span></Column>
+      <Column><span>10</span></Column>
     </Row>
   );
 };

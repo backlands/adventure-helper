@@ -1,3 +1,6 @@
+// Set the width of the gutter inside columns, remove with .no-gutter
+$gutter: 1rem;
+
 .Row {
   box-sizing: border-box;
   margin: 0 auto;
@@ -14,6 +17,11 @@
     flex-grow: 1;
   }
 
+  &.inset {
+    padding-left: $gutter;
+    padding-right: $gutter;
+  }
+
   // POSITION MODIFIERS
   &.start { justify-content: flex-start; }
   &.center { justify-content: center; }
@@ -26,4 +34,10 @@
   &.wrap { flex-wrap: wrap; }
   &.around { justify-content: space-around; }
   &.between { justify-content: space-between; }
+}
+
+.first-row-labels > .Row:not(:first-of-type) {
+  div[class^="form-input"] {
+    label { display: none; }
+  }
 }

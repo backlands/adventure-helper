@@ -1,6 +1,7 @@
 import React from 'react';
-import Input from '../Input';
 import Row from '../Row';
+import Column from '../Column';
+import Input from '../Input';
 
 const Ability = ({
   title,
@@ -13,37 +14,54 @@ const Ability = ({
   handleChange,
 }) => (
   <Row>
-    <span>{title}</span>
-    <Input
-      type='number'
-      name='score'
-      id={id}
-      value={score}
-      handleChange={handleChange} />
-    <Input
-      type='number'
-      name='item'
-      id={id}
-      value={item}
-      handleChange={handleChange} />
-    <Input
-      type='number'
-      name='baseModifier'
-      id={id}
-      readOnly
-      value={baseModifier} />
-    <Input
-      type='number'
-      name='temp'
-      id={id}
-      value={temp}
-      handleChange={handleChange} />
-    <Input
-      type='number'
-      name='tempModifier'
-      id={id}
-      readOnly
-      value={tempModifier} />
+    <Column>
+      <span>{title}</span>
+    </Column>
+    <Column>
+      <Input
+        type='number'
+        name='score'
+        text='Score'
+        id={id}
+        value={score}
+        handleChange={handleChange} />
+    </Column>
+    <Column>
+      <Input
+        type='number'
+        name='item'
+        text='Item'
+        id={id}
+        value={item}
+        handleChange={handleChange} />
+    </Column>
+    <Column>
+      <Input
+        type='number'
+        name='baseModifier'
+        text='Bonus'
+        id={id}
+        readOnly
+        value={baseModifier} />
+    </Column>
+    <Column>
+      <Input
+        type='number'
+        name='temp'
+        text='Temp'
+        id={id}
+        value={temp}
+        handleChange={handleChange} />
+    </Column>
+    <Column>
+      <Input
+        type='number'
+        name='tempModifier'
+        text='Temp Mod'
+        id={id}
+        readOnly
+        value={tempModifier} />
+    </Column>
   </Row>
 );
 

@@ -15,46 +15,57 @@ class Skill extends React.PureComponent {
 
     return (
       <Row>
-        <Column className='left'>
+        <Column classes='shrink'>
           <Checkbox
             type='checkbox'
             name='classSkill'
             id={this.props.id}
             checked={this.props.classSkill}
             handleChange={this.props.handleChange} />
-          <span>{this.props.title}</span>
-          <span>{this.props.ability}</span>
         </Column>
-        <Column className='right'>
-          <Row>
-            <Input
-              type='number'
-              name='total'
-              readOnly
-              value={total} />
-            <Input
-              type='number'
-              name='ranks'
-              id={this.props.id}
-              value={this.props.ranks}
-              handleChange={this.props.handleChange} />
-            <Input
-              type='number'
-              name='bonus'
-              readOnly
-              value={this.props.abilityBonus} />
-            <Input
-              type='number'
-              name='trained'
-              readOnly
-              value={trainedBonus} />
-            <Input
-              type='number'
-              name='misc'
-              id={this.props.id}
-              value={this.props.misc}
-              handleChange={this.props.handleChange} />
-          </Row>
+        <Column classes='is-3'><span>{this.props.title}</span></Column>
+        <Column classes='is-1'><span>{this.props.ability}</span></Column>
+        <Column>
+          <Input
+            type='number'
+            name='total'
+            text='Total'
+            readOnly
+            value={total} />
+        </Column>
+        <Column>
+          <Input
+            type='number'
+            name='ranks'
+            text='Ranks'
+            id={this.props.id}
+            value={this.props.ranks}
+            handleChange={this.props.handleChange} />
+        </Column>
+        <Column>
+          <Input
+            type='number'
+            name='bonus'
+            text='Ability'
+            readOnly
+            value={this.props.abilityBonus} />
+        </Column>
+        <Column>
+          <Input
+            type='number'
+            name='trained'
+            text='Trained'
+            readOnly
+            value={trainedBonus} />
+        </Column>
+        <Column>
+          <Input
+            type='number'
+            name='misc'
+            text='Misc'
+            id={this.props.id}
+            value={this.props.misc}
+            handleChange={this.props.handleChange} />
         </Column>
       </Row>
     );

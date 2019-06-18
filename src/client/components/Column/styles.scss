@@ -2,14 +2,22 @@
 $grid-columns: 12;
 
 // Set the width of the gutter inside columns, remove with .no-gutter
-$gutter: 1rem;
+$gutter: 0.5rem;
 
 .Column {
   box-sizing: border-box;
   flex-grow: 1;
   flex-basis: 0;
   max-width: 100%;
-  padding: $gutter;
+  padding: 0 $gutter;
+
+  &:first-child { padding-left: 0; }
+  &:last-child { padding-right: 0; }
+
+  &.shrink {
+    flex-grow: 0;
+    flex-shrink: 1;
+  }
 
   // COLUMN SIZE CLASS FUNCTION
   // Setus up classes for specific desired column widths, use the syntax of
@@ -21,7 +29,6 @@ $gutter: 1rem;
       box-sizing: border-box;
       flex-basis: 100% / $grid-columns * $i;
       max-width: 100% / $grid-columns * $i;
-      padding: $gutter;
     }
   }
 

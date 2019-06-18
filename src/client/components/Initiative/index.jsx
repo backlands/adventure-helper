@@ -1,6 +1,7 @@
 import React from 'react';
 import Input from '../Input';
 import Row from '../Row';
+import Column from '../Column';
 
 const Skill = ({
   ability,
@@ -10,21 +11,30 @@ const Skill = ({
   const total = ability + bonus;
   return (
     <Row>
-      <Input
-        type='number'
-        name='total'
-        readOnly
-        value={total} />
-      <Input
-        type='number'
-        name='ability'
-        readOnly
-        value={ability} />
-      <Input
-        type='number'
-        name='initiativeBonus'
-        value={bonus}
-        handleChange={handleChange} />
+      <Column>
+        <Input
+          type='number'
+          text='Total'
+          name='total'
+          readOnly
+          value={total} />
+      </Column>
+      <Column>
+        <Input
+          type='number'
+          text='Dex'
+          name='ability'
+          readOnly
+          value={ability} />
+      </Column>
+      <Column>
+        <Input
+          type='number'
+          text='Misc'
+          name='initiativeBonus'
+          value={bonus}
+          handleChange={handleChange} />
+      </Column>
     </Row>
   );
 };

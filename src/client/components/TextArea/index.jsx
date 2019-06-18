@@ -1,19 +1,37 @@
 import React from 'react';
+import classNames from 'classnames';
 import '../../styles/input.scss';
 
-// eslint-disable-next-line object-curly-newline
-const Input = ({ name, text, id, value, handleChange }) => (
+class TextArea extends React.PureComponent {
+  constructor(props) {
+    super(props);
 
-  <div className='form-input-textarea'>
-    <label htmlFor={name}>{text}</label>
-    <textarea
-      name={name}
-      id={id}
-      value={value}
-      onChange={handleChange}
-    />
-  </div>
+    this.state = {};
+  }
 
-);
+  render() {
+    const classes = classNames(
+      'form-input-textarea',
+      this.props.className, {
+        'is-focused': this.state.isFocused,
+        'not-empty': this.props.value !== '',
+      },
+    );
 
-export default Input;
+    return (
+      <div className={classes}>
+        <label htmlFor={this.props.name}>{this.props.text}</label>
+        <textarea
+          name={this.props.name}
+          id={this.props.id}
+          value={this.props.value}
+          onChange={this.props.handleChange}
+          onFocus={() => { this.setState({ isFocused: true }); }}
+          onBlur={() => { this.setState({ isFocused: false }); }}
+        />
+      </div>
+    );
+  }
+};
+
+export default TextArea;
