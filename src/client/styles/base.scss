@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,500&display=swap&subset=latin-ext');
+
 @import './variables';
 @import './extends';
 @import './mixins';
 
 html, body {
-  font-family: sans-serif;
+  font-family: 'Lato', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: $line-height-computed;
   background: $background;
   color: $white;
   height: 100%;
@@ -20,4 +25,12 @@ a {
   &:focus, &:hover {
     color: $cyan;
   }
+}
+
+h1, h2, h3 {
+  font-weight: $regular;
+}
+
+h4, h5, h6 {
+  font-weight: $bold;
 }
