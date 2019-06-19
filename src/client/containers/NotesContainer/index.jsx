@@ -8,6 +8,10 @@ import NoteEditorContainer from '../NoteEditorContainer';
 import NotePicker from '../../components/NotePicker';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
+import Row from '../../components/Row';
+import Column from '../../components/Column';
+
+import './styles.scss';
 
 class NoteSheetContainer extends React.Component {
   constructor(props) {
@@ -72,6 +76,7 @@ class NoteSheetContainer extends React.Component {
     const notes = this.state.notes.map((note, index) => (
       <Button
         key={index}
+        className={Number(this.state.activeNote) === index ? 'active' : ''}
         id={index}
         handleClick={this.handleClick}>{note.title}</Button>
     ));
@@ -79,30 +84,38 @@ class NoteSheetContainer extends React.Component {
     const active = this.state.activeNote;
 
     const deleteButton = active
-      ? <Button handleClick={this.handleDeleteNote}>Delete Note</Button>
+      ? <Button className='delete' handleClick={this.handleDeleteNote}>Delete Note</Button>
       : null;
 
     return (
     <React.Fragment>
       <Header title='Note Sheet' icon={faPencil} />
 
-      <Input
-        value={this.state.notes[active] ? this.state.notes[active].title : ''}
-        label='note-title'
-        text='Title: '
-        type='text'
-        name='note-title'
-        defaultValue=''
-        handleChange={this.handleChange}
-        />
-      <NoteEditorContainer
-        value={this.state.notes[active] ? this.state.notes[active].content : ''}handleChange={this.handleEditorChange} />
-      <NotePicker>
-        {notes}
-      </NotePicker>
-      <Button
-        handleClick={this.handleNewNote}>Create New Note</Button>
-      {deleteButton}
+      <div className='NotesContainer'>
+        <Input
+          value={this.state.notes[active] ? this.state.notes[active].title : ''}
+          label='note-title'
+          type='text'
+          name='note-title'
+          defaultValue=''
+          handleChange={this.handleChange}
+          />
+        <Row>
+          <Column classes='note'>
+            <NoteEditorContainer
+              value={this.state.notes[active] ? this.state.notes[active].content : ''}handleChange={this.handleEditorChange} />
+          </Column>
+          <Column classes='picker is-3'>
+            <NotePicker active={this.state.activeNote}>
+              {notes}
+            </NotePicker>
+            <Button
+              className='createNew'
+              handleClick={this.handleNewNote}>Create New Note</Button>
+            {deleteButton}
+          </Column>
+        </Row>
+      </div>
     </React.Fragment>
     );
   }
