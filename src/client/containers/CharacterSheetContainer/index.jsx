@@ -17,6 +17,7 @@ import SaveRollContainer from '../SaveRollContainer';
 import SkillContainer from '../SkillContainer';
 
 import characterData from './state.json';
+import './styles.scss';
 
 class CharacterSheetContainer extends React.Component {
   constructor(props) {
@@ -171,9 +172,8 @@ class CharacterSheetContainer extends React.Component {
     return (
       <React.Fragment>
         <Header title='Character Sheet' icon={faHelmetBattle} />
-        <Row classes='wrap inset'>
+        <Row classes='CharacterSheetContainer wrap'>
           <Column classes='is-12'>
-            <h2>Character Details</h2>
             <CharacterDetails
               details={this.state.details}
               handleChange={this.handleInputChange.bind(this, 'details')} />
