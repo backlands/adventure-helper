@@ -3,22 +3,29 @@
 
 .Navbar {
   position: relative;
+  flex-shrink: 0;
   background: $current;
   height: 100%;
+  width: 60px;
+  // padding: 10px 0;
+  @include transition(width 0.5s ease-in-out);
   ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     li {
-      margin: 0;
+      margin: 5px 0;
       padding: 0;
     }
   }
 
   a, .minimizeToggle {
     display: block;
-    padding: 10px 20px;
+    // padding: 10px 20px;
     background: none;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
     text-decoration: none;
     @include transition;
     color: $foreground;
@@ -27,19 +34,37 @@
       background: $background;
     }
     span {
-      display: none;
+      width: 0;
+      opacity: 0;
+      @include transition(opacity 0.3s ease-in-out);
+    }
+  }
+
+  svg {
+    display: inline-block;
+    padding: 10px;
+  }
+
+  svg, span { vertical-align: middle; }
+
+  a.active {
+    background: $purple;
+    color: $background;
+    &:hover {
+      color: $green;
+      background: $background;
     }
   }
 
   &.expanded {
-    width: 200px;
-    span { display: block; }
-    svg {
-      margin-left: 20px;
+    width: 250px;
+    span {
+      width: auto;
+      opacity: 1;
     }
     .minimizeToggle {
       span {
-        display: block;
+        display: inline-block;
       }
       svg {
         transform: rotate(0);
@@ -49,19 +74,16 @@
   }
 
   .minimizeToggle {
-    display: block;
+    // display: block;
     position: absolute;
+    bottom: 0;
     left: 0;
     right: 0;
-    bottom: 0;
     padding: 0;
-    text-align: center;
     svg {
+      padding: 0;
       transform: rotate(180deg);
       @include transition(transform 0.2s ease-in-out);
-    }
-    span {
-      display: none;
     }
   }
 }

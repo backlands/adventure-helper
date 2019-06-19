@@ -37,25 +37,24 @@ class Navbar extends React.PureComponent {
       <div className={minimize}>
         <ul>
           <li>
-            <NavLink to="/"><span>Home</span> <FontAwesomeIcon icon={faHome} fixedWidth size='2x' /></NavLink>
+            <NavLink exact to="/"><FontAwesomeIcon icon={faHome} fixedWidth size='2x' /><span>Home</span></NavLink>
           </li>
           <li>
-            <NavLink to="/dice-roller/"><span>Dice Roller</span> <FontAwesomeIcon icon={faDiceD20} fixedWidth size='2x' /></NavLink>
+            <NavLink exact to="/dice-roller/"><FontAwesomeIcon icon={faDiceD20} fixedWidth size='2x' /><span>Dice Roller</span></NavLink>
           </li>
           <li>
-            <NavLink to="/note-sheet/"><span>Note Sheet</span> <FontAwesomeIcon icon={faPencil} fixedWidth size='2x' /></NavLink>
+            <NavLink exact to="/note-sheet/"><FontAwesomeIcon icon={faPencil} fixedWidth size='2x' /><span>Note Sheet</span></NavLink>
           </li>
           <li>
-            <NavLink to="/character-sheet/"><span>Character Sheet</span> <FontAwesomeIcon icon={faHelmetBattle} fixedWidth size='2x' /></NavLink>
+            <NavLink exact to="/character-sheet/"><FontAwesomeIcon icon={faHelmetBattle} fixedWidth size='2x' /><span>Character Sheet</span></NavLink>
+          </li>
+          <li className='minimizeToggle'>
+            <a onClick={this.handleClick} >
+              <FontAwesomeIcon icon={faCaretLeft} fixedWidth size='3x' />
+              <span>Minimize</span>
+            </a>
           </li>
         </ul>
-
-        <a
-          className='minimizeToggle'
-          onClick={this.handleClick} >
-          <FontAwesomeIcon icon={faCaretLeft} fixedWidth size='3x' />
-          <span>Minimize</span>
-        </a>
       </div>
     );
   }

@@ -39,11 +39,11 @@
 }
 
 // FLEXBOX
-@mixin flex {
+@mixin flex($type: row) {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   flex: 0 1 auto;
-  flex-direction: row;
+  flex-direction: $type;
   flex-wrap: nowrap;
 }
