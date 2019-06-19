@@ -8,7 +8,6 @@ html, body {
   font-family: 'Lato', Arial, Helvetica, sans-serif;
   font-weight: 400;
   font-size: 16px;
-  line-height: $line-height-computed;
   background: $background;
   color: $white;
   height: 100%;
@@ -21,8 +20,9 @@ html, body {
 
 a {
   color: $green;
+  text-decoration: none;
   @include transition;
-  &:focus, &:hover {
+  &:hover {
     color: $cyan;
   }
 }
@@ -33,4 +33,8 @@ h1, h2, h3 {
 
 h4, h5, h6 {
   font-weight: $bold;
+}
+
+p {
+  margin-top: 0;
 }

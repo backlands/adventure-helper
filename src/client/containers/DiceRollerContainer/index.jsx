@@ -1,4 +1,7 @@
 import React from 'react';
+import { faDiceD20 } from '@fortawesome/pro-light-svg-icons';
+
+import Header from '../../components/Header';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Row from '../../components/Row';
@@ -88,29 +91,33 @@ class DiceRollerContainer extends React.Component {
     ));
 
     return (
-      <Row classes='DiceRollerContainer'>
-        <Column classes='is-8'>
-          <Row classes='sides'>
-            <Column classes='is-3'>
-              <h4>Quick Roll</h4>
-              {singleDiceButtons}
-            </Column>
+      <React.Fragment>
+        <Header title='Dice Roller' icon={faDiceD20} />
 
-            <Column classes='is-3'>
-              <h4>Quick Roll</h4>
-              {multiDiceForm}
-              <Button handleClick={this.handleCustomRoll}>
-                  Roll them Dice</Button>
-            </Column>
-          </Row>
+        <Row classes='DiceRollerContainer'>
+          <Column classes='is-8'>
+            <Row classes='sides'>
+              <Column classes='is-3'>
+                <h4>Quick Roll</h4>
+                {singleDiceButtons}
+              </Column>
 
-        </Column>
+              <Column classes='is-3'>
+                <h4>Quick Roll</h4>
+                {multiDiceForm}
+                <Button handleClick={this.handleCustomRoll}>
+                    Roll them Dice</Button>
+              </Column>
+            </Row>
 
-        <Column>
-          <h2>Roll Results</h2>
-          {results}
-        </Column>
-      </Row>
+          </Column>
+
+          <Column>
+            <h2>Roll Results</h2>
+            {results}
+          </Column>
+        </Row>
+      </React.Fragment>
     );
   }
 }

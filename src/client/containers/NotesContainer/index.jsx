@@ -1,5 +1,8 @@
 // Import React!
 import React from 'react';
+import { faPencil } from '@fortawesome/pro-light-svg-icons';
+
+import Header from '../../components/Header';
 import noteData from './state.json';
 import NoteEditorContainer from '../NoteEditorContainer';
 import NotePicker from '../../components/NotePicker';
@@ -81,6 +84,8 @@ class NoteSheetContainer extends React.Component {
 
     return (
     <React.Fragment>
+      <Header title='Note Sheet' icon={faPencil} />
+
       <Input
         value={this.state.notes[active] ? this.state.notes[active].title : ''}
         label='note-title'

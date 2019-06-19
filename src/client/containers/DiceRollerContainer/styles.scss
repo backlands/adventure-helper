@@ -1,7 +1,6 @@
 @import '../../styles/variables';
 
 .DiceRollerContainer {
-  border-top: 3px solid $green;
   > div {
     padding: 60px;
     &:first-child, &:last-child {
