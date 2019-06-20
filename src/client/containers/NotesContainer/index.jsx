@@ -4,7 +4,7 @@ import { faPencil } from '@fortawesome/pro-light-svg-icons';
 
 import Header from '../../components/Header';
 import noteData from './state.json';
-import NoteEditorContainer from '../NoteEditorContainer';
+import NoteEditorContainer from './NoteEditorContainer';
 import NotePicker from '../../components/NotePicker';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
@@ -83,7 +83,7 @@ class NoteSheetContainer extends React.Component {
     ));
 
     const active = this.state.activeNote !== null;
-    const activeNote = this.state.activeNote;
+    const { activeNote } = this.state;
 
     const deleteButton = active
       ? <Button className='delete' handleClick={this.handleDeleteNote}>Delete Note</Button>

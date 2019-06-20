@@ -1,5 +1,5 @@
 import React from 'react';
-import SaveRoll from '../../components/SaveRoll';
+import SaveRoll from '../../../components/SaveRoll';
 
 class SaveRollContainer extends React.Component {
   totalBaseSave(type) {

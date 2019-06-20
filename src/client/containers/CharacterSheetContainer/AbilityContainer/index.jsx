@@ -1,5 +1,5 @@
 import React from 'react';
-import Ability from '../../components/Ability';
+import Ability from '../../../components/Ability';
 
 class AbilityContianer extends React.Component {
   render() {

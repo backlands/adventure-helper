@@ -1,6 +1,6 @@
 import React from 'react';
-import CombatRoll from '../../components/CombatRoll';
-import CMD from '../../components/CMD';
+import CombatRoll from '../../../components/CombatRoll';
+import CMD from '../../../components/CMD';
 
 class CombatRollContainer extends React.Component {
   constructor(props) {

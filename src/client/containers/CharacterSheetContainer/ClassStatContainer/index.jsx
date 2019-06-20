@@ -1,5 +1,5 @@
 import React from 'react';
-import ClassStats from '../../components/ClassStats';
+import ClassStats from '../../../components/ClassStats';
 
 class ClassStatContainer extends React.Component {
   render() {

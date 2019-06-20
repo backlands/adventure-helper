@@ -9,12 +9,12 @@ import Initiative from '../../components/Initiative';
 import Row from '../../components/Row';
 import TextArea from '../../components/TextArea';
 
-import AbilityContainer from '../AbilityContainer';
-import ArmorClassContainer from '../ArmorClassContainer';
-import ClassStatContainer from '../ClassStatContainer';
-import CombatRollContainer from '../CombatRollContainer';
-import SaveRollContainer from '../SaveRollContainer';
-import SkillContainer from '../SkillContainer';
+import AbilityContainer from './AbilityContainer';
+import ArmorClassContainer from './ArmorClassContainer';
+import ClassStatContainer from './ClassStatContainer';
+import CombatRollContainer from './CombatRollContainer';
+import SaveRollContainer from './SaveRollContainer';
+import SkillContainer from './SkillContainer';
 
 import characterData from './state.json';
 import './styles.scss';

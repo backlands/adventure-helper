@@ -1,5 +1,5 @@
 import React from 'react';
-import ArmorClass from '../../components/ArmorClass';
+import ArmorClass from '../../../components/ArmorClass';
 
 class ArmorClassContainer extends React.Component {
   render() {
