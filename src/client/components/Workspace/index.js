@@ -7,16 +7,18 @@ import DiceRollerContainer from '../../containers/DiceRollerContainer';
 import NotesContainer from '../../containers/NotesContainer';
 import CharacterSheetContainer from '../../containers/CharacterSheetContainer';
 import PrivacyPolicy from '../PrivacyPolicy';
+import OGL from '../OGL';
 
 import './styles.scss';
 
 const Workspace = () => (
   <div className='Workspace'>
     <Route path="/" exact component={HomeContainer} />
-    <Route path="/dice-roller/" component={DiceRollerContainer} />
-    <Route path="/note-sheet/" component={NotesContainer} />
-    <Route path="/character-sheet/" component={CharacterSheetContainer} />
-    <Route path="/privacy-policy/" component={PrivacyPolicy} />
+    <Route path="/dice-roller/" exact component={DiceRollerContainer} />
+    <Route path="/note-sheet/" exact component={NotesContainer} />
+    <Route path="/character-sheet/" exact component={CharacterSheetContainer} />
+    <Route path="/privacy-policy/" exact component={PrivacyPolicy} />
+    <Route path="/ogl/" exact component={OGL} />
 
 
     <Footer />

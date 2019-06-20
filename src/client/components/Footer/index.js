@@ -7,7 +7,7 @@ const Footer = () => (
   <div className='Footer'>
     <div className='notices'>
       <span>Copyright © 2019 Adventure Keeper</span>
-      <span>Some assets used under the Open Gaming License</span>
+      <span>Some assets used under the <NavLink exact to='/ogl/'>Open Gaming License</NavLink></span>
       <NavLink exact to='/privacy-policy/'>Privacy Policy</NavLink>
     </div>
     <div className='nameTag'>AdventureHelper</div>
