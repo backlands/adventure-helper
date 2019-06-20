@@ -28,32 +28,58 @@ class Navbar extends React.PureComponent {
   render() {
     const minimize = classNames(
       'Navbar',
+      this.props.className,
       {
         expanded: !this.state.minimize,
       },
     );
 
+    const toggler = this.props.hideToggle
+      ? null
+      : (
+        <li className='minimizeToggle'>
+          <a onClick={this.handleClick} >
+            <FontAwesomeIcon icon={faCaretLeft} fixedWidth size='3x' />
+            <span>Minimize</span>
+          </a>
+        </li>
+      );
+
     return (
+
       <div className={minimize}>
         <ul>
-          <li>
-            <NavLink exact to="/"><FontAwesomeIcon icon={faHome} fixedWidth size='2x' /><span>Home</span></NavLink>
+          <li className='homeLink'>
+            <NavLink exact to="/">
+              <FontAwesomeIcon icon={faHome} fixedWidth size='2x' />
+              <span>Home</span>
+            </NavLink>
           </li>
           <li>
-            <NavLink exact to="/dice-roller/"><FontAwesomeIcon icon={faDiceD20} fixedWidth size='2x' /><span>Dice Roller</span></NavLink>
+            <NavLink exact to="/dice-roller/">
+              <FontAwesomeIcon icon={faDiceD20} fixedWidth size='2x' />
+              <span>Dice Roller</span>
+              {/* eslint-disable-next-line max-len */}
+              <p>A little tool for rolling dice as needed. Also supports specifying a set of dice to roll together and receive the individual rolls and the total.</p>
+            </NavLink>
           </li>
           <li>
-            <NavLink exact to="/note-sheet/"><FontAwesomeIcon icon={faPencil} fixedWidth size='2x' /><span>Note Sheet</span></NavLink>
+            <NavLink exact to="/note-sheet/">
+              <FontAwesomeIcon icon={faPencil} fixedWidth size='2x' />
+              <span>Note Sheet</span>
+              {/* eslint-disable-next-line max-len */}
+              <p>Keep track of NPC's, events, quests, and more campaign details across multiple nameable notes. When playing a campaign no detail is to small and you need to keep track!</p>
+            </NavLink>
           </li>
           <li>
-            <NavLink exact to="/character-sheet/"><FontAwesomeIcon icon={faHelmetBattle} fixedWidth size='2x' /><span>Character Sheet</span></NavLink>
+            <NavLink exact to="/character-sheet/">
+              <FontAwesomeIcon icon={faHelmetBattle} fixedWidth size='2x' />
+              <span>Character Sheet</span>
+              {/* eslint-disable-next-line max-len */}
+              <p>Quickly map out your characters abilities, skills, classes, and other stats with auto-calculations done for you. Currently supports Pathfinder 1E by Paizo.</p>
+            </NavLink>
           </li>
-          <li className='minimizeToggle'>
-            <a onClick={this.handleClick} >
-              <FontAwesomeIcon icon={faCaretLeft} fixedWidth size='3x' />
-              <span>Minimize</span>
-            </a>
-          </li>
+          {toggler}
         </ul>
       </div>
     );

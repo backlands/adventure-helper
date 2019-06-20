@@ -2,6 +2,21 @@
 @import '../../styles/mixins.scss';
 
 .Navbar {
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+      margin: 5px 0;
+      padding: 0;
+    }
+  }
+  a {
+    p { display: none; }
+  }
+}
+
+.Navbar:not(.cards) {
   position: relative;
   flex-shrink: 0;
   background: $current;
@@ -87,5 +102,42 @@
       transform: rotate(180deg);
       @include transition(transform 0.2s ease-in-out);
     }
+  }
+}
+
+.Navbar.cards {
+  .homeLink { display: none; }
+  ul {
+    @include flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    li {
+      width: 30%;
+      &:not(:nth-last-of-type(-n+3)) {
+        margin-bottom: 60px;
+      }
+    }
+  }
+  a {
+    height: calc(100% - 40px);
+    font-weight: $light;
+    display: block;
+    padding: 20px;
+    color: $foreground;
+    background: $comment;
+    @include border-radius(10px);
+    span { font-size: 32px; }
+    p {
+      display: block;
+      font-size: 18px;
+      margin: 0;
+    }
+    &:hover {
+      color: $foreground;
+      background: $selection;
+    }
+  }
+  svg {
+    float: right;
   }
 }
