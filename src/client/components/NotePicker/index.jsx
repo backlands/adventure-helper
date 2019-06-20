@@ -3,9 +3,9 @@ import React from 'react';
 // eslint-disable-next-line object-curly-newline
 const NotePicker = ({ children }) => (
 
-    <div>
+    <React.Fragment>
       {children}
-    </div>
+    </React.Fragment>
 
 );
 

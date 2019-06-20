@@ -76,7 +76,7 @@ class NoteSheetContainer extends React.Component {
     const notes = this.state.notes.map((note, index) => (
       <Button
         key={index}
-        className={Number(this.state.activeNote) === index ? 'active' : ''}
+        className={this.state.activeNote === index ? 'active' : ''}
         id={index}
         handleClick={this.handleClick}>{note.title}</Button>
     ));
