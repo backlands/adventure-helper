@@ -99,12 +99,12 @@ class DiceRollerContainer extends React.Component {
         <Row classes='DiceRollerContainer'>
           <Column classes='is-8'>
             <Row classes='sides'>
-              <Column classes='is-3'>
+              <Column classes='is-6'>
                 <h4>Quick Roll</h4>
                 {singleDiceButtons}
               </Column>
 
-              <Column classes='is-3'>
+              <Column classes='is-6'>
                 <h4>Custom Roll</h4>
                 {multiDiceForm}
                 <Button

@@ -27,7 +27,8 @@ class NoteSheetContainer extends React.Component {
   }
 
   handleClick(e) {
-    this.setState({ activeNote: e.target.id });
+    const activeNote = Number(e.target.id);
+    this.setState({ activeNote });
   }
 
   handleChange(e) {
@@ -81,7 +82,8 @@ class NoteSheetContainer extends React.Component {
         handleClick={this.handleClick}>{note.title}</Button>
     ));
 
-    const active = this.state.activeNote;
+    const active = this.state.activeNote !== null;
+    const activeNote = this.state.activeNote;
 
     const deleteButton = active
       ? <Button className='delete' handleClick={this.handleDeleteNote}>Delete Note</Button>
@@ -93,9 +95,10 @@ class NoteSheetContainer extends React.Component {
 
       <div className='NotesContainer'>
         <Input
-          value={this.state.notes[active] ? this.state.notes[active].title : ''}
+          value={this.state.notes[activeNote] ? this.state.notes[activeNote].title : ''}
           label='note-title'
           type='text'
+          placeholder='Set note title...'
           name='note-title'
           defaultValue=''
           handleChange={this.handleChange}
@@ -103,10 +106,11 @@ class NoteSheetContainer extends React.Component {
         <Row>
           <Column classes='note'>
             <NoteEditorContainer
-              value={this.state.notes[active] ? this.state.notes[active].content : ''}handleChange={this.handleEditorChange} />
+              value={this.state.notes[activeNote] ? this.state.notes[activeNote].content : ''}
+              handleChange={this.handleEditorChange} />
           </Column>
           <Column classes='picker is-3'>
-            <NotePicker active={this.state.activeNote}>
+            <NotePicker>
               {notes}
             </NotePicker>
             <Button

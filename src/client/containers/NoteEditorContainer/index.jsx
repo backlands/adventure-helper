@@ -18,7 +18,6 @@ class NoteSheet extends React.Component {
   render() {
     return (
       <ReactQuill
-        theme='snow'
         value={this.state.text}
         onChange={this.props.handleChange} />
     );

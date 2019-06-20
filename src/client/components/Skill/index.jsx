@@ -6,12 +6,12 @@ import Row from '../Row';
 
 class Skill extends React.PureComponent {
   render() {
-    const trainedBonus = (this.props.classSkill && this.props.ranks) ? 2 : 0;
+    const trainedBonus = (this.props.classSkill && this.props.ranks) ? 3 : 0;
+    const ranks = this.props.ranks || 0;
+    const abilityBonus = this.props.abilityBonus || 0;
+    const misc = this.props.misc || 0;
 
-    const total = Number(this.props.ranks)
-      + Number(this.props.abilityBonus)
-      + Number(trainedBonus)
-      + Number(this.props.misc);
+    const total = ranks + abilityBonus + trainedBonus + misc;
 
     return (
       <Row>
@@ -31,7 +31,7 @@ class Skill extends React.PureComponent {
             name='total'
             text='Total'
             readOnly
-            value={total} />
+            value={total || 0} />
         </Column>
         <Column>
           <Input

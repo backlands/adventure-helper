@@ -1,11 +1,16 @@
 @import '../../styles/variables';
+@import '../../styles/mixins';
 
 .quill {
+  border-right: 2px solid $comment;
+  min-height: 100%;
   .ql-toolbar {
     border: 0;
+    text-align: center;
     font-size: 16px;
     font-family: $font;
     font-weight: $bold;
+    border-bottom: 2px solid $comment;
   }
   .ql-picker {
     color: $foreground;
@@ -26,22 +31,41 @@
     stroke: $foreground;
   }
 
+  .ql-container {
+    border: 0;
+    max-height: 90vh;
+    min-height: 80vh;
+    overflow: auto;
+  }
+
+  .ql-editor {
+    min-height: 60vh;
+    margin: 60px;
+    padding: 0;
+    font-size: 16px;
+    font-family: $font;
+    font-weight: $regular;
+    overflow: hidden;
+    p, ol, ul, pre, blockquote,
+    h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1em;
+    }
+  }
+
+  .ql-tooltip {
+    background-color: $selection;
+    border: 0;
+    box-shadow: none;
+    @include border-radius(0);
+    color: $foreground;
+  }
+
+  // FORCE SVG COLOURING
   .ql-toolbar button:hover, .ql-toolbar button:hover, .ql-toolbar button:focus, .ql-toolbar button:focus, .ql-toolbar button.ql-active, .ql-toolbar button.ql-active, .ql-toolbar .ql-picker-label:hover, .ql-toolbar .ql-picker-label:hover, .ql-toolbar .ql-picker-label.ql-active, .ql-toolbar .ql-picker-label.ql-active, .ql-toolbar .ql-picker-item:hover, .ql-toolbar .ql-picker-item:hover, .ql-toolbar .ql-picker-item.ql-selected, .ql-toolbar .ql-picker-item.ql-selected {
     color: $green;
   }
 
   .ql-toolbar button:hover .ql-stroke,  .ql-toolbar button:hover .ql-stroke, .ql-toolbar button:focus .ql-stroke,  .ql-toolbar button:focus .ql-stroke, .ql-toolbar button.ql-active .ql-stroke,  .ql-toolbar button.ql-active .ql-stroke, .ql-toolbar .ql-picker-label:hover .ql-stroke,  .ql-toolbar .ql-picker-label:hover .ql-stroke, .ql-toolbar .ql-picker-label.ql-active .ql-stroke,  .ql-toolbar .ql-picker-label.ql-active .ql-stroke, .ql-toolbar .ql-picker-item:hover .ql-stroke,  .ql-toolbar .ql-picker-item:hover .ql-stroke, .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,  .ql-toolbar .ql-picker-item.ql-selected .ql-stroke, .ql-toolbar button:hover .ql-stroke-miter,  .ql-toolbar button:hover .ql-stroke-miter, .ql-toolbar button:focus .ql-stroke-miter,  .ql-toolbar button:focus .ql-stroke-miter, .ql-toolbar button.ql-active .ql-stroke-miter,  .ql-toolbar button.ql-active .ql-stroke-miter, .ql-toolbar .ql-picker-label:hover .ql-stroke-miter,  .ql-toolbar .ql-picker-label:hover .ql-stroke-miter, .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,  .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter, .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,  .ql-toolbar .ql-picker-item:hover .ql-stroke-miter, .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,  .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
     stroke: $green;
-  }
-
-  .ql-container {
-    border: 0;
-  }
-
-  .ql-editor {
-    padding: 60px;
-    font-size: 16px;
-    font-family: $font;
-    font-weight: $regular;
   }
 }

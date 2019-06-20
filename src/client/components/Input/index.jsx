@@ -29,6 +29,8 @@ class Input extends React.PureComponent {
           className={this.props.inputClass}
           id={this.props.id}
           size='unset'
+          placeholder={this.props.placeholder || ''}
+          readOnly={this.props.readOnly || false}
           value={this.props.value === 0 ? '' : this.props.value}
           onChange={this.props.handleChange}
           onFocus={() => { this.setState({ isFocused: true }); }}

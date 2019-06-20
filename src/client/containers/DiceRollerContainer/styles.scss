@@ -1,13 +1,14 @@
 @import '../../styles/variables';
 
 .DiceRollerContainer {
+  margin-bottom: 0;
   > div {
     padding: 60px;
     &:first-child, &:last-child {
       padding: 60px;
     }
     &:first-child {
-      border-right: 3px solid $green;
+      border-right: 2px solid $green;
     }
   }
   .aResult {
