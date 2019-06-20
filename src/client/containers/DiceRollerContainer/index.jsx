@@ -66,6 +66,7 @@ class DiceRollerContainer extends React.Component {
     const singleDiceButtons = this.state.dice.map((die, index) => (
       <Button
         key={index}
+        className='full matchInput'
         value={die}
         handleClick={this.handleClick}
         >{`Roll a D${die}`}</Button>
@@ -103,9 +104,11 @@ class DiceRollerContainer extends React.Component {
               </Column>
 
               <Column classes='is-3'>
-                <h4>Quick Roll</h4>
+                <h4>Custom Roll</h4>
                 {multiDiceForm}
-                <Button handleClick={this.handleCustomRoll}>
+                <Button
+                  className='full'
+                  handleClick={this.handleCustomRoll}>
                     Roll them Dice</Button>
               </Column>
             </Row>
