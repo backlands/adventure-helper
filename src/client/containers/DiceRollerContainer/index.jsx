@@ -8,6 +8,7 @@ import Row from '../../components/Row';
 import Column from '../../components/Column';
 
 import './styles.scss';
+
 class DiceRollerContainer extends React.Component {
   constructor() {
     super();

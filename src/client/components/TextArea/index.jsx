@@ -32,6 +32,6 @@ class TextArea extends React.PureComponent {
       </div>
     );
   }
-};
+}
 
 export default TextArea;
