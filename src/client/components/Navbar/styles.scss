@@ -17,8 +17,9 @@
 }
 
 .Navbar:not(.cards) {
-  position: relative;
-  flex-shrink: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
   background: $current;
   height: 100%;
   width: 60px;
@@ -105,6 +106,14 @@
   }
 }
 
+@media (max-width: 600px) {
+  .Navbar:not(.cards) {
+    &.expanded {
+      width: 100%;
+    }
+  }
+}
+
 .Navbar.cards {
   .homeLink { display: none; }
   ul {
@@ -137,5 +146,40 @@
   }
   svg {
     float: right;
+  }
+}
+
+@media (max-width: 1200px) {
+  .Navbar.cards {
+    ul {
+      li {
+        width: 46%;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .Navbar.cards {
+    ul {
+      li {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .Navbar.cards {
+    ul {
+      li {
+        width: 100%;
+      }
+    }
+    a {
+      p {
+        display: none;
+      }
+    }
   }
 }
