@@ -14,6 +14,7 @@
   }
 
   .picker {
+    min-width: 250px;
     padding: 30px 0 30px 30px;
     @include flex(column);
     > .Button {
@@ -41,6 +42,7 @@
 
 @media (max-width: 1000px) {
   .NotesContainer {
+    .picker { min-width: unset; }
     .note, .picker {
       flex-basis: 100%;
       max-width: unset;

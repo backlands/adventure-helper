@@ -11,7 +11,6 @@ import Column from '../../components/Column';
 import Modal from '../../components/Modal';
 import Save from '../../components/Save';
 
-import noteData from './state.json';
 import './styles.scss';
 
 class NoteSheetContainer extends React.Component {
@@ -19,9 +18,10 @@ class NoteSheetContainer extends React.Component {
     super(props);
     this.storageID = 'NOTES';
 
-    const loadedState = JSON.parse(localStorage.getItem(this.storageID));
+    this.loadedState = JSON.parse(localStorage.getItem(this.storageID));
+    this.baseState = { activeNote: null, notes: [] };
 
-    this.state = loadedState || noteData;
+    this.state = this.loadedState || this.baseState;
 
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -41,7 +41,7 @@ class NoteSheetContainer extends React.Component {
     const notes = [...this.state.notes];
     const { activeNote } = this.state;
 
-    if (activeNote) {
+    if (this.state.activeNote !== null) {
       notes[this.state.activeNote].title = e.target.value;
       this.setState({ notes, activeNote });
     } else {
@@ -83,7 +83,7 @@ class NoteSheetContainer extends React.Component {
   resetHandler() {
     localStorage.removeItem(this.storageID);
 
-    this.setState({ ...noteData });
+    this.setState({ ...this.baseState });
   }
 
   render() {
