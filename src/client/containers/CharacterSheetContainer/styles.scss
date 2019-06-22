@@ -1,3 +1,104 @@
+@import '../../styles/variables.scss';
+
 .CharacterSheetContainer {
   padding: 60px;
+  h2, h3 {
+    position: relative;
+    display: block;
+    background: $selection;
+    text-align: center;
+    margin-top: 0;
+    padding: 3px 1em 0 1em;
+    line-height: 32px;
+    margin-bottom: 30px;
+    &:before, &:after {
+      display: block;
+      content: '';
+      background: $foreground;
+      width: 5px;
+      height: 5px;
+      position: absolute;
+      transform: translateY(-50%);
+    }
+    &:before {
+      top: 50%;
+      left: 0.5em;
+    }
+    &:after {
+      top: 50%;
+      right: 0.5em;
+    }
+  }
+  .Column > h3 {
+    padding-top: 4px;
+    padding-bottom: 2px;
+    margin-bottom: 0;
+  }
+  .small {
+    float: right;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1800px) {
+  .CharacterSheetContainer {
+    .Skills, .General {
+      flex-basis: 100%;
+      max-width: unset;
+      padding: 0;
+    }
+  }
+}
+
+@media (max-width: 1500px) {
+  .CharacterSheetContainer {
+    .Abilities, .Classes {
+      flex-basis: 100%;
+      max-width: unset;
+      padding: 0;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .CharacterSheetContainer {
+    .Combat, .Notes {
+      flex-basis: 100%;
+      max-width: unset;
+      padding: 0;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .CharacterSheetContainer {
+    .Details .Column {
+      flex-basis: 100%;
+      max-width: unset;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+    .Misc .Column {
+      flex-basis: 50%;
+      max-width: 50%;
+      margin-bottom: 20px;
+      &:nth-child(odd) {
+        padding-left: 0;
+      }
+      &:nth-child(even) {
+        padding-right: 0;
+      }
+    }
+    .General { overflow: auto; }
+  }
+}
+
+@media (max-width: 600px) {
+  .CharacterSheetContainer {
+    .Misc .Column {
+      flex-basis: 100%;
+      max-width: 100%;
+      padding: 0;
+    }
+  }
 }

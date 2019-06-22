@@ -41,9 +41,9 @@ const ArmorClass = ({
   }
 
   return (
-    <Row>
+    <Row classes='middle'>
       <Column classes='is-2'>
-        <span>{title}</span>
+        <h3>{title}</h3>
       </Column>
       <Column>
         <Input
@@ -57,15 +57,22 @@ const ArmorClass = ({
       <Column classes='shrink'><span>10</span></Column>
       <Column classes='shrink'><span>+</span></Column>
       <Column>
-      {type !== 'touch' ? (
-        <Input
-          type='number'
-          name='armor'
-          text='Armor'
-          id={id}
-          value={values.armor}
-          handleChange={handleChange} />
-      ) : ('N/A')}
+        {type !== 'touch' ? (
+          <Input
+            type='number'
+            name='armor'
+            text='Armor'
+            id={id}
+            value={values.armor}
+            handleChange={handleChange} />
+        ) : (
+          <Input
+            type='text'
+            name='armor'
+            text='Armor'
+            value='N/A'
+            readOnly />
+        )}
       </Column>
       <Column classes='shrink'><span>+</span></Column>
       <Column>
@@ -77,7 +84,14 @@ const ArmorClass = ({
             id={id}
             value={values.shield}
             handleChange={handleChange} />
-        ) : ('N/A')}
+        ) : (
+          <Input
+            type='text'
+            name='shield'
+            text='Shield'
+            value='N/A'
+            readOnly />
+        )}
       </Column>
       <Column classes='shrink'><span>+</span></Column>
       <Column>
@@ -88,7 +102,14 @@ const ArmorClass = ({
             text='Ability'
             readOnly
             value={ability} />
-        ) : ('N/A')}
+        ) : (
+          <Input
+            type='text'
+            name='ability'
+            text='Ability'
+            value='N/A'
+            readOnly />
+        )}
       </Column>
       <Column classes='shrink'><span>+</span></Column>
       <Column>
@@ -100,7 +121,14 @@ const ArmorClass = ({
             id={id}
             value={values.dodge}
             handleChange={handleChange} />
-        ) : ('N/A')}
+        ) : (
+          <Input
+            type='text'
+            name='dodge'
+            text='Dodge'
+            value='N/A'
+            readOnly />
+        )}
       </Column>
       <Column classes='shrink'><span>+</span></Column>
       <Column>
@@ -122,7 +150,14 @@ const ArmorClass = ({
             id={id}
             value={values.natural}
             handleChange={handleChange} />
-        ) : ('N/A')}
+        ) : (
+          <Input
+            type='text'
+            name='natural'
+            text='Natural'
+            value='N/A'
+            readOnly />
+        )}
       </Column>
       <Column classes='shrink'><span>+</span></Column>
       <Column>

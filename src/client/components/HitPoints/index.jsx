@@ -10,7 +10,7 @@ class CharacterDetails extends React.PureComponent {
       <div>
         <Row>
           <Column>
-            <h2>Hit Points</h2>
+            <h3>Hit Points</h3>
           </Column>
           <Column>
             <Input

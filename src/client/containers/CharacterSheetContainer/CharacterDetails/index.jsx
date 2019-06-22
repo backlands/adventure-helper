@@ -1,13 +1,13 @@
 import React from 'react';
-import Row from '../Row';
-import Column from '../Column';
-import Input from '../Input';
+import Row from '../../../components/Row';
+import Column from '../../../components/Column';
+import Input from '../../../components/Input';
 
 class CharacterDetails extends React.PureComponent {
   render() {
     return (
       <div>
-        <Row>
+        <Row classes='Details wrap'>
           <Column classes='is-4'>
             <Input
               name='name'
@@ -49,7 +49,7 @@ class CharacterDetails extends React.PureComponent {
               handleChange={this.props.handleChange} />
           </Column>
         </Row>
-        <Row>
+        <Row classes='Misc wrap'>
           <Column classes='is-4'>
             <Input
               name='player'

@@ -14,17 +14,18 @@ class Skill extends React.PureComponent {
     const total = ranks + abilityBonus + trainedBonus + misc;
 
     return (
-      <Row>
+      <Row classes='middle'>
+        <Column classes='is-3'><h3>{this.props.title}</h3></Column>
+        <Column classes='is-1'><span>{this.props.ability}</span></Column>
         <Column classes='shrink'>
           <Checkbox
             type='checkbox'
+            text='Class Skill'
             name='classSkill'
             id={this.props.id}
             checked={this.props.classSkill}
             handleChange={this.props.handleChange} />
         </Column>
-        <Column classes='is-3'><span>{this.props.title}</span></Column>
-        <Column classes='is-1'><span>{this.props.ability}</span></Column>
         <Column>
           <Input
             type='number'

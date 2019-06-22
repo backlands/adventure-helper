@@ -16,8 +16,8 @@ const CombatRoll = ({
   const total = singleBAB + abilities + size + temp + staticBonus;
 
   return (
-    <Row>
-      <Column classes='is-2'><span>CMD</span></Column>
+    <Row classes='middle'>
+      <Column classes='is-2'><h3>CMD</h3></Column>
       <Column>
         <Input
           type='text'
@@ -60,7 +60,14 @@ const CombatRoll = ({
           handleChange={handleChange} />
       </Column>
       <Column classes='shrink'><span>+</span></Column>
-      <Column><span>10</span></Column>
+      <Column>
+        <Input
+          type='number'
+          name='temp'
+          id={id}
+          value={10}
+          readOnly />
+        </Column>
     </Row>
   );
 };

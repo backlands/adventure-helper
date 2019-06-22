@@ -10,18 +10,18 @@ class ArmorClassContainer extends React.Component {
     return (
       <React.Fragment>
         <ArmorClass
-          title='Armor Class'
+          title='AC'
           type='regular'
           ability={bonus}
           values={this.props.armor}
           handleChange={this.props.handleChange} />
         <ArmorClass
-          title='Flat-Footed AC'
+          title='Flat'
           type='flat'
           values={this.props.armor}
           handleChange={this.props.handleChange} />
         <ArmorClass
-          title='Touch AC'
+          title='Touch'
           type='touch'
           ability={bonus}
           values={this.props.armor}

@@ -19,8 +19,8 @@ const CombatRoll = ({
   });
 
   return (
-    <Row>
-      <Column classes='is-2'><span>{title}</span></Column>
+    <Row classes='middle'>
+      <Column classes='is-2'><h3>{title}</h3></Column>
       <Column>
         <Input
           type='text'

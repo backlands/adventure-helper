@@ -29,7 +29,7 @@ class SaveRollContainer extends React.Component {
         <SaveRoll
           key={index}
           id={index}
-          title={`${outputTitle} Save`}
+          title={outputTitle}
           base={this.totalBaseSave(type)}
           ability={bonus}
           enhance={enhance}

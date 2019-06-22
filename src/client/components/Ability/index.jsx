@@ -13,8 +13,8 @@ const Ability = ({
   tempModifier,
   handleChange,
 }) => (
-  <Row>
-    <Column>
+  <Row classes='Ability'>
+    <Column classes='is-2 align-center'>
       <span>{title}</span>
     </Column>
     <Column>
@@ -42,6 +42,7 @@ const Ability = ({
         text='Bonus'
         id={id}
         readOnly
+        disabled
         value={baseModifier} />
     </Column>
     <Column>
@@ -60,6 +61,7 @@ const Ability = ({
         text='Temp Mod'
         id={id}
         readOnly
+        disabled
         value={tempModifier} />
     </Column>
   </Row>

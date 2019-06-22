@@ -34,7 +34,12 @@ textarea {
   max-width: 100%;
   font-family: sans-serif;
   font-weight: $normal;
+  text-align: center;
   @include transition;
+  &:disabled {
+    background: lighten($background, 5%);
+    border-bottom-color: transparent;
+  }
   &:focus {
     outline: none;
     border-color: $green;
@@ -77,6 +82,7 @@ label {
   position: absolute;
   bottom: calc(100% + 2px);
   left: 50%;
+  width: 100%;
   transform: translateX(-50%);
   margin: 0;
   display: block;
@@ -88,7 +94,9 @@ label {
 
 .overlay-label {
   position: relative;
+  text-align: left;
   label {
+    width: auto;
     position: absolute;
     bottom: 4px;
     left: 4px;

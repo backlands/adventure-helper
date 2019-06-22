@@ -1,12 +1,13 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSquare, faCheckSquare } from '@fortawesome/pro-light-svg-icons';
+import { faSquare as faOutline } from '@fortawesome/pro-light-svg-icons';
+import { faSquare as faFilled } from '@fortawesome/pro-solid-svg-icons';
 
 import '../../styles/input.scss';
 
 // eslint-disable-next-line object-curly-newline
 const Checkbox = ({ name, checked = false, id, handleChange = null }) => {
-  const icon = checked ? faCheckSquare : faSquare;
+  const icon = checked ? faFilled : faOutline;
 
 
   return (
@@ -14,7 +15,8 @@ const Checkbox = ({ name, checked = false, id, handleChange = null }) => {
       <FontAwesomeIcon
         icon={icon}
         fixedWidth
-        onClick={handleChange} />
+        onClick={handleChange}
+        size='lg' />
       <input
         type='checkbox'
         name={name}

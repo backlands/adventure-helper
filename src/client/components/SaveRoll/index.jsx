@@ -16,8 +16,8 @@ const SaveRoll = ({
   const total = base + ability + enhance + misc + temp;
 
   return (
-    <Row>
-      <Column classes='is-3'><span>{title}</span></Column>
+    <Row classes='middle'>
+      <Column classes='is-3'><h3>{title}</h3></Column>
       <Column>
         <Input
           type='number'
