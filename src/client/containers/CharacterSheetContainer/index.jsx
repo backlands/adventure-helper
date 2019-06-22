@@ -26,9 +26,9 @@ class CharacterSheetContainer extends React.Component {
 
     this.storageID = 'CHARACTER';
 
-    const loadedState = JSON.parse(localStorage.getItem(this.storageID));
+    this.loadedState = JSON.parse(localStorage.getItem(this.storageID));
 
-    this.state = loadedState || characterData;
+    this.state = this.loadedState || characterData;
 
     this.abilities = this.abilitiesToObject();
 

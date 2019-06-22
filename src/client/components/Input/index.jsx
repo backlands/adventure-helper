@@ -20,9 +20,7 @@ class Input extends React.PureComponent {
       },
     );
 
-    const value = this.props.handleChange
-      ? this.props.value || ''
-      : '';
+    const value = this.props.value || '';
 
     return (
       <div className={inputState}>
