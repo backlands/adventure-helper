@@ -69,3 +69,11 @@
     stroke: $green;
   }
 }
+
+@media (max-width: 1000px) {
+  .NotesContainer {
+    .quill {
+      border-right: 0;
+    }
+  }
+}

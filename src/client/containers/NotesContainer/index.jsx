@@ -113,7 +113,7 @@ class NoteSheetContainer extends React.Component {
           defaultValue=''
           handleChange={this.handleChange}
           />
-        <Row>
+        <Row classes='wrap'>
           <Column classes='note'>
             <NoteEditorContainer
               value={this.state.notes[activeNote] ? this.state.notes[activeNote].content : ''}

@@ -39,3 +39,13 @@
     }
   }
 }
+
+@media (max-width: 1000px) {
+  .NotesContainer {
+    .note, .picker {
+      flex-basis: 100%;
+      max-width: unset;
+      padding-right: 0;
+    }
+  }
+}
