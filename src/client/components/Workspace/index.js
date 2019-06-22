@@ -6,8 +6,8 @@ import HomeContainer from '../../containers/HomeContainer';
 import DiceRollerContainer from '../../containers/DiceRollerContainer';
 import NotesContainer from '../../containers/NotesContainer';
 import CharacterSheetContainer from '../../containers/CharacterSheetContainer';
-import PrivacyPolicy from '../PrivacyPolicy';
-import OGL from '../OGL';
+import PrivacyPolicy from '../../pages/PrivacyPolicy';
+import OGL from '../../pages/OGL';
 
 import './styles.scss';
 
@@ -19,7 +19,6 @@ const Workspace = () => (
     <Route path="/character-sheet/" exact component={CharacterSheetContainer} />
     <Route path="/privacy-policy/" exact component={PrivacyPolicy} />
     <Route path="/ogl/" exact component={OGL} />
-
 
     <Footer />
   </div>
