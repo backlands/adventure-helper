@@ -96,7 +96,7 @@ class DiceRollerContainer extends React.Component {
       <React.Fragment>
         <Header title='Dice Roller' icon={faDiceD20} />
 
-        <Row classes='DiceRollerContainer'>
+        <Row classes='DiceRollerContainer wrap'>
           <Column classes='is-8'>
             <Row classes='sides'>
               <Column classes='is-6'>
