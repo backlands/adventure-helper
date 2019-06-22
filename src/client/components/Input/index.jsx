@@ -20,6 +20,10 @@ class Input extends React.PureComponent {
       },
     );
 
+    const value = this.props.handleChange
+      ? this.props.value || ''
+      : '';
+
     return (
       <div className={inputState}>
         <label htmlFor={this.props.name}>{this.props.text}</label>
@@ -32,7 +36,7 @@ class Input extends React.PureComponent {
           placeholder={this.props.placeholder || ''}
           readOnly={this.props.readOnly}
           disabled={this.props.disabled || this.props.readOnly || false}
-          value={this.props.value === 0 ? '' : this.props.value}
+          value={value === 0 ? '' : value}
           onChange={this.props.handleChange}
           onFocus={() => { this.setState({ isFocused: true }); }}
           onBlur={() => { this.setState({ isFocused: false }); }}

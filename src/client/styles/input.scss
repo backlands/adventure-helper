@@ -94,7 +94,9 @@ label {
 
 .overlay-label {
   position: relative;
-  text-align: left;
+  input {
+    text-align: left;
+  }
   label {
     width: auto;
     position: absolute;

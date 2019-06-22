@@ -7,6 +7,7 @@ import HitPoints from '../../components/HitPoints';
 import Initiative from '../../components/Initiative';
 import Row from '../../components/Row';
 import TextArea from '../../components/TextArea';
+import Save from '../../components/Save';
 
 import CharacterDetails from './CharacterDetails';
 import AbilityContainer from './AbilityContainer';
@@ -23,12 +24,18 @@ class CharacterSheetContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = characterData;
+    this.storageID = 'CHARACTER';
+
+    const loadedState = JSON.parse(localStorage.getItem(this.storageID));
+
+    this.state = loadedState || characterData;
 
     this.abilities = this.abilitiesToObject();
 
     this.handleAbilityChange = this.handleAbilityChange.bind(this);
     this.handleSkillChange = this.handleSkillChange.bind(this);
+    this.saveHandler = this.saveHandler.bind(this);
+    this.resetHandler = this.resetHandler.bind(this);
   }
 
   componentWillUpdate() {
@@ -168,9 +175,21 @@ class CharacterSheetContainer extends React.Component {
     );
   }
 
+  saveHandler() {
+    localStorage.setItem(this.storageID, JSON.stringify(this.state));
+  }
+
+  resetHandler() {
+    localStorage.removeItem(this.storageID);
+
+    this.setState({ ...characterData });
+  }
+
   render() {
     return (
       <React.Fragment>
+        <Save saveHandler={this.saveHandler} resetHandler={this.resetHandler} />
+
         <Header title='Character Sheet' icon={faHelmetBattle} />
 
         <div className='CharacterSheetContainer'>

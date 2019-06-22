@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 // APPEARANCE
 @mixin appearance($value: none) {
   -webkit-appearance: $value;
@@ -10,7 +12,7 @@
 }
 
 // DROP SHADOWS
-@mixin box-shadow($shadow: 0 1px 4px 0 fadeout(black, 70%)) {
+@mixin box-shadow($shadow: 0 1px 4px 0 fadeout($background, 70%)) {
   -webkit-box-shadow: $shadow;
           box-shadow: $shadow;
 }

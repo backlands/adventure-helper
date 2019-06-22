@@ -3,27 +3,33 @@ import React from 'react';
 import { faPencil } from '@fortawesome/pro-light-svg-icons';
 
 import Header from '../../components/Header';
-import noteData from './state.json';
 import NoteEditorContainer from './NoteEditorContainer';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Row from '../../components/Row';
 import Column from '../../components/Column';
 import Modal from '../../components/Modal';
+import Save from '../../components/Save';
 
+import noteData from './state.json';
 import './styles.scss';
 
 class NoteSheetContainer extends React.Component {
   constructor(props) {
     super(props);
+    this.storageID = 'NOTES';
 
-    this.state = noteData;
+    const loadedState = JSON.parse(localStorage.getItem(this.storageID));
+
+    this.state = loadedState || noteData;
 
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleEditorChange = this.handleEditorChange.bind(this);
     this.handleNewNote = this.handleNewNote.bind(this);
     this.handleDeleteNote = this.handleDeleteNote.bind(this);
+    this.saveHandler = this.saveHandler.bind(this);
+    this.resetHandler = this.resetHandler.bind(this);
   }
 
   handleClick(e) {
@@ -65,9 +71,19 @@ class NoteSheetContainer extends React.Component {
   handleDeleteNote() {
     const notes = [...this.state.notes];
 
-    notes.pop(this.activeNote);
+    notes.splice(this.state.activeNote, 1);
 
     this.setState({ notes, activeNote: null, deleting: false });
+  }
+
+  saveHandler() {
+    localStorage.setItem(this.storageID, JSON.stringify(this.state));
+  }
+
+  resetHandler() {
+    localStorage.removeItem(this.storageID);
+
+    this.setState({ ...noteData });
   }
 
   render() {
@@ -101,6 +117,8 @@ class NoteSheetContainer extends React.Component {
 
     return (
     <React.Fragment>
+      <Save saveHandler={this.saveHandler} resetHandler={this.resetHandler} />
+
       <Header title='Note Sheet' icon={faPencil} />
 
       <div className='NotesContainer'>

@@ -23,12 +23,15 @@
   background: $current;
   height: 100%;
   width: 60px;
+  z-index: 100;
   // padding: 10px 0;
   @include transition(width 0.5s ease-in-out);
   ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    height: 100%;
+    @include flex(column);
     li {
       margin: 5px 0;
       padding: 0;
@@ -91,12 +94,12 @@
     }
   }
 
+  .pushEnd {
+    margin-top: auto;
+  }
+
   .minimizeToggle {
     // display: block;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
     padding: 0;
     svg {
       padding: 0;
@@ -115,7 +118,7 @@
 }
 
 .Navbar.cards {
-  .homeLink { display: none; }
+  .noCard { display: none; }
   ul {
     @include flex;
     flex-wrap: wrap;

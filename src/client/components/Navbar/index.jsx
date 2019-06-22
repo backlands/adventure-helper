@@ -37,7 +37,7 @@ class Navbar extends React.PureComponent {
     const toggler = this.props.hideToggle
       ? null
       : (
-        <li className='minimizeToggle'>
+        <li className='minimizeToggle noCard pushEnd'>
           <a onClick={this.handleClick} >
             <FontAwesomeIcon icon={faCaretLeft} fixedWidth size='3x' />
             <span>Minimize</span>
@@ -49,7 +49,7 @@ class Navbar extends React.PureComponent {
 
       <div className={minimize}>
         <ul>
-          <li className='homeLink'>
+          <li className='homeLink noCard'>
             <NavLink exact to="/">
               <FontAwesomeIcon icon={faHome} fixedWidth size='2x' />
               <span>Home</span>
