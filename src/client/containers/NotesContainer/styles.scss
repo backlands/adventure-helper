@@ -14,7 +14,6 @@
   }
 
   .picker {
-    min-width: 300px;
     padding: 30px 0 30px 30px;
     @include flex(column);
     > .Button {
