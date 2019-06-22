@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faHome, faDiceD20, faHelmetBattle, faPencil, faCaretLeft,
+  faHome, faDiceD20, faHelmetBattle, faPencil, faCaretLeft, faQuestion,
 } from '@fortawesome/pro-light-svg-icons';
 
 import './styles.scss';
@@ -77,6 +77,13 @@ class Navbar extends React.PureComponent {
               <span>Character Sheet</span>
               {/* eslint-disable-next-line max-len */}
               <p>Quickly map out your characters abilities, skills, classes, and other stats with auto-calculations done for you. Currently supports Pathfinder 1E by Paizo.</p>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink exact to="/help/">
+              <FontAwesomeIcon icon={faQuestion} fixedWidth size='2x' />
+              <span>Help &amp; Info</span>
+              {/* eslint-disable-next-line max-len */}
             </NavLink>
           </li>
           {toggler}

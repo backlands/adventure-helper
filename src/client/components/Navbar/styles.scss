@@ -113,9 +113,7 @@
     justify-content: space-between;
     li {
       width: 30%;
-      &:not(:nth-last-of-type(-n+3)) {
-        margin-bottom: 60px;
-      }
+      margin-bottom: 30px;
     }
   }
   a {
