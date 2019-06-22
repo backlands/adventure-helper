@@ -53,7 +53,7 @@ class NoteSheetContainer extends React.Component {
     }
   }
 
-  handleNewNote(e, title = 'New Note') {
+  handleNewNote(e, title = '') {
     const notes = [...this.state.notes];
     const activeNote = notes.length;
 
@@ -79,7 +79,7 @@ class NoteSheetContainer extends React.Component {
         key={index}
         className={this.state.activeNote === index ? 'active' : ''}
         id={index}
-        handleClick={this.handleClick}>{note.title}</Button>
+        handleClick={this.handleClick}>{note.title || 'Untitled Note'}</Button>
     ));
 
     const active = this.state.activeNote !== null;
