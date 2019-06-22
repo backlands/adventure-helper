@@ -10,6 +10,7 @@ import Button from '../../components/Button';
 import Input from '../../components/Input';
 import Row from '../../components/Row';
 import Column from '../../components/Column';
+import Modal from '../../components/Modal';
 
 import './styles.scss';
 
@@ -65,12 +66,9 @@ class NoteSheetContainer extends React.Component {
   handleDeleteNote() {
     const notes = [...this.state.notes];
 
-    // eslint-disable-next-line
-    if (confirm('Do you want to delete your current note?')) {
-      notes.pop(this.activeNote);
-    }
+    notes.pop(this.activeNote);
 
-    this.setState({ notes, activeNote: null });
+    this.setState({ notes, activeNote: null, deleting: false });
   }
 
   render() {
@@ -86,7 +84,20 @@ class NoteSheetContainer extends React.Component {
     const { activeNote } = this.state;
 
     const deleteButton = active
-      ? <Button className='delete' handleClick={this.handleDeleteNote}>Delete Note</Button>
+      ? <Button className='delete' handleClick={() => (
+        this.setState({ deleting: true })
+      )}>Delete Note</Button>
+      : null;
+
+    const deleteModal = this.state.deleting
+      ? <Modal
+        confirm='Delete'
+        onConfirm={this.handleDeleteNote}
+        onCancel={() => (this.setState({ deleting: false }))}>
+        Are you sure you would like to delete your <strong>{
+          this.state.notes[activeNote].title
+        }</strong> note? This action cannot be reversed and the entire note will be lost.
+      </Modal>
       : null;
 
     return (
@@ -111,12 +122,14 @@ class NoteSheetContainer extends React.Component {
           </Column>
           <Column classes='picker is-3'>
             <NotePicker>
-              {notes}
+            {notes}
             </NotePicker>
             <Button
               className='createNew'
               handleClick={this.handleNewNote}>Create New Note</Button>
+
             {deleteButton}
+            {deleteModal}
           </Column>
         </Row>
       </div>
