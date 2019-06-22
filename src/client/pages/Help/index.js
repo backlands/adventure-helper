@@ -2,14 +2,14 @@ import React from 'react';
 import { faQuestion } from '@fortawesome/pro-light-svg-icons';
 
 import Header from '../../components/Header';
-import './styles.scss';
+import '../styles.scss';
 
 /* eslint-disable max-len */
 const Help = () => (
   <React.Fragment>
     <Header title='Help' icon={faQuestion} />
 
-    <div className='Help'>
+    <div className='Page'>
       <p>If you experience any difficulty using the tools presented here, you can contact me with details by submitting a request to me at the form found <a href='https://forms.gle/qPnEsJYiXBcJFD6W8' target='_blank'>here</a>.</p>
 
       <p>Please note, the form linked above is provided by Google, I cannot guarantee what personal data Google may collect from your access to the form or your submission.</p>

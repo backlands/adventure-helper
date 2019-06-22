@@ -2,14 +2,14 @@ import React from 'react';
 import { faBrackets } from '@fortawesome/pro-light-svg-icons';
 
 import Header from '../../components/Header';
-import './styles.scss';
+import '../styles.scss';
 
 /* eslint-disable max-len */
 const OGL = () => (
   <React.Fragment>
     <Header title='Open Gaming License' icon={faBrackets} />
 
-    <div className='OGL'>
+    <div className='Page'>
       <h2>Community Use Policy</h2>
       <p>This website may use trademarks and/or copyrights owned by Paizo Publishing, LLC, which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This website is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit <a href="http://www.paizo.com/communityuse">paizo.com/communityuse</a>. For more information about Paizo Publishing and Paizo products, please visit <a href="http://www.paizo.com">paizo.com</a>.</p>
 

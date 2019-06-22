@@ -2,14 +2,14 @@ import React from 'react';
 import { faUserNinja } from '@fortawesome/pro-light-svg-icons';
 
 import Header from '../../components/Header';
-import './styles.scss';
+import '../styles.scss';
 
 /* eslint-disable max-len */
 const PrivacyPolicy = () => (
   <React.Fragment>
     <Header title='Privacy Policy' icon={faUserNinja} />
 
-    <div className='PrivacyPolicy'>
+    <div className='Page'>
       <p>No personal data is collected in the use of this site, except for low level data outlined below. This data is used to ensure performance and functionality of the services provided here.</p>
 
       <h2>Log Data</h2>
