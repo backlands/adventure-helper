@@ -5,11 +5,11 @@ import Column from '../Column';
 
 const SaveRoll = ({
   title,
-  base,
-  ability,
-  enhance,
-  misc,
-  temp,
+  base = 0,
+  ability = 0,
+  enhance = 0,
+  misc = 0,
+  temp = 0,
   id,
   handleChange,
 }) => {

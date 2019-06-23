@@ -6,19 +6,19 @@ import Column from '../Column';
 const ArmorClass = ({
   title,
   values,
-  ability,
+  ability = 0,
   type,
   id,
   handleChange,
 }) => {
   const {
-    armor,
-    shield,
-    dodge,
-    size,
-    natural,
-    deflection,
-    misc,
+    armor = 0,
+    shield = 0,
+    dodge = 0,
+    size = 0,
+    natural = 0,
+    deflection = 0,
+    misc = 0,
   } = values;
 
   let total = '';

@@ -3,75 +3,113 @@
   "abilities": [
     {
       "title": "STR",
-      "score": 10,
-      "baseModifier": 0
+      "score": 10
     },
     {
       "title": "DEX",
-      "score": 10,
-      "baseModifier": 0
+      "score": 10
     },
     {
       "title": "CON",
-      "score": 10,
-      "baseModifier": 0
+      "score": 10
     },
     {
       "title": "INT",
-      "score": 10,
-      "baseModifier": 0
+      "score": 10
     },
     {
       "title": "WIS",
-      "score": 10,
-      "baseModifier": 0
+      "score": 10
     },
     {
       "title": "CHA",
-      "score": 10,
-      "baseModifier": 0
+      "score": 10
     }
   ],
   "classes": [
     {
-      "hitdice": "",
-      "className": "",
-      "bab": ""
+      "hitdice": 12,
+      "className": "Fighter",
+      "bab": "10 / 5",
+      "skillPoints": 4,
+      "favoured": 4,
+      "fortitude": 3,
+      "reflex": 5,
+      "will": 3,
+      "levels": 4
     },
     {},
     {}
   ],
-  "hitpoints": {},
-  "armor": {},
+  "hitpoints": {
+    "total": 39,
+    "damageReduction": "",
+    "wounds": "",
+    "nonlethal": ""
+  },
+  "armor": {
+    "regular": 19,
+    "flat": 17,
+    "touch": 12,
+    "armor": 5,
+    "shield": 2,
+    "dodge": 0,
+    "size": 0,
+    "natural": 0,
+    "deflection": 0,
+    "misc": 0
+  },
   "saves": [
     {
       "type": "fortitude",
-      "ability": "CON"
+      "ability": "CON",
+      "enhance": 0,
+      "temp": 0,
+      "misc": 0
     },
     {
       "type": "reflex",
-      "ability": "DEX"
+      "ability": "DEX",
+      "enhance": 0,
+      "temp": 0,
+      "misc": 0
     },
     {
       "type": "will",
-      "ability": "WIS"
+      "ability": "WIS",
+      "enhance": 0,
+      "temp": 0,
+      "misc": 0
     }
   ],
   "combat": [
     {
       "type": "melee",
-      "ability": "STR"
+      "ability": "STR",
+      "size": 0,
+      "temp": 0,
+      "misc": 1
     },
     {
       "type": "ranged",
-      "ability": "DEX"
+      "ability": "DEX",
+      "size": 0,
+      "temp": 1,
+      "misc": 1
     },
     {
       "type": "CMB",
-      "ability": "STR"
+      "ability": "STR",
+      "size": 0,
+      "temp": 1,
+      "misc": 1
     }
   ],
-  "cmd": {},
+  "cmd": {
+    "size": 0,
+    "temp": 1,
+    "misc": 1
+  },
   "skills": [
     {
       "title": "Acrobatics",

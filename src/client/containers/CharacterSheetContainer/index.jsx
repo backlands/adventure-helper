@@ -86,47 +86,54 @@ class CharacterSheetContainer extends React.Component {
   }
 
   handleAbilityChange(event) {
-    const {
+    let {
       value,
-      name,
       id,
     } = event.target;
 
+    const { name } = event.target;
+
+
+    value = Number(value);
+    id = Number(id);
+
     const { abilities } = this.state;
-    const { score, item, temp } = abilities[Number(id)];
+    const { score = 0, item = 0, temp = 0 } = abilities[id];
 
     if (name === 'temp') {
-      const tempModifier = Math.floor((score + item - 10 + Number(value)) / 2);
+      const tempModifier = Math.floor((score + item - 10 + value) / 2);
 
-      abilities[Number(id)].temp = Number(value);
-      abilities[Number(id)].tempModifier = tempModifier;
+      abilities[id].temp = value;
+      abilities[id].tempModifier = tempModifier;
 
       this.setState({
         abilities,
       });
     } else if (name === 'score') {
-      const baseModifier = Math.floor((Number(value) + item - 10) / 2);
-      const tempModifier = Math.floor((Number(value) + item - 10 + temp) / 2);
+      const baseModifier = Math.floor((value + item - 10) / 2);
+      const tempModifier = Math.floor((value + item - 10 + temp) / 2);
 
-      abilities[Number(id)].score = Number(value);
-      abilities[Number(id)].baseModifier = baseModifier;
-      abilities[Number(id)].tempModifier = tempModifier;
+      abilities[id].score = value;
+      abilities[id].baseModifier = baseModifier;
+      abilities[id].tempModifier = tempModifier;
 
       this.setState({
         abilities,
       });
     } else if (name === 'item') {
-      const baseModifier = Math.floor(score + (Number(value) - 10) / 2);
-      const tempModifier = Math.floor((score + Number(value) - 10 + temp) / 2);
+      const baseModifier = Math.floor(score + (value - 10) / 2);
+      const tempModifier = Math.floor((score + value - 10 + temp) / 2);
 
-      abilities[Number(id)].item = Number(value);
-      abilities[Number(id)].baseModifier = baseModifier;
-      abilities[Number(id)].tempModifier = tempModifier;
+      abilities[id].item = value;
+      abilities[id].baseModifier = baseModifier;
+      abilities[id].tempModifier = tempModifier;
 
       this.setState({
         abilities,
       });
     }
+
+    this.abilities = this.abilitiesToObject();
   }
 
   handleSkillChange(event) {

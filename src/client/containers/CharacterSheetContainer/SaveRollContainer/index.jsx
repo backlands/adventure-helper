@@ -9,7 +9,6 @@ class SaveRollContainer extends React.Component {
       totalSave += aClass[type] ? aClass[type] : 0;
     });
 
-
     return totalSave;
   }
 

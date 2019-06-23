@@ -4,16 +4,15 @@ import Input from '../Input';
 import Column from '../Column';
 
 const CombatRoll = ({
-  bab,
-  abilities,
-  size,
-  temp,
+  bab = 0,
+  abilities = 0,
+  size = 0,
+  temp = 0,
   id,
   handleChange,
 }) => {
   const staticBonus = 10;
-  const singleBAB = Number(bab[0]);
-  const total = singleBAB + abilities + size + temp + staticBonus;
+  const total = bab + abilities + size + temp + staticBonus;
 
   return (
     <Row classes='middle'>
@@ -31,7 +30,7 @@ const CombatRoll = ({
           type='text'
           name='bab'
           readOnly
-          value={singleBAB} />
+          value={bab} />
         </Column>
       <Column classes='shrink'><span>+</span></Column>
         <Column>

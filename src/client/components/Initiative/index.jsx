@@ -4,8 +4,8 @@ import Row from '../Row';
 import Column from '../Column';
 
 const Skill = ({
-  ability,
-  bonus,
+  ability = 0,
+  bonus = 0,
   handleChange,
 }) => {
   const total = ability + bonus;

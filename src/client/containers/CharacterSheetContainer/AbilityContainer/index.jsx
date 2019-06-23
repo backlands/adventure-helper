@@ -5,7 +5,7 @@ class AbilityContianer extends React.Component {
   render() {
     const abilities = this.props.abilities.map((ability, index) => {
       const {
-        title, score, item, temp, tempModifier,
+        title, score = 0, item = 0, temp = 0, tempModifier = 0,
       } = ability;
 
       const baseModifier = Math.floor((score + item - 10) / 2);
