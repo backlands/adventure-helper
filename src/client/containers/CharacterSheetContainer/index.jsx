@@ -37,6 +37,10 @@ class CharacterSheetContainer extends React.Component {
     this.resetHandler = this.resetHandler.bind(this);
   }
 
+  componentWillUnmount() {
+    this.saveHandler();
+  }
+
   handleInputChange(namespace = undefined, event) {
     const {
       type,

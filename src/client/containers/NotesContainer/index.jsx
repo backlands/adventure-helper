@@ -32,6 +32,10 @@ class NoteSheetContainer extends React.Component {
     this.resetHandler = this.resetHandler.bind(this);
   }
 
+  componentWillUnmount() {
+    this.saveHandler();
+  }
+
   handleClick(e) {
     const activeNote = Number(e.target.id);
     this.setState({ activeNote });
