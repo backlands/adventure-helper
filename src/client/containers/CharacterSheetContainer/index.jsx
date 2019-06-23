@@ -26,20 +26,15 @@ class CharacterSheetContainer extends React.Component {
 
     this.storageID = 'CHARACTER';
 
-    this.loadedState = JSON.parse(localStorage.getItem(this.storageID));
+    const loadedState = JSON.parse(localStorage.getItem(this.storageID));
 
-    this.state = this.loadedState || characterData;
+    this.state = loadedState || characterData;
 
-    this.abilities = this.abilitiesToObject();
 
     this.handleAbilityChange = this.handleAbilityChange.bind(this);
     this.handleSkillChange = this.handleSkillChange.bind(this);
     this.saveHandler = this.saveHandler.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
-  }
-
-  componentWillUpdate() {
-    this.abilities = this.abilitiesToObject();
   }
 
   handleInputChange(namespace = undefined, event) {
@@ -132,8 +127,6 @@ class CharacterSheetContainer extends React.Component {
         abilities,
       });
     }
-
-    this.abilities = this.abilitiesToObject();
   }
 
   handleSkillChange(event) {
@@ -170,8 +163,9 @@ class CharacterSheetContainer extends React.Component {
   }
 
   initiative() {
-    const base = this.abilities.DEX.baseModifier;
-    const temp = this.abilities.DEX.tempModifier;
+    const abilities = this.abilitiesToObject();
+    const base = abilities.DEX.baseModifier;
+    const temp = abilities.DEX.tempModifier;
     const ability = temp !== '' ? temp : base;
 
     return (
@@ -193,6 +187,8 @@ class CharacterSheetContainer extends React.Component {
   }
 
   render() {
+    const abilities = this.abilitiesToObject();
+
     return (
       <React.Fragment>
         <Save saveHandler={this.saveHandler} resetHandler={this.resetHandler} />
@@ -239,7 +235,7 @@ class CharacterSheetContainer extends React.Component {
                 <div className='first-row-labels'>
                   <h2>Armor Classes</h2>
                   <ArmorClassContainer
-                    dexterity={this.abilities.DEX}
+                    dexterity={abilities.DEX}
                     armor={this.state.armor}
                     handleChange={this.handleInputChange.bind(this, 'armor')} />
                 </div>
@@ -250,7 +246,7 @@ class CharacterSheetContainer extends React.Component {
                     <h2>Save Rolls</h2>
                     <SaveRollContainer
                       saves={this.state.saves}
-                      abilities={this.abilities}
+                      abilities={abilities}
                       classes={this.state.classes}
                       handleChange={this.handleInputChange.bind(this, 'saves')} />
                   </div>
@@ -258,7 +254,7 @@ class CharacterSheetContainer extends React.Component {
                     <h2>Combat Rolls</h2>
                     <CombatRollContainer
                       checks={this.state.combat}
-                      abilities={this.abilities}
+                      abilities={abilities}
                       classes={this.state.classes}
                       cmd={this.state.cmd}
                       handleChange={this.handleInputChange.bind(this, 'combat')}
@@ -280,7 +276,7 @@ class CharacterSheetContainer extends React.Component {
               <div className='first-row-labels'>
                 <h2>Skills</h2>
                 <SkillContainer
-                  abilities={this.abilities}
+                  abilities={abilities}
                   skills={this.state.skills}
                   handleChange={this.handleSkillChange} />
                 <span className='small'>*Checkbox on left of Skill is used to mark a Class Skill</span>
