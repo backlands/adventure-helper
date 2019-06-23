@@ -45,8 +45,8 @@ class NoteSheetContainer extends React.Component {
     const notes = [...this.state.notes];
     const { activeNote } = this.state;
 
-    if (this.state.activeNote !== null) {
-      notes[this.state.activeNote].title = e.target.value;
+    if (activeNote !== null) {
+      notes[activeNote].title = e.target.value;
       this.setState({ notes, activeNote });
     } else {
       this.handleNewNote(null, e.target.value);
@@ -57,8 +57,8 @@ class NoteSheetContainer extends React.Component {
     const notes = [...this.state.notes];
     const { activeNote } = this.state;
 
-    if (activeNote) {
-      notes[this.state.activeNote].content = value;
+    if (activeNote !== null) {
+      notes[activeNote].content = value;
       this.setState({ notes, activeNote });
     }
   }
