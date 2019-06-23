@@ -74,18 +74,16 @@ class DiceRollerContainer extends React.Component {
     ));
 
     const multiDiceForm = this.state.dice.map((die, index) => (
-      <Row>
-        <Input
-          key={index}
-          text={`Roll a D${die}`}
-          className='overlay-label'
-          label={`rollingD${die}`}
-          type='text'
-          name={die}
-          value={this.state.custom[die] ? this.state.custom[die] : ''}
-          handleChange={this.handleChange}
-        />
-      </Row>
+      <Input
+        key={index}
+        text={`Roll a D${die}`}
+        className='overlay-label'
+        label={`rollingD${die}`}
+        type='text'
+        name={die}
+        value={this.state.custom[die] ? this.state.custom[die] : ''}
+        handleChange={this.handleChange}
+      />
     ));
 
     const results = this.state.rolls.map((roll, index) => (
