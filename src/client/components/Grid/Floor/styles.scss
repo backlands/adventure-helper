@@ -1,0 +1,18 @@
+@import '../../../styles/variables.scss';
+
+.Floor {
+  display: block;
+  float: left;
+  height: 25px;
+  width: 25px;
+  background: transparent;
+  &:hover {
+    background: $comment;
+  }
+  &.active {
+    background: $selection;
+    &:hover {
+      background: $comment;
+    }
+  }
+}

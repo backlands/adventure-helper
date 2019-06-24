@@ -1,0 +1,30 @@
+@import '../../styles/variables.scss';
+
+.Grid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 2250px;
+  height: 2250px;
+  background:
+      linear-gradient(-90deg, $comment 1px, transparent 1px),
+      linear-gradient($comment 1px, transparent 1px),
+      linear-gradient(-90deg, $comment 1px, transparent 1px),
+      linear-gradient($comment 1px, transparent 1px),
+      linear-gradient(-90deg, transparent 1px, transparent 1px),
+      linear-gradient(transparent 1px, transparent 1px), transparent;
+  background-size:
+      30px 30px,
+      30px 30px,
+      30px 30px,
+      30px 30px,
+      30px 30px,
+      30px 30px,
+      30px 30px,
+      30px 30px;
+  .wrapper {
+    margin-top: -2px;
+    margin-left: -3px;
+  }
+}

@@ -1,0 +1,22 @@
+@import '../../../styles/variables.scss';
+
+.Wall {
+  display: block;
+  float: left;
+  height: 5px;
+  width: 25px;
+  background: transparent;
+  &.vertical {
+    height: 25px;
+    width: 5px;
+  }
+  &:hover {
+    background: $comment;
+  }
+  &.active {
+    background: $comment;
+    &:hover {
+      background: $selection;
+    }
+  }
+}
