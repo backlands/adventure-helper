@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faHome, faDiceD20, faHelmetBattle, faPencil, faCaretLeft, faQuestion,
+  faHome, faDiceD20, faHelmetBattle, faPencil, faCaretLeft, faQuestion, faTh,
 } from '@fortawesome/pro-light-svg-icons';
 
 import './styles.scss';
@@ -77,6 +77,14 @@ class Navbar extends React.PureComponent {
               <span>Character Sheet</span>
               {/* eslint-disable-next-line max-len */}
               <p>Quickly map out your characters abilities, skills, classes, and other stats with auto-calculations done for you. Currently supports Pathfinder 1E by Paizo.</p>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink exact to="/graph-paper/">
+              <FontAwesomeIcon icon={faTh} fixedWidth size='2x' />
+              <span>Graph Paper</span>
+              {/* eslint-disable-next-line max-len */}
+              <p>Map out your dungeons on the fly in an interactive way. No guarantees that it works well at this point, or at all. This is experimental at best.</p>
             </NavLink>
           </li>
           <li>
