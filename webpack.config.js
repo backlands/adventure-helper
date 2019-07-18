@@ -15,17 +15,6 @@ module.exports = {
         use:  "babel-loader",
       },
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: [{
-          loader: 'eslint-loader',
-          options: {
-            emitWarning: true,
-          },
-        }
-        ],
-      },
-      {
         test: /\.scss$/,
         exclude: /node_modules/,
         use: [
