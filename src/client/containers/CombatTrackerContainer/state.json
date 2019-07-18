@@ -1,0 +1,28 @@
+{
+  "allies": [
+    {
+      "name": "Old Greg",
+      "initiative": 18,
+      "hp": 37,
+      "speed": "30 ft",
+      "melee": "+7 / +2",
+      "ranged": "+3",
+      "ac": 19,
+      "cmb": 3,
+      "cmd": 19
+    }
+  ],
+  "enemies": [
+    {
+      "name": "Giant Spider 1",
+      "initiative": 14,
+      "hp": 17,
+      "speed": "40 ft",
+      "melee": "+5",
+      "ranged": "-",
+      "ac": 16,
+      "cmb": 2,
+      "cmd": 15
+    }
+  ]
+}
