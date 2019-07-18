@@ -4,7 +4,13 @@ import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faHome, faDiceD20, faHelmetBattle, faPencil, faCaretLeft, faQuestion,
+  faHome,
+  faDiceD20,
+  faHelmetBattle,
+  faPencil,
+  faCaretLeft,
+  faQuestion,
+  faSwords,
 } from '@fortawesome/pro-light-svg-icons';
 
 import './styles.scss';
@@ -77,6 +83,14 @@ class Navbar extends React.PureComponent {
               <span>Character Sheet</span>
               {/* eslint-disable-next-line max-len */}
               <p>Quickly map out your characters abilities, skills, classes, and other stats with auto-calculations done for you. Currently supports Pathfinder 1E by Paizo.</p>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink exact to="/combat-tracker/">
+              <FontAwesomeIcon icon={faSwords} fixedWidth size='2x' />
+              <span>Combat Tracker</span>
+              {/* eslint-disable-next-line max-len */}
+              <p>Keep track of initiative and combat order for players, allies, and enemies. Can handle as many units in a single encounter that you can throw at it!</p>
             </NavLink>
           </li>
           <li>

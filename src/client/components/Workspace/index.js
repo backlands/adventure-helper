@@ -18,6 +18,7 @@ const Workspace = () => (
     <Route path="/dice-roller/" exact component={DiceRollerContainer} />
     <Route path="/note-sheet/" exact component={NotesContainer} />
     <Route path="/character-sheet/" exact component={CharacterSheetContainer} />
+    <Route path="/combat-tracker/" exact component={CharacterSheetContainer} />
     <Route path="/privacy-policy/" exact component={PrivacyPolicy} />
     <Route path="/ogl/" exact component={OGL} />
     <Route path="/help/" exact component={Help} />
