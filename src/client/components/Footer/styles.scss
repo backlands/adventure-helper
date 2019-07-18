@@ -6,40 +6,52 @@
   @include flex;
   align-items: flex-end;
   padding: 40px 20px 20px;
-  span:after {
-    display: inline-block;
-    content: '|';
-    padding: 0 10px;
-  }
   .notices {
     flex-grow: 1;
     text-align: center;
     padding-bottom: 6px;
     font-size: 12px;
+    > span:after {
+      display: inline-block;
+      content: '|';
+      padding: 0 10px;
+    }
   }
-  .nameTag {
+  .logoArea {
     flex-shrink: 1;
     font-size: 36px;
+    font-weight: $light;
+    img {
+      padding-left: 10px;
+      max-height: 60px;
+      vertical-align: bottom;
+    }
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .Footer {
     display: block;
-    span {
-      display: block;
-      margin-bottom: 10px;
-      &:after {
-        display: none;
-      }
-    }
     .notices {
       font-size: 14px;
+      > span {
+        display: block;
+        margin-bottom: 10px;
+        &:after {
+          display: none;
+        }
+      }
     }
-    .nameTag {
+    .logoArea {
       margin-top: 20px;
       font-size: 32px;
       text-align: center;
+      span { display: block; }
+      img {
+        display: block;
+        max-height: unset;
+        margin: 0 auto;
+      }
     }
   }
 }
@@ -49,7 +61,7 @@
     .notices {
       font-size: 12px;
     }
-    .nameTag {
+    .logoArea {
       font-size: 24px;
     }
   }
