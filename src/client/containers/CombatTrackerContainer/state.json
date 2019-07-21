@@ -1,5 +1,5 @@
 {
-  "allies": [
+  "units": [
     {
       "name": "Old Greg",
       "initiative": 18,
@@ -9,10 +9,9 @@
       "ranged": "+3",
       "ac": 19,
       "cmb": 3,
-      "cmd": 19
-    }
-  ],
-  "enemies": [
+      "cmd": 19,
+      "type": "ally"
+    },
     {
       "name": "Giant Spider 1",
       "initiative": 14,
@@ -22,7 +21,8 @@
       "ranged": "-",
       "ac": 16,
       "cmb": 2,
-      "cmd": 15
+      "cmd": 15,
+      "type": "enemy"
     }
   ]
 }

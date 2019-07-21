@@ -40,7 +40,7 @@ class CombatTrackerContainer extends React.Component {
     this.setState({ ...combatData });
   }
 
-  handleChange(namespace = undefined, event) {
+  handleChange(event) {
     const {
       type,
       checked,
@@ -49,42 +49,19 @@ class CombatTrackerContainer extends React.Component {
       id,
     } = event.target;
 
-    let theValue = '';
+    const theValue = type === 'checkbox' ? checked : value;
 
-    switch (type) {
-      case 'checkbox':
-        theValue = checked;
-        break;
-      case 'number':
-        theValue = Number(value);
-        break;
-      default:
-        theValue = value;
-        break;
-    }
+    const { units } = this.state;
 
-    let newState = '';
-    let state = namespace;
-
-    if (id) {
-      newState = this.state[namespace];
-      newState[id][name] = theValue;
-    } else if (namespace) {
-      newState = this.state[namespace];
-      newState[name] = theValue;
-    } else {
-      newState = this.state[name];
-      state = name;
-      newState = theValue;
-    }
+    units[Number(id)][name] = theValue;
 
     this.setState({
-      [state]: newState,
+      units,
     });
   }
 
-  generateUnits(data) {
-    return data.map((unit, index) => {
+  generateUnits(data, type) {
+    return data.filter(unit => unit.type === type).map((unit, index) => {
       const {
         name,
         initiative = 0,
@@ -110,15 +87,15 @@ class CombatTrackerContainer extends React.Component {
           ac={ac}
           cmb={cmb}
           cmd={cmd}
-          handleChange={this.props.handleChange}
+          handleChange={this.handleChange}
         />
       );
     });
   }
 
   render() {
-    const allies = this.generateUnits(this.state.allies);
-    const enemies = this.generateUnits(this.state.enemies);
+    const allies = this.generateUnits(this.state.units, 'ally');
+    const enemies = this.generateUnits(this.state.units, 'enemy');
 
     return (
       <React.Fragment>
