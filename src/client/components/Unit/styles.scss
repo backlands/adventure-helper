@@ -1,0 +1,74 @@
+@import '../../styles/variables.scss';
+
+.Unit {
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="password"],
+  input[type="decimal"],
+  input[type="url"],
+  textarea {
+    border-width: 2px;
+    border-style: solid;
+    border-left-width: 1px;
+    border-right-width: 1px;
+  }
+
+  &.ally {
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="password"],
+    input[type="decimal"],
+    input[type="url"],
+    textarea {
+      border-color: $green;
+      &:focus {
+        border-color: $orange;
+      }
+    }
+  }
+
+  &.enemy {
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="password"],
+    input[type="decimal"],
+    input[type="url"],
+    textarea {
+      border-color: $red;
+      &:focus {
+        border-color: $purple;
+      }
+    }
+  }
+
+  > .Row > .Column {
+    padding: 0;
+
+    &:first-child {
+      input[type="text"],
+      input[type="number"],
+      input[type="email"],
+      input[type="password"],
+      input[type="decimal"],
+      input[type="url"],
+      textarea {
+        border-left-width: 2px;
+      }
+    }
+
+    &:last-child {
+      input[type="text"],
+      input[type="number"],
+      input[type="email"],
+      input[type="password"],
+      input[type="decimal"],
+      input[type="url"],
+      textarea {
+        border-right-width: 2px;
+      }
+    }
+  }
+}

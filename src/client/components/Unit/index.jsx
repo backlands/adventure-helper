@@ -1,11 +1,16 @@
 import React from 'react';
+import classNames from 'classnames';
+
 import Input from '../Input';
 import Row from '../Row';
 import Column from '../Column';
 
+import './styles.scss';
+
 const Unit = ({
   id,
   name,
+  type,
   initiative = 0,
   hp = 0,
   speed = 0,
@@ -16,9 +21,9 @@ const Unit = ({
   cmd = 0,
   handleChange,
 }) => (
-  <React.Fragment>
+  <div className={classNames('Unit', type)}>
     <Row>
-      <Column classes='is-4'>
+      <Column classes='is-6'>
         <Input
           type='text'
           name='name'
@@ -56,7 +61,7 @@ const Unit = ({
       </Column>
     </Row>
     <Row>
-      <Column classes='is-2'>
+      <Column classes='is-3'>
         <Input
         type='text'
         name='melee'
@@ -65,7 +70,7 @@ const Unit = ({
         value={melee}
         handleChange={handleChange} />
       </Column>
-      <Column classes='is-2'>
+      <Column classes='is-3'>
         <Input
           type='text'
           name='ranged'
@@ -102,7 +107,7 @@ const Unit = ({
           handleChange={handleChange} />
       </Column>
     </Row>
-  </React.Fragment>
+  </div>
 );
 
 export default Unit;

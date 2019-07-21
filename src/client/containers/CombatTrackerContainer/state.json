@@ -24,5 +24,6 @@
       "cmd": 15,
       "type": "enemy"
     }
-  ]
+  ],
+  "round": 1
 }

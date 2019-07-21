@@ -78,6 +78,7 @@ class CombatTrackerContainer extends React.Component {
         <Unit
           key={index}
           id={index}
+          type={type}
           name={name}
           initiative={initiative}
           hp={hp}
@@ -96,6 +97,8 @@ class CombatTrackerContainer extends React.Component {
   render() {
     const allies = this.generateUnits(this.state.units, 'ally');
     const enemies = this.generateUnits(this.state.units, 'enemy');
+    const order = this.state.units.map(unit => unit.name).join(' > ');
+    const next = this.state.round + 1;
 
     return (
       <React.Fragment>
@@ -104,6 +107,16 @@ class CombatTrackerContainer extends React.Component {
         <Header title='Combat Tracker' icon={faSwords} />
 
         <div className='CombatTrackerContainer'>
+          <Unit creator={true} />
+
+          <hr />
+
+          <div className='combatOrder'>
+            Upcoming Combat Order: {order}
+            <span className='highlight'>[ Round {next} Begins ]</span>
+            {order}
+          </div>
+
           <Row>
             <Column classes='is-6'>
               <h2>Allies</h2>
