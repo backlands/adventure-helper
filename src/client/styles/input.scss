@@ -41,6 +41,10 @@ textarea {
     background: lighten($background, 5%);
     border-bottom-color: transparent;
   }
+  &:invalid {
+    box-shadow: none;
+    border-color: $red;
+  }
   &:focus {
     outline: none;
     border-color: $green;

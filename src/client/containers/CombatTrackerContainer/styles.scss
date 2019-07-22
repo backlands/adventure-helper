@@ -2,6 +2,7 @@
 
 .CombatTrackerContainer {
   padding: 60px;
+  .newUnit { margin-bottom: 0; }
   .combatOrder {
     white-space: nowrap;
     text-overflow: ellipsis;

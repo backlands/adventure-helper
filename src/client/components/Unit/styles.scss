@@ -12,6 +12,12 @@
     border-style: solid;
     border-left-width: 1px;
     border-right-width: 1px;
+    &:invalid {
+      border-color: $red;
+      background-color: $red;
+      color: $background;
+      font-weight: $semibold;
+    }
   }
 
   &.ally {
@@ -23,6 +29,12 @@
     input[type="url"],
     textarea {
       border-color: $green;
+      &:invalid {
+        border-color: $red;
+        background-color: $red;
+        color: $background;
+        font-weight: $semibold;
+      }
       &:focus {
         border-color: $orange;
       }
@@ -38,6 +50,12 @@
     input[type="url"],
     textarea {
       border-color: $red;
+      &:invalid {
+        border-color: $red;
+        background-color: $red;
+        color: $background;
+        font-weight: $semibold;
+      }
       &:focus {
         border-color: $purple;
       }

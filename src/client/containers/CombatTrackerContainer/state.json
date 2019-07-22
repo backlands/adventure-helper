@@ -2,6 +2,7 @@
   "units": [
     {
       "name": "Old Greg",
+      "id": "atg63y4256u4",
       "initiative": 18,
       "hp": 37,
       "speed": "30 ft",
@@ -14,6 +15,7 @@
     },
     {
       "name": "Giant Spider 1",
+      "id": "wh6wh3456wwh6",
       "initiative": 14,
       "hp": 17,
       "speed": "40 ft",
@@ -25,5 +27,7 @@
       "type": "enemy"
     }
   ],
-  "round": 1
+  "round": 1,
+  "combatant": 1,
+  "form": {}
 }

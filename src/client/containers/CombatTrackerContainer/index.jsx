@@ -9,6 +9,7 @@ import combatData from './state.json';
 import './styles.scss';
 import Column from '../../components/Column';
 import Row from '../../components/Row';
+import Button from '../../components/Button';
 
 class CombatTrackerContainer extends React.Component {
   constructor(props) {
@@ -20,8 +21,9 @@ class CombatTrackerContainer extends React.Component {
 
     this.state = loadedState || combatData;
 
-
-    this.handleChange = this.handleChange.bind(this);
+    this.handleCreatorChange = this.handleCreatorChange.bind(this);
+    this.handleExistingUnitChange = this.handleExistingUnitChange.bind(this);
+    this.initiativeSort = this.initiativeSort.bind(this);
     this.saveHandler = this.saveHandler.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
   }
@@ -40,7 +42,57 @@ class CombatTrackerContainer extends React.Component {
     this.setState({ ...combatData });
   }
 
-  handleChange(event) {
+  handleCreatorChange(event) {
+    const {
+      type,
+      checked,
+      value,
+      name,
+    } = event.target;
+
+    const theValue = type === 'checkbox' ? checked : value;
+
+    const { form } = this.state;
+
+    form[name] = theValue;
+
+    this.setState({
+      form,
+    });
+  }
+
+  handleNewUnit(type) {
+    this.setState((prevState) => {
+      const unit = {
+        ...prevState.form,
+        type,
+        id: new Date().getTime().toString(),
+      };
+
+      return {
+        units: [...prevState.units, unit],
+        form: {},
+      };
+    });
+  }
+
+  initiativeSort() {
+    this.setState((prevState) => {
+      const newOrder = prevState.units.sort(
+        (a, b) => b.initiative - a.initiative,
+      );
+
+      return {
+        units: [...newOrder],
+      };
+    });
+  }
+
+  nextUnit() {
+    this.setState(prevState => ({ combatant: prevState.combatant + 1 }));
+  }
+
+  handleExistingUnitChange(event) {
     const {
       type,
       checked,
@@ -53,7 +105,7 @@ class CombatTrackerContainer extends React.Component {
 
     const { units } = this.state;
 
-    units[Number(id)][name] = theValue;
+    units[units.findIndex(unit => unit.id === id)][name] = theValue;
 
     this.setState({
       units,
@@ -64,6 +116,7 @@ class CombatTrackerContainer extends React.Component {
     return data.filter(unit => unit.type === type).map((unit, index) => {
       const {
         name,
+        id,
         initiative = 0,
         hp = 0,
         speed = 0,
@@ -77,7 +130,7 @@ class CombatTrackerContainer extends React.Component {
       return (
         <Unit
           key={index}
-          id={index}
+          id={id}
           type={type}
           name={name}
           initiative={initiative}
@@ -88,7 +141,7 @@ class CombatTrackerContainer extends React.Component {
           ac={ac}
           cmb={cmb}
           cmd={cmd}
-          handleChange={this.handleChange}
+          handleChange={this.handleExistingUnitChange}
         />
       );
     });
@@ -107,9 +160,43 @@ class CombatTrackerContainer extends React.Component {
         <Header title='Combat Tracker' icon={faSwords} />
 
         <div className='CombatTrackerContainer'>
-          <Unit creator={true} />
+          <Row classes='newUnit'>
+            <Column>
+              <Unit
+              id={this.state.form.index || ''}
+              type={this.state.form.type || ''}
+              name={this.state.form.name || ''}
+              initiative={this.state.form.initiative || ''}
+              hp={this.state.form.hp || ''}
+              speed={this.state.form.speed || ''}
+              melee={this.state.form.melee || ''}
+              ranged={this.state.form.ranged || ''}
+              ac={this.state.form.ac || ''}
+              cmb={this.state.form.cmb || ''}
+              cmd={this.state.form.cmd || ''}
+              handleChange={this.handleCreatorChange} />
+            </Column>
+          </Row>
+
+          <Row>
+            <Column>
+              <Button
+                className='inline'
+                handleClick={this.handleNewUnit.bind(this, 'ally')}>Add Ally</Button>
+              <Button
+                className='inline'
+                handleClick={this.handleNewUnit.bind(this, 'enemy')}>Add Enemy</Button>
+              <Button
+                className='inline'
+                handleClick={this.initiativeSort}>Sort by Initiative</Button>
+              <Button
+                className='inline'
+                handleClick={this.nextUnit}>Next Combatant</Button>
+            </Column>
+          </Row>
 
           <hr />
+
 
           <div className='combatOrder'>
             Upcoming Combat Order: {order}
