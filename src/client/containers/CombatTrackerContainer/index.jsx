@@ -24,6 +24,7 @@ class CombatTrackerContainer extends React.Component {
     this.handleCreatorChange = this.handleCreatorChange.bind(this);
     this.handleExistingUnitChange = this.handleExistingUnitChange.bind(this);
     this.initiativeSort = this.initiativeSort.bind(this);
+    this.nextUnit = this.nextUnit.bind(this);
     this.saveHandler = this.saveHandler.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
   }
@@ -89,7 +90,23 @@ class CombatTrackerContainer extends React.Component {
   }
 
   nextUnit() {
-    this.setState(prevState => ({ combatant: prevState.combatant + 1 }));
+    const combatant = this.state.combatant + 1;
+    const unitCount = this.state.units.length;
+
+    if (combatant < unitCount) {
+      this.setState({
+        combatant,
+      });
+    } else if (combatant === unitCount) {
+      this.setState({
+        combatant,
+      });
+    } else if (combatant > unitCount) {
+      this.setState({
+        combatant: 1,
+        round: this.state.round + 1,
+      });
+    }
   }
 
   handleExistingUnitChange(event) {
@@ -150,7 +167,16 @@ class CombatTrackerContainer extends React.Component {
   render() {
     const allies = this.generateUnits(this.state.units, 'ally');
     const enemies = this.generateUnits(this.state.units, 'enemy');
-    const order = this.state.units.map(unit => unit.name).join(' > ');
+
+    const currentRound = this.state.units
+      .filter((unit, index) => !((index + 1) < this.state.combatant))
+      .map(unit => unit.name)
+      .join(' > ');
+
+    const nextRound = this.state.units
+      .map(unit => unit.name)
+      .join(' > ');
+
     const next = this.state.round + 1;
 
     return (
@@ -178,7 +204,7 @@ class CombatTrackerContainer extends React.Component {
             </Column>
           </Row>
 
-          <Row>
+          <Row classes='space-between'>
             <Column>
               <Button
                 className='inline'
@@ -191,7 +217,13 @@ class CombatTrackerContainer extends React.Component {
                 handleClick={this.initiativeSort}>Sort by Initiative</Button>
               <Button
                 className='inline'
-                handleClick={this.nextUnit}>Next Combatant</Button>
+                handleClick={this.nextUnit}>Next { this.state.combatant === this.state.units.length ? 'Round' : 'Combatant'}</Button>
+              <Button
+                className='inline'
+                handleClick={() => this.setState({ combatant: 1, round: 1 })}>Restart Combat</Button>
+            </Column>
+            <Column classes='shrink'>
+              <h2 className='highlight'>Round { this.state.round }</h2>
             </Column>
           </Row>
 
@@ -199,9 +231,9 @@ class CombatTrackerContainer extends React.Component {
 
 
           <div className='combatOrder'>
-            Upcoming Combat Order: {order}
+            Upcoming Combat Order: {currentRound}
             <span className='highlight'>[ Round {next} Begins ]</span>
-            {order}
+            {nextRound}
           </div>
 
           <Row>

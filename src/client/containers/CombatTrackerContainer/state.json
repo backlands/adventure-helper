@@ -29,5 +29,6 @@
   ],
   "round": 1,
   "combatant": 1,
-  "form": {}
+  "form": {},
+  "message": "Combatant"
 }
