@@ -245,24 +245,24 @@ class CombatTrackerContainer extends React.Component {
             </Column>
           </Row>
 
-          <Row classes='space-between'>
+          <Row classes='controllers space-between wrap'>
             <Column>
               <Button
-                className='inline'
+                className='inline micro'
                 handleClick={this.handleNewUnit.bind(this, 'ally')}>Add Ally</Button>
               <Button
-                className='inline'
+                className='inline micro'
                 handleClick={this.handleNewUnit.bind(this, 'enemy')}>Add Enemy</Button>
               { this.state.units.length >= 2
                   && <>
                     <Button
-                      className='inline'
+                      className='inline micro'
                       handleClick={this.initiativeSort}>Sort by Initiative</Button>
                     <Button
-                      className='inline'
+                      className='inline micro'
                       handleClick={this.nextUnit}>Next { this.state.combatant === this.state.units.length ? 'Round' : 'Combatant'}</Button>
                     <Button
-                      className='inline'
+                      className='inline micro'
                       handleClick={() => this.setState({
                         combatant: 1,
                         round: 1,
@@ -284,13 +284,13 @@ class CombatTrackerContainer extends React.Component {
             {nextRound}
           </div>
 
-          <Row>
-            <Column classes='is-6'>
+          <Row classes='wrap'>
+            <Column classes='allies is-6'>
               <h2>Allies</h2>
               {allies}
             </Column>
 
-            <Column classes='is-6'>
+            <Column classes='enemies is-6'>
               <h2>Enemies</h2>
               {enemies}
             </Column>

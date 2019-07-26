@@ -14,3 +14,30 @@
     padding: 0 8px;
   }
 }
+
+@media (max-width: 1000px) {
+  .CombatTrackerContainer {
+    .allies, .enemies {
+      flex-basis: 100%;
+      max-width: unset;
+      padding: 0;
+    }
+    .controllers {
+      .Column {
+        flex-basis: 100%;
+        max-width: unset;
+        padding: 0;
+      }
+      .Button {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+    .combatOrder {
+      white-space: unset;
+      text-overflow: unset;
+      overflow: unset;
+    }
+  }
+}

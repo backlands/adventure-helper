@@ -135,3 +135,16 @@
     }
   }
 }
+
+@media (max-width: 1000px) {
+  .Unit {
+    &.list {
+      padding: 0;
+    }
+
+    > .remover {
+      left: auto;
+      right: calc(100% + 10px);
+    }
+  }
+}
