@@ -26,7 +26,8 @@ textarea {
   color: $white;
   border: 0;
   box-sizing: border-box;
-  border-bottom: 2px solid $pink;
+  border: 0 solid $pink;
+  border-bottom-width: 2px;
   padding: 12px 12px 10px;
   font-size: 16px;
   line-height: 1;
@@ -39,6 +40,10 @@ textarea {
   &:disabled {
     background: lighten($background, 5%);
     border-bottom-color: transparent;
+  }
+  &:invalid {
+    box-shadow: none;
+    border-color: $red;
   }
   &:focus {
     outline: none;

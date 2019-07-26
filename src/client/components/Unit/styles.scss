@@ -1,0 +1,150 @@
+@import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
+
+.Unit {
+  position: relative;
+  &.list {
+    padding-left: 30px;
+    padding-right: 15px;
+  }
+
+  > .remover {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    .fa-check-circle, .fa-times-circle {
+      display: none;
+    }
+  }
+
+  svg {
+    display: block;
+    padding: 4px 0;
+    color: $green;
+    @include transition;
+    &:hover {
+      color: $cyan;
+    }
+  }
+
+  &.removeMode {
+    > .remover {
+      .fa-check-circle, .fa-times-circle {
+        display: block;
+      }
+      .fa-minus-circle {
+        display: none;
+      }
+    }
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="password"],
+  input[type="decimal"],
+  input[type="url"],
+  textarea {
+    border-width: 2px;
+    border-style: solid;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    &:invalid {
+      border-color: $red;
+      background-color: $red;
+      color: $background;
+      font-weight: $semibold;
+    }
+  }
+
+  &.ally {
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="password"],
+    input[type="decimal"],
+    input[type="url"],
+    textarea {
+      border-color: $green;
+      &:invalid {
+        border-color: $red;
+        background-color: $red;
+        color: $background;
+        font-weight: $semibold;
+      }
+      &:focus {
+        border-color: $orange;
+      }
+    }
+  }
+
+  &.enemy {
+    svg {
+      color: $red;
+      &:hover {
+        color: $cyan;
+      }
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"],
+    input[type="password"],
+    input[type="decimal"],
+    input[type="url"],
+    textarea {
+      border-color: $red;
+      &:invalid {
+        border-color: $red;
+        background-color: $red;
+        color: $background;
+        font-weight: $semibold;
+      }
+      &:focus {
+        border-color: $purple;
+      }
+    }
+  }
+
+  > .Row > .Column {
+    padding: 0;
+
+    &:first-child {
+      input[type="text"],
+      input[type="number"],
+      input[type="email"],
+      input[type="password"],
+      input[type="decimal"],
+      input[type="url"],
+      textarea {
+        border-left-width: 2px;
+      }
+    }
+
+    &:last-child {
+      input[type="text"],
+      input[type="number"],
+      input[type="email"],
+      input[type="password"],
+      input[type="decimal"],
+      input[type="url"],
+      textarea {
+        border-right-width: 2px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .Unit {
+    &.list {
+      padding: 0;
+    }
+
+    > .remover {
+      left: auto;
+      right: calc(100% + 10px);
+    }
+  }
+}

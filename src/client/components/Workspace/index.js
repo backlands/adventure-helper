@@ -6,6 +6,7 @@ import HomeContainer from '../../containers/HomeContainer';
 import DiceRollerContainer from '../../containers/DiceRollerContainer';
 import NotesContainer from '../../containers/NotesContainer';
 import CharacterSheetContainer from '../../containers/CharacterSheetContainer';
+import CombatTrackerContainer from '../../containers/CombatTrackerContainer';
 import PrivacyPolicy from '../../pages/PrivacyPolicy';
 import OGL from '../../pages/OGL';
 import Help from '../../pages/Help';
@@ -18,6 +19,7 @@ const Workspace = () => (
     <Route path="/dice-roller/" exact component={DiceRollerContainer} />
     <Route path="/note-sheet/" exact component={NotesContainer} />
     <Route path="/character-sheet/" exact component={CharacterSheetContainer} />
+    <Route path="/combat-tracker/" exact component={CombatTrackerContainer} />
     <Route path="/privacy-policy/" exact component={PrivacyPolicy} />
     <Route path="/ogl/" exact component={OGL} />
     <Route path="/help/" exact component={Help} />
