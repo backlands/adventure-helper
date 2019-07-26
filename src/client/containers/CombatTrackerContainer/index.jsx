@@ -27,6 +27,8 @@ class CombatTrackerContainer extends React.Component {
     this.nextUnit = this.nextUnit.bind(this);
     this.saveHandler = this.saveHandler.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
+    this.removeConfirm = this.removeConfirm.bind(this);
+    this.sortUp = this.sortUp.bind(this);
   }
 
   componentWillUnmount() {
@@ -109,6 +111,43 @@ class CombatTrackerContainer extends React.Component {
     }
   }
 
+  removeConfirm(event) {
+    const { id } = event.target;
+    const units = this.state.units.filter(unit => unit.id !== id);
+
+    this.setState({
+      units,
+    });
+  }
+
+  sortUp(event) {
+    const { id } = event.target;
+    let originalPosition;
+    let newPosition;
+    const theUnit = this.state.units.find((unit, index) => {
+      originalPosition = index;
+      newPosition = index - 1;
+      return unit.id === id;
+    });
+
+    if (originalPosition - 1 > this.state.units.length) {
+      const units = this.state.units.splice(newPosition, 0, theUnit);
+
+      this.setState({
+        units,
+      });
+    }
+  }
+
+  sortDown(event) {
+    const { id } = event.target;
+    const units = this.state.units.filter(unit => unit.id !== id);
+
+    this.setState({
+      units,
+    });
+  }
+
   handleExistingUnitChange(event) {
     const {
       type,
@@ -130,7 +169,7 @@ class CombatTrackerContainer extends React.Component {
   }
 
   generateUnits(data, type) {
-    return data.filter(unit => unit.type === type).map((unit, index) => {
+    return data.filter(unit => unit.type === type).map((unit) => {
       const {
         name,
         id,
@@ -146,7 +185,7 @@ class CombatTrackerContainer extends React.Component {
 
       return (
         <Unit
-          key={index}
+          key={id}
           id={id}
           type={type}
           name={name}
@@ -159,6 +198,7 @@ class CombatTrackerContainer extends React.Component {
           cmb={cmb}
           cmd={cmd}
           handleChange={this.handleExistingUnitChange}
+          removeConfirm={this.removeConfirm}
         />
       );
     });
@@ -200,6 +240,7 @@ class CombatTrackerContainer extends React.Component {
               ac={this.state.form.ac || ''}
               cmb={this.state.form.cmb || ''}
               cmd={this.state.form.cmd || ''}
+              list={false}
               handleChange={this.handleCreatorChange} />
             </Column>
           </Row>
@@ -212,18 +253,22 @@ class CombatTrackerContainer extends React.Component {
               <Button
                 className='inline'
                 handleClick={this.handleNewUnit.bind(this, 'enemy')}>Add Enemy</Button>
-              <Button
-                className='inline'
-                handleClick={this.initiativeSort}>Sort by Initiative</Button>
-              <Button
-                className='inline'
-                handleClick={this.nextUnit}>Next { this.state.combatant === this.state.units.length ? 'Round' : 'Combatant'}</Button>
-              <Button
-                className='inline'
-                handleClick={() => this.setState({
-                  combatant: 1,
-                  round: 1,
-                })}>Restart Combat</Button>
+              { this.state.units.length >= 2
+                  && <>
+                    <Button
+                      className='inline'
+                      handleClick={this.initiativeSort}>Sort by Initiative</Button>
+                    <Button
+                      className='inline'
+                      handleClick={this.nextUnit}>Next { this.state.combatant === this.state.units.length ? 'Round' : 'Combatant'}</Button>
+                    <Button
+                      className='inline'
+                      handleClick={() => this.setState({
+                        combatant: 1,
+                        round: 1,
+                      })}>Restart Combat</Button>
+                  </>
+              }
             </Column>
             <Column classes='shrink'>
               <h2 className='highlight'>Round { this.state.round }</h2>

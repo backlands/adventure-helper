@@ -1,6 +1,44 @@
 @import '../../styles/variables.scss';
+@import '../../styles/mixins.scss';
 
 .Unit {
+  position: relative;
+  &.list {
+    padding-left: 30px;
+    padding-right: 15px;
+  }
+
+  > .remover {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    .fa-check-circle, .fa-times-circle {
+      display: none;
+    }
+  }
+
+  svg {
+    display: block;
+    padding: 4px 0;
+    color: $green;
+    @include transition;
+    &:hover {
+      color: $cyan;
+    }
+  }
+
+  &.removeMode {
+    > .remover {
+      .fa-check-circle, .fa-times-circle {
+        display: block;
+      }
+      .fa-minus-circle {
+        display: none;
+      }
+    }
+  }
+
   input[type="text"],
   input[type="number"],
   input[type="email"],
@@ -42,6 +80,13 @@
   }
 
   &.enemy {
+    svg {
+      color: $red;
+      &:hover {
+        color: $cyan;
+      }
+    }
+
     input[type="text"],
     input[type="number"],
     input[type="email"],
