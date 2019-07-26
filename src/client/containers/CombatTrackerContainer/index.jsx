@@ -220,7 +220,10 @@ class CombatTrackerContainer extends React.Component {
                 handleClick={this.nextUnit}>Next { this.state.combatant === this.state.units.length ? 'Round' : 'Combatant'}</Button>
               <Button
                 className='inline'
-                handleClick={() => this.setState({ combatant: 1, round: 1 })}>Restart Combat</Button>
+                handleClick={() => this.setState({
+                  combatant: 1,
+                  round: 1,
+                })}>Restart Combat</Button>
             </Column>
             <Column classes='shrink'>
               <h2 className='highlight'>Round { this.state.round }</h2>
