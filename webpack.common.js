@@ -1,9 +1,11 @@
 const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: ['./src/client'],
   output: {
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
@@ -12,7 +14,7 @@ module.exports = {
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        use:  "babel-loader",
+        use: 'babel-loader',
       },
       {
         test: /\.scss$/,
@@ -47,6 +49,7 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
       template: './src/client/index.html',
       filename: './index.html',
@@ -55,14 +58,4 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  stats: {
-    colors: true,
-  },
-  devServer: {
-    compress: true,
-    port: 9000,
-    hot: true,
-    historyApiFallback: true,
-  },
-  devtool: 'source-map',
 };
