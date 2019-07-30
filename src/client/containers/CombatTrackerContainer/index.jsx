@@ -4,22 +4,29 @@ import { faSwords } from '@fortawesome/pro-light-svg-icons';
 import Header from '../../components/Header';
 import Unit from '../../components/Unit';
 import Save from '../../components/Save';
-
-import combatData from './state.json';
-import './styles.scss';
 import Column from '../../components/Column';
 import Row from '../../components/Row';
 import Button from '../../components/Button';
+
+import './styles.scss';
 
 class CombatTrackerContainer extends React.Component {
   constructor(props) {
     super(props);
 
+    window.defaultState = {
+      units: [],
+      round: 1,
+      combatant: 1,
+      form: {},
+      message: 'Combatant',
+    };
+
     this.storageID = 'COMBAT';
 
     const loadedState = JSON.parse(localStorage.getItem(this.storageID));
 
-    this.state = loadedState || combatData;
+    this.state = loadedState || window.defaultState;
 
     this.handleCreatorChange = this.handleCreatorChange.bind(this);
     this.handleExistingUnitChange = this.handleExistingUnitChange.bind(this);
@@ -42,7 +49,7 @@ class CombatTrackerContainer extends React.Component {
   resetHandler() {
     localStorage.removeItem(this.storageID);
 
-    this.setState({ ...combatData });
+    this.setState({ ...window.defaultState });
   }
 
   handleCreatorChange(event) {
