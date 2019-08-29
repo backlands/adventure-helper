@@ -1,0 +1,77 @@
+@import '../../styles/mixins';
+@import '../../styles/variables';
+
+.Select {
+  display: block;
+  position: relative;
+  background: $brand-primary;
+  border: 2px solid $green;
+  font-size: $font-size-base;
+  padding: 8px;
+  padding-right: 32px;
+  cursor: pointer;
+  &.inset {
+    &-left {
+      margin-left: 16px;
+    }
+    &-top {
+      margin-top: 16px;
+    }
+    &-right {
+      margin-right: 16px;
+    }
+    &-bottom {
+      margin-bottom: 16px;
+    }
+  }
+  .options {
+    position: absolute;
+    top: 100%;
+    max-height: 0;
+    overflow: hidden;
+    left: -2px;
+    right: -2px;
+    background: $brand-primary;
+    border: 2px solid $green;
+    border-top: 0;
+    z-index: 50;
+    @include transition(all 0.5s ease-in-out);
+  }
+  .Option {
+    padding: 8px;
+    padding-right: 32px;
+    @include transition(all 0.3s ease-in-out);
+    &.selected { display: none; }
+
+    &:hover {
+      background: $purple;
+      color: $background;
+    }
+  }
+  &.is-expanded .options {
+    max-height: 1000px;
+    @include transition(all 0.5s ease-in-out);
+
+    &:after {
+      transform: translateY(-50%) rotate(-180deg);
+    }
+  }
+
+  &:after {
+    display: block;
+    position: absolute;
+    content: '';
+    right: 8px;
+    top: 50%;
+    height: 0;
+    width: 0;
+    margin: 0;
+    padding: 0;
+    transform: translateY(-50%);
+    border: 5px solid $white;
+    border-bottom: 0;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    @include transition(transform 0.5s ease-in-out);
+  }
+}

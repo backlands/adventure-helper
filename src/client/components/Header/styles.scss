@@ -1,13 +1,15 @@
 @import '../../styles/variables.scss';
 @import '../../styles/mixins.scss';
 
-.Header h1 {
-  color: $green;
-  margin: 0;
-  padding: 40px 60px;
+.Header {
   border-bottom: 3px solid $green;
-  @include flex;
-  svg {
-    margin-left: auto;
+  padding: 40px 60px;
+  h1 {
+    color: $green;
+    margin: 0;
+    @include flex;
+    svg {
+      margin-left: auto;
+    }
   }
 }

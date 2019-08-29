@@ -3,9 +3,9 @@ import React from 'react';
 import './styles.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Header = ({ title, icon }) => (
+const Header = ({ children, title, icon }) => (
   <div className='Header'>
-    <h1>{title} <FontAwesomeIcon icon={icon} /></h1>
+    <h1>{title} {children} <FontAwesomeIcon icon={icon} /></h1>
   </div>
 );
 

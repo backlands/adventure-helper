@@ -8,6 +8,7 @@ import Initiative from '../../components/Initiative';
 import Row from '../../components/Row';
 import TextArea from '../../components/TextArea';
 import Save from '../../components/Save';
+import Select from '../../components/Select';
 
 import CharacterDetails from './CharacterDetails';
 import AbilityContainer from './AbilityContainer';
@@ -197,7 +198,9 @@ class CharacterSheetContainer extends React.Component {
       <React.Fragment>
         <Save saveHandler={this.saveHandler} resetHandler={this.resetHandler} />
 
-        <Header title='Character Sheet' icon={faHelmetBattle} />
+        <Header title='Character Sheet' icon={faHelmetBattle}>
+          <Select className='inset-left' />
+        </Header>
 
         <div className='CharacterSheetContainer'>
           <Row>
