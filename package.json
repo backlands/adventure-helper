@@ -8,7 +8,8 @@
     "lint": "eslint src/**/*.*js* test/**/*.js*",
     "lint:watch": "nodemon --exec \"npm run lint || true\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "build:stats": "webpack --env production --config webpack.prod.js --profile --progress --json > stats.json"
   },
   "repository": {
     "type": "git",
