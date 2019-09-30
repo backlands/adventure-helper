@@ -9,6 +9,8 @@
   bottom: 0;
   z-index: 100;
   background: fade-out($color: $background, $amount: 0.4);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
   .dialog {
     position: absolute;
     width: 300px;
@@ -19,6 +21,9 @@
     transform: translateX(-50%) translateY(-50%);
     background: $selection;
     @include border-radius(20px);
+  }
+  &.show {
+    opacity: 1;
   }
   .Button {
     display: inline-block;
