@@ -24,6 +24,12 @@
       margin-bottom: 16px;
     }
   }
+  .selected {
+    width: 200px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
   .options {
     position: absolute;
     top: 100%;
@@ -41,7 +47,7 @@
     padding: 8px;
     padding-right: 32px;
     @include transition(all 0.3s ease-in-out);
-    &.selected { display: none; }
+    &.active { display: none; }
 
     &:hover {
       background: $purple;
@@ -68,7 +74,7 @@
     margin: 0;
     padding: 0;
     transform: translateY(-50%);
-    border: 5px solid $white;
+    border: 5px solid $green;
     border-bottom: 0;
     border-left-color: transparent;
     border-right-color: transparent;

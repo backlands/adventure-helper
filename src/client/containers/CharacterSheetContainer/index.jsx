@@ -36,6 +36,7 @@ class CharacterSheetContainer extends React.Component {
     this.handleSkillChange = this.handleSkillChange.bind(this);
     this.saveHandler = this.saveHandler.bind(this);
     this.resetHandler = this.resetHandler.bind(this);
+    this.selectSystem = this.selectSystem.bind(this);
   }
 
   componentWillUnmount() {
@@ -191,15 +192,30 @@ class CharacterSheetContainer extends React.Component {
     this.setState({ ...characterData });
   }
 
+  selectSystem(system) {
+    this.setState({ system })
+  }
+
   render() {
     const abilities = this.abilitiesToObject();
+
+    const systems = [
+      'Dungeons & Dragons 5E',
+      'Pathfinder 1E',
+      'Pathfinder 2E',
+      'Starfinder',
+    ];
 
     return (
       <React.Fragment>
         <Save saveHandler={this.saveHandler} resetHandler={this.resetHandler} />
 
         <Header title='Character Sheet' icon={faHelmetBattle}>
-          <Select className='inset-left' />
+          <Select
+            className='inset-left'
+            options={systems}
+            active={this.state.system}
+            onSelect={this.selectSystem} />
         </Header>
 
         <div className='CharacterSheetContainer'>
