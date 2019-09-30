@@ -3,7 +3,7 @@
 
 .Save {
   position: absolute;
-  bottom: 20px;
+  bottom: 120px;
   left: 80px;
   z-index: 10;
   .Button {
@@ -18,5 +18,11 @@
       background: $green;
       color: $background;
     }
+  }
+}
+
+@media (max-width: 1100px) {
+  .Save {
+    bottom: 20px;
   }
 }

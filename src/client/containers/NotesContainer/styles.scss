@@ -2,6 +2,7 @@
 @import '../../styles/mixins';
 
 .NotesContainer {
+  margin-bottom: 100px;
   .Row { margin-bottom: 0; }
 
   > .form-input-text input {
@@ -37,6 +38,12 @@
         color: $foreground;
       }
     }
+  }
+}
+
+@media (max-width: 1100px) {
+  .NotesContainer {
+    margin-bottom: 0;
   }
 }
 

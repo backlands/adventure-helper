@@ -33,14 +33,11 @@
 
   .ql-container {
     border: 0;
-    max-height: 90vh;
-    min-height: 80vh;
-    overflow: auto;
   }
 
   .ql-editor {
-    min-height: 60vh;
-    margin: 60px;
+    margin: 20px;
+    margin-bottom: 80px;
     padding: 0;
     font-size: 16px;
     font-family: $font;
@@ -67,6 +64,14 @@
 
   .ql-toolbar button:hover .ql-stroke,  .ql-toolbar button:hover .ql-stroke, .ql-toolbar button:focus .ql-stroke,  .ql-toolbar button:focus .ql-stroke, .ql-toolbar button.ql-active .ql-stroke,  .ql-toolbar button.ql-active .ql-stroke, .ql-toolbar .ql-picker-label:hover .ql-stroke,  .ql-toolbar .ql-picker-label:hover .ql-stroke, .ql-toolbar .ql-picker-label.ql-active .ql-stroke,  .ql-toolbar .ql-picker-label.ql-active .ql-stroke, .ql-toolbar .ql-picker-item:hover .ql-stroke,  .ql-toolbar .ql-picker-item:hover .ql-stroke, .ql-toolbar .ql-picker-item.ql-selected .ql-stroke,  .ql-toolbar .ql-picker-item.ql-selected .ql-stroke, .ql-toolbar button:hover .ql-stroke-miter,  .ql-toolbar button:hover .ql-stroke-miter, .ql-toolbar button:focus .ql-stroke-miter,  .ql-toolbar button:focus .ql-stroke-miter, .ql-toolbar button.ql-active .ql-stroke-miter,  .ql-toolbar button.ql-active .ql-stroke-miter, .ql-toolbar .ql-picker-label:hover .ql-stroke-miter,  .ql-toolbar .ql-picker-label:hover .ql-stroke-miter, .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter,  .ql-toolbar .ql-picker-label.ql-active .ql-stroke-miter, .ql-toolbar .ql-picker-item:hover .ql-stroke-miter,  .ql-toolbar .ql-picker-item:hover .ql-stroke-miter, .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter,  .ql-toolbar .ql-picker-item.ql-selected .ql-stroke-miter {
     stroke: $green;
+  }
+}
+
+@media (max-width: 1100px) {
+  .NotesContainer {
+    .ql-editor {
+      margin-bottom: 20px;
+    }
   }
 }
 

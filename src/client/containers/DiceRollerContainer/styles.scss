@@ -1,7 +1,7 @@
 @import '../../styles/variables';
 
 .DiceRollerContainer {
-  margin-bottom: 0;
+  margin-bottom: 100px;
   > .Column {
     padding: 60px;
     &:first-child, &:last-child {
@@ -23,6 +23,12 @@
     color: $green;
   }
   .form-input-text {margin-bottom: 20px;}
+}
+
+@media (max-width: 1100px) {
+  .DiceRollerContainer {
+    margin-bottom: 0;
+  }
 }
 
 @media (max-width: 800px) {
