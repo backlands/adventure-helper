@@ -7,10 +7,15 @@ import './styles.scss';
 const Select = ({ className, options, active, onSelect }) => {
   const [expanded, setExpanded] = useState(false);
 
-  const [selected, setSelected] = useState(options.indexOf(active) || undefined);
+  const [selected, setSelected] = useState();
+
+  if (active && options.indexOf(active) !== selected) {
+    setSelected(options.indexOf(active));
+  }
 
   const onClick = (e) => {
     const { textContent, id } = e.target;
+    console.log(textContent, id);
 
     if (onSelect) {
       onSelect(textContent);
@@ -43,8 +48,9 @@ const Select = ({ className, options, active, onSelect }) => {
       onBlur={() => setExpanded(false)}
       onClick={() => setExpanded(!expanded)} >
       <div className="selected">
-        { selected !== undefined ? active : 'Please Select an Option'}
+        { selected !== undefined ? options[selected] : 'Please Select an Option'}
       </div>
+
       <div className='options'>
         {map}
       </div>

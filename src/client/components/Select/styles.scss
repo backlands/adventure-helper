@@ -41,7 +41,7 @@
     border: 2px solid $green;
     border-top: 0;
     z-index: 50;
-    @include transition(all 0.5s ease-in-out);
+    @include transition(all 0.3s ease-in-out);
   }
   .Option {
     padding: 8px;
@@ -56,7 +56,7 @@
   }
   &.is-expanded .options {
     max-height: 1000px;
-    @include transition(all 0.5s ease-in-out);
+    @include transition(all 0.3s ease-in-out);
 
     &:after {
       transform: translateY(-50%) rotate(-180deg);
